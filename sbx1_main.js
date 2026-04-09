@@ -6805,6 +6805,8 @@
       prelude += 'globalThis.__threeapp_mode = "' + taMode + '";\n';
       let mgFlags = (typeof globalThis.__mg_flags === 'string') ? globalThis.__mg_flags : '';
       prelude += 'globalThis.__mg_flags = "' + mgFlags.replace(/[^a-z0-9,]/gi, '') + '";\n';
+      let mgUnflags = (typeof globalThis.__mg_unflags === 'string') ? globalThis.__mg_unflags : '';
+      prelude += 'globalThis.__mg_unflags = "' + mgUnflags.replace(/[^a-z0-9,]/gi, '') + '";\n';
       prelude += 'globalThis.__powercuff_level = "' + lsLevel + '";\n';
       prelude += 'globalThis.__sbc_dock_icons = ' + sbcDockIcons + ';\n';
       prelude += 'globalThis.__sbc_hs_cols = ' + sbcHsCols + ';\n';

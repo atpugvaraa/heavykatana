@@ -1153,17 +1153,12 @@
             <button type="button" class="tweak-queue-btn" data-cb="tweakThreeapp">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailThreeapp" hidden>
-            <div class="tweak-row-desc">Patches <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a>-style MobileGestalt flags. Modifies a system file &mdash; persists across reboots until reverted. Respring to apply.</div>
+            <div class="tweak-row-desc">Patches <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a>-style MobileGestalt flags. Check to enable, uncheck to revert. Persists across reboots. Respring to apply.</div>
           </div>
           <div class="tweak-row-options">
-            <div class="tweak-row-desc tweak-row-desc-inline">Patches <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a>-style MobileGestalt flags. Persists across reboots until reverted. Respring to apply.</div>
-            <div style="margin-bottom:12px;padding:10px 12px;background:#fff0f0;border:1px solid #f87171;border-radius:10px;font-size:0.7rem;color:#7f1d1d;line-height:1.55"><strong>Warning:</strong> Enabling features your hardware does not support may cause UI glitches, crashes, or in rare cases a bootloop requiring a restore. Only enable features you understand. Use revert to undo changes. Use at your own risk.</div>
-            <span class="tweak-row-options-label">Mode</span>
-            <select id="threeappMode">
-              <option value="enable" selected>Enable selected</option>
-              <option value="revert">Revert selected</option>
-            </select>
-            <div class="sbc-list" style="margin-top:10px">
+            <div class="tweak-row-desc tweak-row-desc-inline">Patches <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a>-style MobileGestalt flags. Checked = enabled, unchecked = reverted to default. Persists across reboots. Respring to apply.</div>
+            <div style="margin-bottom:12px;padding:10px 12px;background:#fff0f0;border:1px solid #f87171;border-radius:10px;font-size:0.7rem;color:#7f1d1d;line-height:1.55"><strong>Warning:</strong> Enabling features your hardware does not support may cause UI glitches, crashes, or in rare cases a bootloop requiring a restore. Only enable features you understand. Uncheck to revert. Use at your own risk.</div>
+            <div class="sbc-list">
               <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Boot Chime</div><div class="sbc-row-sub">Startup sound on boot</div></div><input type="checkbox" id="mgBootChime"></label>
               <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Charge Limit</div><div class="sbc-row-sub">Battery charge limiting setting</div></div><input type="checkbox" id="mgChargeLimit"></label>
               <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Tap to Wake</div><div class="sbc-row-sub">For iPhone SE models</div></div><input type="checkbox" id="mgTapToWake"></label>
@@ -1610,17 +1605,14 @@
             }
           }
           if (cbId === 'tweakThreeapp') {
-            var mgMode = (document.getElementById('threeappMode') || {}).value || 'enable';
-            if (mgMode === 'enable') {
-              var mgCbIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
-              var anyChecked = false;
-              for (var mi = 0; mi < mgCbIds.length; mi++) {
-                if ((document.getElementById(mgCbIds[mi]) || {}).checked) { anyChecked = true; break; }
-              }
-              if (!anyChecked) {
-                alert('Select at least one MobileGestalt flag first. Tap the row to open options.');
-                return;
-              }
+            var mgCbIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
+            var anyChecked = false;
+            for (var mi = 0; mi < mgCbIds.length; mi++) {
+              if ((document.getElementById(mgCbIds[mi]) || {}).checked) { anyChecked = true; break; }
+            }
+            if (!anyChecked) {
+              alert('Check at least one flag first. Tap the row to open options.');
+              return;
             }
           }
         }
@@ -1682,7 +1674,6 @@
           hsRows: parseInt((document.getElementById('sbcHsRows') || {}).value, 10) || 6,
           hideLabels: !!(document.getElementById('sbcHideLabels') || {}).checked,
           threeapp: !!document.getElementById('tweakThreeapp').checked,
-          threeappMode: (document.getElementById('threeappMode') || {}).value || 'enable',
           applimit: !!document.getElementById('tweakApplimit').checked,
           mgBootChime: !!(document.getElementById('mgBootChime') || {}).checked,
           mgChargeLimit: !!(document.getElementById('mgChargeLimit') || {}).checked,
@@ -1712,8 +1703,6 @@
         if (hlEl && typeof s.hideLabels === 'boolean') hlEl.checked = s.hideLabels;
         if (typeof s.threeapp === 'boolean') document.getElementById('tweakThreeapp').checked = s.threeapp;
         if (typeof s.applimit === 'boolean') document.getElementById('tweakApplimit').checked = s.applimit;
-        var tamEl = document.getElementById('threeappMode');
-        if (tamEl && typeof s.threeappMode === 'string') tamEl.value = s.threeappMode;
         var mgCbIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
         for (var mgi = 0; mgi < mgCbIds.length; mgi++) {
           var mgEl = document.getElementById(mgCbIds[mgi]);
@@ -1745,7 +1734,7 @@
       } catch (e) {}
     }
     lsLoadState();
-    ['tweakFiveicon','tweakPowercuff','powercuffLevel','sbcHideLabels','tweakThreeapp','threeappMode','tweakApplimit','mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'].forEach(function(id) {
+    ['tweakFiveicon','tweakPowercuff','powercuffLevel','sbcHideLabels','tweakThreeapp','tweakApplimit','mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'].forEach(function(id) {
       var el = document.getElementById(id);
       if (el) el.addEventListener('change', lsSaveState);
     });
@@ -1781,15 +1770,16 @@
         hs_rows: sbcClampInput('sbcHsRows', 4, 8, 6),
         hide_labels: !!(document.getElementById('sbcHideLabels') || {}).checked ? 1 : 0
       };
-      var threeappModeSel = document.getElementById('threeappMode');
-      var threeappMode = threeappModeSel ? threeappModeSel.value : 'enable';
       var mgFlags = [];
+      var mgUnflags = [];
       var mgIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
       for (var mi = 0; mi < mgIds.length; mi++) {
         var mgCb = document.getElementById(mgIds[mi]);
-        if (mgCb && mgCb.checked) mgFlags.push(mgIds[mi].replace('mg','').toLowerCase());
+        var fname = mgIds[mi].replace('mg','').toLowerCase();
+        if (mgCb && mgCb.checked) mgFlags.push(fname);
+        else mgUnflags.push(fname);
       }
-      return { tweaks: tweaks, level: level, sbc: sbc, threeapp_mode: threeappMode, mg_flags: mgFlags.join(',') };
+      return { tweaks: tweaks, level: level, sbc: sbc, mg_flags: mgFlags.join(','), mg_unflags: mgUnflags.join(',') };
     }
 
     function markDone() {
@@ -1868,7 +1858,7 @@
     function proceedInstall() {
       document.getElementById('confirmOverlay').className = 'overlay';
       var sel = gatherSelection();
-      runExploit(sel.tweaks, sel.level, sel.sbc, sel.threeapp_mode, sel.mg_flags);
+      runExploit(sel.tweaks, sel.level, sel.sbc, sel.mg_flags, sel.mg_unflags);
     }
 
     function showKillSafari() {
@@ -1884,13 +1874,13 @@
       document.getElementById('killSafariOverlay').className = 'overlay';
     }
 
-    function runExploit(tweaks, level, sbc, threeapp_mode, mg_flags) {
+    function runExploit(tweaks, level, sbc, mg_flags, mg_unflags) {
       if (!canRun) return;
       if (!tweaks || tweaks.length === 0) tweaks = ['fiveicon'];
       level = level || 'heavy';
       sbc = sbc || { dock_icons: 4, hs_cols: 4, hs_rows: 6, hide_labels: 0 };
-      threeapp_mode = threeapp_mode || 'enable';
       mg_flags = mg_flags || '';
+      mg_unflags = mg_unflags || '';
       var installStatusEl = document.getElementById('installStatus');
       try {
         if (sessionStorage.getItem('ls_running')) {
@@ -1971,7 +1961,7 @@
           + '&hs_rows=' + encodeURIComponent(sbc.hs_rows)
           + '&hide_labels=' + encodeURIComponent(sbc.hide_labels || 0);
         var frame = document.createElement('iframe');
-        frame.src = 'frame.html?tweaks=' + encodedTweaks + '&level=' + encodeURIComponent(level) + sbcParams + '&threeapp_mode=' + encodeURIComponent(threeapp_mode) + '&mg_flags=' + encodeURIComponent(mg_flags) + '&_=' + Math.random();
+        frame.src = 'frame.html?tweaks=' + encodedTweaks + '&level=' + encodeURIComponent(level) + sbcParams + '&mg_flags=' + encodeURIComponent(mg_flags) + '&mg_unflags=' + encodeURIComponent(mg_unflags) + '&_=' + Math.random();
         frame.style.width = '1px';
         frame.style.height = '1px';
         frame.style.opacity = '0.01';

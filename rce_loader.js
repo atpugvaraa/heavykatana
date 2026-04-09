@@ -47,9 +47,8 @@ try {
     globalThis.__ls_sbc_hs_rows = __sbcLsClamp(__lsParams3.get('hs_rows'), 4, 8, 6);
     globalThis.__ls_sbc_statbar = (__lsParams3.get('statbar') === '1') ? 1 : 0;
     globalThis.__ls_sbc_hide_labels = (__lsParams3.get('hide_labels') === '1') ? 1 : 0;
-    var __taMode = (__lsParams3.get('threeapp_mode') || 'enable').toLowerCase().trim();
-    globalThis.__ls_threeapp_mode = (__taMode === 'revert') ? 'revert' : 'enable';
     globalThis.__ls_mg_flags = (__lsParams3.get('mg_flags') || '');
+    globalThis.__ls_mg_unflags = (__lsParams3.get('mg_unflags') || '');
 } catch (e) {
     globalThis.__ls_sbc_dock_icons = 4;
     globalThis.__ls_sbc_hs_cols = 4;
@@ -261,8 +260,8 @@ let workerBlobUrl = URL.createObjectURL(workerBlob);
                 ls_sbc_hs_rows: globalThis.__ls_sbc_hs_rows,
                 ls_sbc_statbar: globalThis.__ls_sbc_statbar,
                 ls_sbc_hide_labels: globalThis.__ls_sbc_hide_labels,
-                ls_threeapp_mode: globalThis.__ls_threeapp_mode || 'enable',
-                ls_mg_flags: globalThis.__ls_mg_flags || ''
+                ls_mg_flags: globalThis.__ls_mg_flags || '',
+                ls_mg_unflags: globalThis.__ls_mg_unflags || ''
                 });
                 break;
             }

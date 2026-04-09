@@ -8417,8 +8417,8 @@ const ENABLE_POWERCUFF_TWEAK = !!globalThis.__ls_enable_powercuff;
 const POWERCUFF_TWEAK_PATH = "/powercuff_light.js";
 const POWERCUFF_TWEAK_LABEL = "Powercuff";
 const ENABLE_THREEAPP = !!globalThis.__ls_enable_threeapp;
-const THREEAPP_MODE = (typeof globalThis.__threeapp_mode === 'string' && globalThis.__threeapp_mode === 'revert') ? 'revert' : 'enable';
 const MG_FLAGS = (typeof globalThis.__mg_flags === 'string') ? globalThis.__mg_flags : '';
+const MG_UNFLAGS = (typeof globalThis.__mg_unflags === 'string') ? globalThis.__mg_unflags : '';
 const ENABLE_APPLIMIT = !!globalThis.__ls_enable_applimit;
 // sbcustomizer_light.js dispatches to the SpringBoard main thread
 // asynchronously. When it runs without Powercuff piggybacking on it, keep the
@@ -9038,75 +9038,71 @@ function start() {
 			// Shutter sets string values: region=US, suffix=LL/A
 			let SHUTTER_VALS = {"h63QSdBCiT/z0WU6rdQv6Q": "US", "zHeENZu+wbg7PUprwNwBWg": "LL/A"};
 
-			let activeFlags = MG_FLAGS.split(',').filter(function(f) { return f.length > 0; });
-			LOG("[MG] mode=" + THREEAPP_MODE + " flags=" + (activeFlags.length > 0 ? activeFlags.join(',') : '(none)'));
+			let enableFlags = MG_FLAGS.split(',').filter(function(f) { return f.length > 0; });
+			let removeFlags = MG_UNFLAGS.split(',').filter(function(f) { return f.length > 0; });
+			LOG("[MG] enable=" + (enableFlags.length > 0 ? enableFlags.join(',') : '(none)') + " remove=" + (removeFlags.length > 0 ? removeFlags.join(',') : '(none)'));
 
-			// Build list of all keys to process
-			let allKeys = [];
-			// Both enable and revert use the selected flags only.
-			// Revert will only remove keys the user explicitly checked,
-			// never keys that were already in the plist before us.
-			for (let fi = 0; fi < activeFlags.length; fi++) {
-				let entry = MG_KEY_MAP[activeFlags[fi]];
-				if (!entry) { LOG("[MG] unknown flag: " + activeFlags[fi]); continue; }
-				let keys = entry[0];
-				for (let ki = 0; ki < keys.length; ki++) allKeys.push(keys[ki]);
-			}
-
-			if (allKeys.length === 0) {
-				LOG("[MG] no flags selected, skipping plist modification");
+			if (enableFlags.length === 0 && removeFlags.length === 0) {
+				LOG("[MG] nothing to do, skipping plist modification");
 			} else {
-				// Create CFNumber(1) for integer-valued keys (null in revert mode)
-				let cfOne = null;
+				// Create CFNumber(1) for integer-valued keys
 				let valBuf = MGNative.callSymbol("calloc", 1n, 8n);
 				let oneBytes = new ArrayBuffer(8);
 				new DataView(oneBytes).setBigInt64(0, 1n, true);
 				MGNative.write(valBuf, oneBytes);
-				cfOne = MGNative.callSymbol("CFNumberCreate", 0n, 4n, valBuf);
+				let cfOne = MGNative.callSymbol("CFNumberCreate", 0n, 4n, valBuf);
 				MGNative.callSymbol("free", valBuf);
 
-				for (let ki = 0; ki < allKeys.length; ki++) {
-					let mgKey = allKeys[ki];
-					let cfKey = MGNative.callSymbol("CFStringCreateWithCString", 0n, mgKey, 0x08000100n);
-
-					if (THREEAPP_MODE === 'revert') {
-						MGNative.callSymbol("CFDictionaryRemoveValue", cacheExtra, cfKey);
-						LOG("[MG] REMOVED " + mgKey);
-					} else {
-						// Determine value type
-						let cfVal = cfOne;
+				// Enable checked flags
+				for (let fi = 0; fi < enableFlags.length; fi++) {
+					let entry = MG_KEY_MAP[enableFlags[fi]];
+					if (!entry) { LOG("[MG] unknown flag: " + enableFlags[fi]); continue; }
+					let keys = entry[0];
+					for (let ki = 0; ki < keys.length; ki++) {
+						let mgKey = keys[ki];
+						let cfKey = MGNative.callSymbol("CFStringCreateWithCString", 0n, mgKey, 0x08000100n);
 						if (SHUTTER_VALS[mgKey]) {
-							cfVal = MGNative.callSymbol("CFStringCreateWithCString", 0n, SHUTTER_VALS[mgKey], 0x08000100n);
+							let cfVal = MGNative.callSymbol("CFStringCreateWithCString", 0n, SHUTTER_VALS[mgKey], 0x08000100n);
 							MGNative.callSymbol("CFDictionarySetValue", cacheExtra, cfKey, cfVal);
 							LOG("[MG] SET " + mgKey + " = \"" + SHUTTER_VALS[mgKey] + "\"");
 							MGNative.callSymbol("CFRelease", cfVal);
 						} else if (mgKey === "9MZ5AdH43csAUajl/dU+IQ") {
-							// iPad apps: set to array [1, 2]
 							let arr = MGNative.callSymbol("CFArrayCreateMutable", 0n, 2n, 0n);
 							let v1Buf = MGNative.callSymbol("calloc", 1n, 8n);
 							let v2Buf = MGNative.callSymbol("calloc", 1n, 8n);
 							let b1 = new ArrayBuffer(8); new DataView(b1).setBigInt64(0, 1n, true);
 							let b2 = new ArrayBuffer(8); new DataView(b2).setBigInt64(0, 2n, true);
-							MGNative.write(v1Buf, b1);
-							MGNative.write(v2Buf, b2);
+							MGNative.write(v1Buf, b1); MGNative.write(v2Buf, b2);
 							let n1 = MGNative.callSymbol("CFNumberCreate", 0n, 4n, v1Buf);
 							let n2 = MGNative.callSymbol("CFNumberCreate", 0n, 4n, v2Buf);
 							MGNative.callSymbol("CFArrayAppendValue", arr, n1);
 							MGNative.callSymbol("CFArrayAppendValue", arr, n2);
 							MGNative.callSymbol("CFDictionarySetValue", cacheExtra, cfKey, arr);
 							LOG("[MG] SET " + mgKey + " = [1, 2]");
-							MGNative.callSymbol("CFRelease", n1);
-							MGNative.callSymbol("CFRelease", n2);
-							MGNative.callSymbol("free", v1Buf);
-							MGNative.callSymbol("free", v2Buf);
+							MGNative.callSymbol("CFRelease", n1); MGNative.callSymbol("CFRelease", n2);
+							MGNative.callSymbol("free", v1Buf); MGNative.callSymbol("free", v2Buf);
 							MGNative.callSymbol("CFRelease", arr);
 						} else {
 							MGNative.callSymbol("CFDictionarySetValue", cacheExtra, cfKey, cfOne);
 							LOG("[MG] SET " + mgKey + " = 1");
 						}
+						MGNative.callSymbol("CFRelease", cfKey);
 					}
-					MGNative.callSymbol("CFRelease", cfKey);
 				}
+
+				// Remove unchecked flags
+				for (let fi = 0; fi < removeFlags.length; fi++) {
+					let entry = MG_KEY_MAP[removeFlags[fi]];
+					if (!entry) continue;
+					let keys = entry[0];
+					for (let ki = 0; ki < keys.length; ki++) {
+						let cfKey = MGNative.callSymbol("CFStringCreateWithCString", 0n, keys[ki], 0x08000100n);
+						MGNative.callSymbol("CFDictionaryRemoveValue", cacheExtra, cfKey);
+						LOG("[MG] REMOVED " + keys[ki]);
+						MGNative.callSymbol("CFRelease", cfKey);
+					}
+				}
+
 				if (cfOne) MGNative.callSymbol("CFRelease", cfOne);
 			}
 
