@@ -8417,6 +8417,7 @@ const ENABLE_POWERCUFF_TWEAK = !!globalThis.__ls_enable_powercuff;
 const POWERCUFF_TWEAK_PATH = "/powercuff_light.js";
 const POWERCUFF_TWEAK_LABEL = "Powercuff";
 const ENABLE_THREEAPP = !!globalThis.__ls_enable_threeapp;
+const THREEAPP_MODE = (typeof globalThis.__threeapp_mode === 'string' && globalThis.__threeapp_mode === 'revert') ? 'revert' : 'enable';
 // sbcustomizer_light.js dispatches to the SpringBoard main thread
 // asynchronously. When it runs without Powercuff piggybacking on it, keep the
 // chain alive briefly so the dispatched main-thread work has time to run
@@ -8922,7 +8923,7 @@ function start() {
 		return true;
 	});
 	// ========== MobileGestalt In-Place Patcher (3-App Bypass) ==========
-	LOG("[MG] ENABLE_THREEAPP = " + ENABLE_THREEAPP);
+	LOG("[MG] ENABLE_THREEAPP = " + ENABLE_THREEAPP + " mode=" + THREEAPP_MODE);
 	if (ENABLE_THREEAPP) {
 		LOG("[MG] === MG PATCHER ENTRY (in-place) ===");
 		try {
@@ -9025,26 +9026,33 @@ function start() {
 			let pre3 = MGNative.callSymbol("CFDictionaryGetValue", cacheExtra, key3);
 			LOG("[MG] PRE-PATCH InternalInstall=" + (pre1 ? "0x" + BigInt.asUintN(64, BigInt(pre1)).toString(16) : "MISSING") + " InternalStorage=" + (pre2 ? "0x" + BigInt.asUintN(64, BigInt(pre2)).toString(16) : "MISSING") + " SRD=" + (pre3 ? "0x" + BigInt.asUintN(64, BigInt(pre3)).toString(16) : "MISSING"));
 
-			// 4. Set InternalInstall + InternalStorage + SRD = integer 1
-			// All three are required for the 3-app sideloading bypass.
-			// kCFNumberSInt64Type = 4
-			let valBuf = MGNative.callSymbol("calloc", 1n, 8n);
-			let oneBytes = new ArrayBuffer(8);
-			new DataView(oneBytes).setBigInt64(0, 1n, true);
-			MGNative.write(valBuf, oneBytes);
-			let cfOne = MGNative.callSymbol("CFNumberCreate", 0n, 4n, valBuf);
-			MGNative.callSymbol("free", valBuf);
-			if (!cfOne) throw "CFNumberCreate failed";
+			// 4. Apply or revert
+			if (THREEAPP_MODE === 'revert') {
+				LOG("[MG] REVERT: removing InternalInstall + InternalStorage + SRD keys");
+				MGNative.callSymbol("CFDictionaryRemoveValue", cacheExtra, key1);
+				MGNative.callSymbol("CFDictionaryRemoveValue", cacheExtra, key2);
+				MGNative.callSymbol("CFDictionaryRemoveValue", cacheExtra, key3);
+			} else {
+				LOG("[MG] ENABLE: setting InternalInstall + InternalStorage + SRD = 1");
+				// kCFNumberSInt64Type = 4
+				let valBuf = MGNative.callSymbol("calloc", 1n, 8n);
+				let oneBytes = new ArrayBuffer(8);
+				new DataView(oneBytes).setBigInt64(0, 1n, true);
+				MGNative.write(valBuf, oneBytes);
+				let cfOne = MGNative.callSymbol("CFNumberCreate", 0n, 4n, valBuf);
+				MGNative.callSymbol("free", valBuf);
+				if (!cfOne) throw "CFNumberCreate failed";
+				MGNative.callSymbol("CFDictionarySetValue", cacheExtra, key1, cfOne);
+				MGNative.callSymbol("CFDictionarySetValue", cacheExtra, key2, cfOne);
+				MGNative.callSymbol("CFDictionarySetValue", cacheExtra, key3, cfOne);
+				MGNative.callSymbol("CFRelease", cfOne);
+			}
 
-			MGNative.callSymbol("CFDictionarySetValue", cacheExtra, key1, cfOne);
-			MGNative.callSymbol("CFDictionarySetValue", cacheExtra, key2, cfOne);
-			MGNative.callSymbol("CFDictionarySetValue", cacheExtra, key3, cfOne);
-
-			// Verify the values were actually set by reading them back from the dict
+			// Verify post-patch state
 			let post1 = MGNative.callSymbol("CFDictionaryGetValue", cacheExtra, key1);
 			let post2 = MGNative.callSymbol("CFDictionaryGetValue", cacheExtra, key2);
 			let post3 = MGNative.callSymbol("CFDictionaryGetValue", cacheExtra, key3);
-			LOG("[MG] POST-PATCH InternalInstall=0x" + BigInt.asUintN(64, BigInt(post1)).toString(16) + " InternalStorage=0x" + BigInt.asUintN(64, BigInt(post2)).toString(16) + " SRD=0x" + BigInt.asUintN(64, BigInt(post3)).toString(16));
+			LOG("[MG] POST " + THREEAPP_MODE.toUpperCase() + ": InternalInstall=" + (post1 ? "SET" : "REMOVED") + " InternalStorage=" + (post2 ? "SET" : "REMOVED") + " SRD=" + (post3 ? "SET" : "REMOVED"));
 
 			MGNative.callSymbol("CFRelease", key1);
 			MGNative.callSymbol("CFRelease", key2);

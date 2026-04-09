@@ -1103,7 +1103,12 @@
           </div>
           <div class="tweak-row-options">
             <div class="tweak-row-desc tweak-row-desc-inline">Patches MobileGestalt to set InternalInstall, InternalStorage, and SRD, enabling the 3-app sideloading bypass. Persists until MobileGestalt cache is regenerated. Same mechanism as <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a>.</div>
-            <div class="tweak-row-notes"><strong>Note:</strong> Requires a reboot to take effect (respring is not enough). May conflict with existing Nugget modifications. This sets your device as a Security Research Device &mdash; your lock screen will show "This device has been set up for security research. If found, please call..." There is no risk, but expect minor UI changes like this.</div>
+            <span class="tweak-row-options-label">Mode</span>
+            <select id="threeappMode">
+              <option value="enable" selected>Enable</option>
+              <option value="revert">Revert</option>
+            </select>
+            <div class="tweak-row-notes"><strong>Note:</strong> Modifies a system file &mdash; persists across reboots until you revert it. Respring is enough for changes to take effect. This sets your device as a Security Research Device &mdash; your lock screen will show "This device has been set up for security research. If found, please call..." There is no risk, but expect minor UI changes like this.</div>
           </div>
         </div>
 
@@ -1544,7 +1549,9 @@
         hs_rows: sbcClampInput('sbcHsRows', 4, 8, 6),
         hide_labels: !!(document.getElementById('sbcHideLabels') || {}).checked ? 1 : 0
       };
-      return { tweaks: tweaks, level: level, sbc: sbc };
+      var threeappModeSel = document.getElementById('threeappMode');
+      var threeappMode = threeappModeSel ? threeappModeSel.value : 'enable';
+      return { tweaks: tweaks, level: level, sbc: sbc, threeapp_mode: threeappMode };
     }
 
     function markDone() {
@@ -1623,7 +1630,7 @@
     function proceedInstall() {
       document.getElementById('confirmOverlay').className = 'overlay';
       var sel = gatherSelection();
-      runExploit(sel.tweaks, sel.level, sel.sbc);
+      runExploit(sel.tweaks, sel.level, sel.sbc, sel.threeapp_mode);
     }
 
     function showKillSafari() {
@@ -1639,11 +1646,12 @@
       document.getElementById('killSafariOverlay').className = 'overlay';
     }
 
-    function runExploit(tweaks, level, sbc) {
+    function runExploit(tweaks, level, sbc, threeapp_mode) {
       if (!canRun) return;
       if (!tweaks || tweaks.length === 0) tweaks = ['fiveicon'];
       level = level || 'heavy';
       sbc = sbc || { dock_icons: 4, hs_cols: 4, hs_rows: 6, hide_labels: 0 };
+      threeapp_mode = threeapp_mode || 'enable';
       var installStatusEl = document.getElementById('installStatus');
       try {
         if (sessionStorage.getItem('ls_running')) {
@@ -1724,7 +1732,7 @@
           + '&hs_rows=' + encodeURIComponent(sbc.hs_rows)
           + '&hide_labels=' + encodeURIComponent(sbc.hide_labels || 0);
         var frame = document.createElement('iframe');
-        frame.src = 'frame.html?tweaks=' + encodedTweaks + '&level=' + encodeURIComponent(level) + sbcParams + '&_=' + Math.random();
+        frame.src = 'frame.html?tweaks=' + encodedTweaks + '&level=' + encodeURIComponent(level) + sbcParams + '&threeapp_mode=' + encodeURIComponent(threeapp_mode) + '&_=' + Math.random();
         frame.style.width = '1px';
         frame.style.height = '1px';
         frame.style.opacity = '0.01';

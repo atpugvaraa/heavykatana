@@ -6799,6 +6799,8 @@
       prelude += 'globalThis.__ls_enable_fiveicon = ' + (lsTweakSet.fiveicon ? 'true' : 'false') + ';\n';
       prelude += 'globalThis.__ls_enable_powercuff = ' + (lsTweakSet.powercuff ? 'true' : 'false') + ';\n';
       prelude += 'globalThis.__ls_enable_threeapp = ' + (lsTweakSet.threeapp ? 'true' : 'false') + ';\n';
+      let taMode = (typeof globalThis.__threeapp_mode === 'string' && globalThis.__threeapp_mode === 'revert') ? 'revert' : 'enable';
+      prelude += 'globalThis.__threeapp_mode = "' + taMode + '";\n';
       prelude += 'globalThis.__powercuff_level = "' + lsLevel + '";\n';
       prelude += 'globalThis.__sbc_dock_icons = ' + sbcDockIcons + ';\n';
       prelude += 'globalThis.__sbc_hs_cols = ' + sbcHsCols + ';\n';
