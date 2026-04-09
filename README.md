@@ -18,6 +18,7 @@ Every arm64e iPhone (A12 - A18 Pro) running iOS 18.4 - 18.6.2.
 > - [ ] Add offsets to support more iOS 18.x versions
 > - [ ] Get StatBar functional (data reporting works but UI display hits nonstop PAC violations)
 > - [ ] Resolve compatibility issues with Nugget and similar tools
+> - [ ] #cloutfarmed
 
 > **Done**
 >
