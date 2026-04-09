@@ -9121,9 +9121,30 @@ function start() {
 				if (cfOne) MGNative.callSymbol("CFRelease", cfOne);
 			}
 
-			// 5. Write back if anything changed -- via launchdTask (root,
-			// unsandboxed) to avoid sandbox write failures and races with
-			// the live MobileGestaltHelper daemon.
+			// 5. Kill MobileGestaltHelper so it can't rewrite the cache
+			// while we're writing. launchd will respawn it after we're
+			// done, and it'll read our modified plist fresh.
+			if (mgModified) {
+				try {
+					let mgHelperName = "MobileGestalt";  // p_comm is truncated to 16 chars
+					let mgTask = libs_TaskRop_Task__WEBPACK_IMPORTED_MODULE_3__["default"].getTaskAddrByName(mgHelperName);
+					if (mgTask) {
+						let mgProc = libs_TaskRop_Task__WEBPACK_IMPORTED_MODULE_3__["default"].getTaskProc(mgTask);
+						let mgPid = libs_Chain_Chain__WEBPACK_IMPORTED_MODULE_1__["default"].read32(mgProc + libs_Chain_Chain__WEBPACK_IMPORTED_MODULE_1__["default"].offsets().pid);
+						LOG("[MG] Found MobileGestaltHelper pid=" + mgPid + ", killing");
+						let killRet = launchdTask.call(10, "kill", BigInt(mgPid), 9n);
+						LOG("[MG] kill(" + mgPid + ", 9) = " + killRet);
+						MGNative.callSymbol("usleep", 100000n);
+					} else {
+						LOG("[MG] MobileGestaltHelper not found in task list, skipping kill");
+					}
+				} catch (killErr) {
+					LOG("[MG] kill MobileGestaltHelper failed: " + String(killErr));
+				}
+			}
+
+			// 6. Write back if anything changed -- via launchdTask (root,
+			// unsandboxed).
 			if (!mgModified) {
 				LOG("[MG] no changes made, skipping plist write");
 				MGNative.callSymbol("CFRelease", plist);
