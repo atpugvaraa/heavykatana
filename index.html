@@ -1515,9 +1515,11 @@
       tweakRowApplimit: '3-App Limit Bypass'
     };
     var _sheetSourceRow = null;
+    var _sheetChanged = false;
     function openTweakSheet(rowId) {
       var row = document.getElementById(rowId);
       if (!row) return;
+      _sheetChanged = false;
       var detail = row.querySelector('.tweak-row-detail');
       var options = row.querySelector('.tweak-row-options');
       var body = document.getElementById('tweakSheetBody');
@@ -1529,7 +1531,26 @@
       document.getElementById('tweakSheetBackdrop').classList.add('active');
       document.getElementById('tweakSheet').classList.add('active');
     }
+    // Track any input changes inside the sheet
+    document.getElementById('tweakSheet').addEventListener('change', function() { _sheetChanged = true; });
+    document.getElementById('tweakSheet').addEventListener('input', function() { _sheetChanged = true; });
     function closeTweakSheet() {
+      // Auto-queue the tweak if the user changed any setting
+      if (_sheetChanged && _sheetSourceRow) {
+        var rowId = _sheetSourceRow.id;
+        for (var ri = 0; ri < tweakRows.length; ri++) {
+          if (tweakRows[ri].rowId === rowId) {
+            var cb = document.getElementById(tweakRows[ri].cbId);
+            if (cb && !cb.checked) {
+              cb.checked = true;
+              cb.dispatchEvent(new Event('change'));
+              syncTweakRow(tweakRows[ri]);
+            }
+            break;
+          }
+        }
+      }
+      _sheetChanged = false;
       document.getElementById('tweakSheetBackdrop').classList.remove('active');
       document.getElementById('tweakSheet').classList.remove('active');
       // Move content back to source row after transition
