@@ -1,951 +1,360 @@
-Apr  9 15:36:13.116120 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(790)         sbx0: runLoopHolder_tid: 0x103
-Apr  9 15:36:13.116146 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: webProcess: 0x110000100
-Apr  9 15:36:13.116282 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: webPage: 0x1043c4f08
-Apr  9 15:36:13.116349 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: 	m_drawingArea: 0x110005840
-Apr  9 15:36:13.116401 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: 	m_isRenderingSuspended: 0x101000000
-Apr  9 15:36:13.116477 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: -> remoteRenderingBackendProxy: 0x10e06dd90
-Apr  9 15:36:13.116540 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: -> streamConnection: 0x110010290
-Apr  9 15:36:13.116675 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: -> connection: 0x10e055ba0
-Apr  9 15:36:13.116825 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(791)         sbx0: uiProcessConnection: 0x10e054340
-Apr  9 15:36:13.117628 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(792)         sbx0: [+] SBX0() (retry: 0)
-Apr  9 15:36:13.117687 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(792)         sbx0: crashGPUProcess("process cleanup")
-Apr  9 15:36:13.118765 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(793)         sbx0: [-] going to respawn gpu process
-Apr  9 15:36:13.118912 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(793)         sbx0: new gpuProcessConnection: 0x10e6100e0
-Apr  9 15:36:13.119033 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(793)         sbx0: waiting for sendPort
-Apr  9 15:36:13.185682 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(860)         sbx0: received sendPort
-Apr  9 15:36:13.185802 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(860)         sbx0: maybe_port: 0x7e0b
-Apr  9 15:36:13.185876 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(860)         sbx0: [+] SBX0() (retry: 1)
-Apr  9 15:36:13.186498 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(861)         sbx0: backendConnection.identifier: 0xffffffff
-Apr  9 15:36:13.186552 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(861)         sbx0: glConnection.identifier: 0x100000000
-Apr  9 15:36:13.191969 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(865)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:13.191981 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(866)         sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:13.192000 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(866)         sbx0: RemoteRenderingBackend created
-Apr  9 15:36:13.215078 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(889)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:13.215233 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(890)         sbx0: Connection.receiveMessages(): met 409
-Apr  9 15:36:13.215312 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(890)         sbx0: RemoteGraphicsContextGL created
-Apr  9 15:36:13.269777 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(943)         sbx0: Vertex shader created. ID:1
-Apr  9 15:36:13.271588 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(946)         sbx0: Vertex shader sourced
-Apr  9 15:36:13.274395 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(949)         sbx0: Vertex shader compiled
-Apr  9 15:36:13.274633 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(949)         sbx0: Fragment shader created. ID:2
-Apr  9 15:36:13.274917 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(949)         sbx0: Fragment shader sourced
-Apr  9 15:36:13.275907 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(950)         sbx0: Fragment shader compiled
-Apr  9 15:36:13.276047 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(950)         sbx0: Program has been created. ID:3
-Apr  9 15:36:13.276252 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(951)         sbx0: Vertex shader has been attached
-Apr  9 15:36:13.276416 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(951)         sbx0: Fragment shader has been attached
-Apr  9 15:36:13.349392 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1024)        sbx0: Program has been linked
-Apr  9 15:36:13.349577 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1024)        sbx0: Program enabled
-Apr  9 15:36:13.349838 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1024)        sbx0: oob()
-Apr  9 15:36:13.350012 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1024)        sbx0: spray profile: compact chipset=c33e4990a9d3afe948b98d7d4205d596
-Apr  9 15:36:13.377444 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1052)        sbx0: [profiler] prepare_layout took 18ms
-Apr  9 15:36:13.469706 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1144)        sbx0: FINISHED oob()
-Apr  9 15:36:13.470009 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1144)        sbx0: preparePrimitives
-Apr  9 15:36:13.471209 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1146)        sbx0: Cache font ID: 0x10000002e
-Apr  9 15:36:13.477080 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1151)        sbx0: glThread: 0x10a010480
-Apr  9 15:36:13.477451 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1152)        sbx0: pthread_ptr: 0x1700b7000
-Apr  9 15:36:13.478092 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1153)        sbx0: currentThreadIndex: 0x106
-Apr  9 15:36:13.478190 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1153)        sbx0: pthread_tls: 0x10e364000
-Apr  9 15:36:13.478494 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1153)        sbx0: glBuffer: 0x111ea4000
-Apr  9 15:36:13.478865 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1153)        sbx0: rxBufferMtl: 0x111c58f00
-Apr  9 15:36:13.479193 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1154)        sbx0: rxMtlBuffer: 0x101063500
-Apr  9 15:36:13.479623 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1154)        sbx0: AGXA13FamilyBuffer: 0x111eb2400
-Apr  9 15:36:13.482988 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1157)        sbx0: offsets.free_slabs: 0x1f9511e90
-Apr  9 15:36:13.484579 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1159)        sbx0: Found our GPUConnectionToWebProcess: 0x10a07c190
-Apr  9 15:36:13.485148 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1160)        sbx0: Found our RenderingBackend: 0x10a024540
-Apr  9 15:36:13.485412 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1160)        sbx0: m_remoteDisplayLists: 0x10a144140
-Apr  9 15:36:13.486014 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1160)        sbx0: Image ID: 0x100000021 - remote_display_list_recorder: 0x10a120ae0
-Apr  9 15:36:13.486208 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1161)        sbx0: 	m_imageBuffer: 0x10c006850
-Apr  9 15:36:13.486482 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1161)        sbx0: 	m_backend: 0x10c006730
-Apr  9 15:36:13.486762 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1161)        sbx0: 	m_platformContext: 0x10e3e1980
-Apr  9 15:36:13.486935 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1161)        sbx0: 	CGContextDelegate: 0x10e1b2bc0
-Apr  9 15:36:13.487144 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1162)        sbx0: 	IOSurfaceContextDelegate: 0x111c59380
-Apr  9 15:36:13.487320 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1162)        sbx0: 	IOSurfaceDrawable: 0x111edce00
-Apr  9 15:36:13.487611 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1162)        sbx0: 	IOSurfaceQueue: 0x111efdc00
-Apr  9 15:36:13.487869 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1162)        sbx0: 	CAPointer: 0x124590000
-Apr  9 15:36:13.487894 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1162)        sbx0: 	CA Header Before restoration
-Apr  9 15:36:13.488195 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1163)        sbx0: 		0x124590000 : 0x111efdc00
-Apr  9 15:36:13.488510 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1163)        sbx0: 		0x124590008 : 0x0
-Apr  9 15:36:13.488631 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1163)        sbx0: 		0x124590010 : 0x8000001000005e90
-Apr  9 15:36:13.488948 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1163)        sbx0: 		0x124590018 : 0x8000000fffffde70
-Apr  9 15:36:13.489149 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1164)        sbx0: 		0x124590020 : 0x124598020
-Apr  9 15:36:13.489602 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1164)        sbx0: 	CA Header After restoration
-Apr  9 15:36:13.489766 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1164)        sbx0: 		0x124590000 : 0x0
-Apr  9 15:36:13.490126 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1165)        sbx0: 		0x124590008 : 0x0
-Apr  9 15:36:13.490360 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1165)        sbx0: 		0x124590010 : 0x4000
-Apr  9 15:36:13.490548 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1165)        sbx0: 		0x124590018 : 0x4000
-Apr  9 15:36:13.490831 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1165)        sbx0: 		0x124590020 : 0x124590000
-Apr  9 15:36:13.490863 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1165)        sbx0: Image ID: 0x100000022 - remote_display_list_recorder: 0x10a120b30
-Apr  9 15:36:13.491130 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1166)        sbx0: 	m_imageBuffer: 0x10c0068e0
-Apr  9 15:36:13.491436 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1166)        sbx0: 	m_backend: 0x10c006790
-Apr  9 15:36:13.491580 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1166)        sbx0: 	m_platformContext: 0x10e3e1a40
-Apr  9 15:36:13.491773 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1166)        sbx0: 	CGContextDelegate: 0x10e1b2d00
-Apr  9 15:36:13.491981 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1166)        sbx0: 	IOSurfaceContextDelegate: 0x111c59500
-Apr  9 15:36:13.492150 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1167)        sbx0: 	IOSurfaceDrawable: 0x111edce70
-Apr  9 15:36:13.492375 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1167)        sbx0: 	IOSurfaceQueue: 0x111efdce0
-Apr  9 15:36:13.492537 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1167)        sbx0: 	CAPointer: 0x124598000
-Apr  9 15:36:13.492590 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1167)        sbx0: 	CA Header Before restoration
-Apr  9 15:36:13.492922 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1167)        sbx0: 		0x124598000 : 0x0
-Apr  9 15:36:13.493075 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1168)        sbx0: 		0x124598008 : 0x0
-Apr  9 15:36:13.493313 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1168)        sbx0: 		0x124598010 : 0x10000
-Apr  9 15:36:13.493507 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1168)        sbx0: 		0x124598018 : 0x100b0
-Apr  9 15:36:13.493774 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1168)        sbx0: 		0x124598020 : 0x1245a8030
-Apr  9 15:36:13.494313 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1169)        sbx0: 	CA Header After restoration
-Apr  9 15:36:13.494495 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1169)        sbx0: 		0x124598000 : 0x0
-Apr  9 15:36:13.494848 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1169)        sbx0: 		0x124598008 : 0x0
-Apr  9 15:36:13.495099 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1170)        sbx0: 		0x124598010 : 0x4000
-Apr  9 15:36:13.495260 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1170)        sbx0: 		0x124598018 : 0x4000
-Apr  9 15:36:13.495613 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1170)        sbx0: 		0x124598020 : 0x124598000
-Apr  9 15:36:13.495701 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1170)        sbx0: Image ID: 0x100000023 - remote_display_list_recorder: 0x10a120b80
-Apr  9 15:36:13.495962 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1170)        sbx0: 	m_imageBuffer: 0x10c006a30
-Apr  9 15:36:13.496104 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1171)        sbx0: 	m_backend: 0x10c0067f0
-Apr  9 15:36:13.496279 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1171)        sbx0: 	m_platformContext: 0x10e3e1b00
-Apr  9 15:36:13.496636 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1171)        sbx0: 	CGContextDelegate: 0x10e1b2e40
-Apr  9 15:36:13.496814 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1171)        sbx0: 	IOSurfaceContextDelegate: 0x111c59680
-Apr  9 15:36:13.497133 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1172)        sbx0: 	IOSurfaceDrawable: 0x111edcee0
-Apr  9 15:36:13.497549 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1172)        sbx0: 	IOSurfaceQueue: 0x111efddc0
-Apr  9 15:36:13.497939 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1172)        sbx0: 	CAPointer: 0x1245a0000
-Apr  9 15:36:13.497987 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1172)        sbx0: 	CA Header Before restoration
-Apr  9 15:36:13.498244 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1173)        sbx0: 		0x1245a0000 : 0x0
-Apr  9 15:36:13.498421 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1173)        sbx0: 		0x1245a0008 : 0x0
-Apr  9 15:36:13.498647 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1173)        sbx0: 		0x1245a0010 : 0x10000
-Apr  9 15:36:13.498827 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1173)        sbx0: 		0x1245a0018 : 0x1ff50
-Apr  9 15:36:13.499099 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1174)        sbx0: 		0x1245a0020 : 0x1f96804b8
-Apr  9 15:36:13.499837 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1174)        sbx0: 	CA Header After restoration
-Apr  9 15:36:13.500065 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1175)        sbx0: 		0x1245a0000 : 0x0
-Apr  9 15:36:13.500340 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1175)        sbx0: 		0x1245a0008 : 0x0
-Apr  9 15:36:13.500506 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1175)        sbx0: 		0x1245a0010 : 0x4000
-Apr  9 15:36:13.500726 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1175)        sbx0: 		0x1245a0018 : 0x4000
-Apr  9 15:36:13.500936 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1175)        sbx0: 		0x1245a0020 : 0x1245a0000
-Apr  9 15:36:13.500972 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1175)        sbx0: Image ID: 0x100000024 - remote_display_list_recorder: 0x10a120bd0
-Apr  9 15:36:13.501233 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1176)        sbx0: 	m_imageBuffer: 0x10c006ac0
-Apr  9 15:36:13.501510 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1176)        sbx0: 	m_backend: 0x10c006b50
-Apr  9 15:36:13.501759 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1176)        sbx0: 	m_platformContext: 0x10e3e1bc0
-Apr  9 15:36:13.501922 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1176)        sbx0: 	CGContextDelegate: 0x10e1b2f80
-Apr  9 15:36:13.502145 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1177)        sbx0: 	IOSurfaceContextDelegate: 0x111c59800
-Apr  9 15:36:13.502362 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1177)        sbx0: 	IOSurfaceDrawable: 0x111edcf50
-Apr  9 15:36:13.502477 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1177)        sbx0: 	IOSurfaceQueue: 0x111efdea0
-Apr  9 15:36:13.502682 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1177)        sbx0: 	CAPointer: 0x1245a8000
-Apr  9 15:36:13.502733 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1177)        sbx0: 	CA Header Before restoration
-Apr  9 15:36:13.503014 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1177)        sbx0: 		0x1245a8000 : 0x0
-Apr  9 15:36:13.503250 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1178)        sbx0: 		0x1245a8008 : 0x0
-Apr  9 15:36:13.503578 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1178)        sbx0: 		0x1245a8010 : 0x10000
-Apr  9 15:36:13.503938 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1178)        sbx0: 		0x1245a8018 : 0x1ff50
-Apr  9 15:36:13.504139 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1179)        sbx0: 		0x1245a8020 : 0x10e366db0
-Apr  9 15:36:13.504716 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1179)        sbx0: 	CA Header After restoration
-Apr  9 15:36:13.504886 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1179)        sbx0: 		0x1245a8000 : 0x0
-Apr  9 15:36:13.505033 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1179)        sbx0: 		0x1245a8008 : 0x0
-Apr  9 15:36:13.505309 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1180)        sbx0: 		0x1245a8010 : 0x4000
-Apr  9 15:36:13.505569 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1180)        sbx0: 		0x1245a8018 : 0x4000
-Apr  9 15:36:13.505723 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1180)        sbx0: 		0x1245a8020 : 0x1245a8000
-Apr  9 15:36:13.505827 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1180)        sbx0: [profiler] sbx0 (read|write) took 390ms
-Apr  9 15:36:13.505913 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1180)        sbx0: gpu pac bypass start
-Apr  9 15:36:13.506158 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1181)        sbx0: backendConnection2.identifier: 0x10000008b
-Apr  9 15:36:13.506200 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1181)        sbx0: backendConnection3.identifier: 0x10000008c
-Apr  9 15:36:13.506285 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1181)        sbx0: backendConnection4.identifier: 0x10000008d
-Apr  9 15:36:13.506578 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1181)        sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:13.506646 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1181)        sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:13.506772 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1181)        sbx0: RemoteRenderingBackend created
-Apr  9 15:36:13.507176 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1182)        sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:13.507239 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1182)        sbx0: RemoteRenderingBackend created
-Apr  9 15:36:13.507501 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1182)        sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:13.508214 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1183)        sbx0: imageBufferIdentifier1: 0x10000008e
-Apr  9 15:36:13.508436 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1183)        sbx0: imageBufferIdentifier2: 0x10000008f
-Apr  9 15:36:13.508666 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1183)        sbx0: imageBufferIdentifier3: 0x100000090
-Apr  9 15:36:13.508891 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1183)        sbx0: imageBufferIdentifier4: 0x100000091
-Apr  9 15:36:13.509183 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1184)        sbx0: imageBufferIdentifier5: 0x100000092
-Apr  9 15:36:13.509381 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1184)        sbx0: imageBufferIdentifier6: 0x100000093
-Apr  9 15:36:13.509598 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1184)        sbx0: webProcessConnectionsMap: 0x10a024370
-Apr  9 15:36:13.510012 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1184)        sbx0: webProcessConnectionsMap.size: 1
-Apr  9 15:36:13.510037 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1184)        sbx0:   [0xb] (WebProcess)0x10a07c190
-Apr  9 15:36:13.510362 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1185)        sbx0:     .remoteRenderingBackendMap = 0x10a0244b0
-Apr  9 15:36:13.510855 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1185)        sbx0: myWebProcessConnection: 0x10a07c190
-Apr  9 15:36:13.510875 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1185)        sbx0: remoteRenderingBackend2: 0x10a024680
-Apr  9 15:36:13.510903 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1185)        sbx0: remoteRenderingBackend3: 0x10a024720
-Apr  9 15:36:13.511029 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1185)        sbx0: remoteRenderingBackend4: 0x10a0247c0
-Apr  9 15:36:13.511304 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1186)        sbx0: remoteImageBuffersMap2: 0x10a0d0190
-Apr  9 15:36:13.511476 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1186)        sbx0: remoteImageBuffersMap3: 0x10a1a4190
-Apr  9 15:36:13.511680 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1186)        sbx0: remoteImageBuffersMap4: 0x10a1b0190
-Apr  9 15:36:13.512801 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1187)        sbx0: remoteImageBuffer1: 0x10a10c0c0
-Apr  9 15:36:13.512878 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1187)        sbx0: remoteImageBuffer2: 0x10a10c0f0
-Apr  9 15:36:13.512955 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1187)        sbx0: remoteImageBuffer3: 0x10a1a80c0
-Apr  9 15:36:13.513072 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1187)        sbx0: remoteImageBuffer4: 0x10a1a80f0
-Apr  9 15:36:13.513138 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1188)        sbx0: remoteImageBuffer5: 0x10a1b40c0
-Apr  9 15:36:13.513211 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1188)        sbx0: remoteImageBuffer6: 0x10a1b40f0
-Apr  9 15:36:13.513602 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1188)        sbx0: imageBuffer1: 0x10c009a30
-Apr  9 15:36:13.513810 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1188)        sbx0: imageBuffer2: 0x10c009ac0
-Apr  9 15:36:13.513969 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1188)        sbx0: imageBuffer3: 0x10c009fd0
-Apr  9 15:36:13.514213 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1189)        sbx0: imageBuffer4: 0x10c00a2a0
-Apr  9 15:36:13.514590 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1189)        sbx0: imageBuffer5: 0x10c00a570
-Apr  9 15:36:13.514999 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1189)        sbx0: imageBuffer6: 0x10c00a840
-Apr  9 15:36:13.522406 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1197)        sbx0: NSBundleTables: 0x101204080
-Apr  9 15:36:13.522579 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1197)        sbx0: loadedFrameworks: 0x1004c5bd0
-Apr  9 15:36:13.522777 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1197)        sbx0: loadedFrameworks_length: 0x80
-Apr  9 15:36:13.523028 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1197)        sbx0: loadedFrameworks_buffer: 0x111c81400
-Apr  9 15:36:13.523503 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1198)        sbx0: bundle[3]: 0x10e120e10
-Apr  9 15:36:13.523760 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1198)        sbx0: bundle[4]: 0x10e121360
-Apr  9 15:36:13.524235 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1199)        sbx0: bundle[7]: 0x10e11c0f0
-Apr  9 15:36:13.524670 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1199)        sbx0: bundle[9]: 0x10e120960
-Apr  9 15:36:13.525038 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1199)        sbx0: bundle[10]: 0x10e120be0
-Apr  9 15:36:13.525617 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1200)        sbx0: bundle[12]: 0x10e120820
-Apr  9 15:36:13.527098 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1201)        sbx0: bundle[21]: 0x10e120c30
-Apr  9 15:36:13.527365 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1202)        sbx0: bundle[22]: 0x10e120910
-Apr  9 15:36:13.527998 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1202)        sbx0: bundle[24]: 0x10e120f50
-Apr  9 15:36:13.528334 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1203)        sbx0: bundle[25]: 0x10e120ff0
-Apr  9 15:36:13.529456 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1204)        sbx0: bundle[34]: 0x10e120d70
-Apr  9 15:36:13.529886 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1204)        sbx0: bundle[35]: 0x10e120b90
-Apr  9 15:36:13.530585 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1205)        sbx0: bundle[36]: 0x10e120a00
-Apr  9 15:36:13.532062 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1206)        sbx0: bundle[43]: 0x10e120d20
-Apr  9 15:36:13.532851 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1207)        sbx0: bundle[45]: 0x10e121180
-Apr  9 15:36:13.534886 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1209)        sbx0: bundle[58]: 0x10e1211d0
-Apr  9 15:36:13.535575 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1210)        sbx0: bundle[61]: 0x10e11cb40
-Apr  9 15:36:13.535941 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1210)        sbx0: bundle[62]: 0x10e121090
-Apr  9 15:36:13.536429 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1211)        sbx0: bundle[64]: 0x10e120a50
-Apr  9 15:36:13.536870 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1211)        sbx0: bundle[65]: 0x10e120f00
-Apr  9 15:36:13.537274 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1212)        sbx0: bundle[66]: 0x10e120eb0
-Apr  9 15:36:13.537973 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1212)        sbx0: bundle[69]: 0x10e1207d0
-Apr  9 15:36:13.538130 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1213)        sbx0: TextToSpeech_NSBundle: 0x10e1207d0
-Apr  9 15:36:13.538451 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1213)        sbx0: TextToSpeech_CFBundle: 0x10e16c620
-Apr  9 15:36:13.540052 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1214)        sbx0: runtimeState: 0x1f9126bd0
-Apr  9 15:36:13.540406 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1215)        sbx0: runtimeStateLock: 0x16fce7458
-Apr  9 15:36:13.540471 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1215)        sbx0: p_InterposeTupleAll_buffer: 0x1f9126c88
-Apr  9 15:36:13.540493 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1215)        sbx0: p_InterposeTupleAll_size: 0x1f9126c90
-Apr  9 15:36:13.540728 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1215)        sbx0: runtimeState_vtable: 0x1fe3e0ab0
-Apr  9 15:36:13.540911 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1215)        sbx0: dyld_emptySlot: 0x1b5383b6c
-Apr  9 15:36:13.541028 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1215)        sbx0: dyld_offset: 0x-bd4c000
-Apr  9 15:36:13.541119 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1215)        sbx0: dlopen_from_lambda_ret: 0x1b5341fc8
-Apr  9 15:36:13.541290 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1216)        sbx0: workQueue: 0x10a010580
-Apr  9 15:36:13.541448 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1216)        sbx0: backend2_processingThread: 0x10a010600
-Apr  9 15:36:13.541591 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1216)        sbx0: stack_bottom: 0x17025b000
-Apr  9 15:36:13.541762 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1216)        sbx0: stack_top: 0x1701d8000
-Apr  9 15:36:13.541990 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1216)        sbx0: RemoteRenderingBackend2 has been mutex-locked
-Apr  9 15:36:13.542070 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1216)        sbx0: loader: 0x1702597b0
-Apr  9 15:36:13.542110 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: bss: 0x1f881d5e8
-Apr  9 15:36:13.542226 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: prev_metadata_ptr: 0x1f881d5e8
-Apr  9 15:36:13.542315 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: metadata_ptr: 0x1f881d5f8
-Apr  9 15:36:13.542432 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: invoker_arg: 0x1f881d608
-Apr  9 15:36:13.542489 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: invoker_x0: 0x1f881d618
-Apr  9 15:36:13.542629 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: gSecurityd: 0x1f881d678
-Apr  9 15:36:13.542673 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: slowFcallResult: 0x1f881d778
-Apr  9 15:36:13.542710 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: gpu_string_buffer: 0x1f881d788
-Apr  9 15:36:13.542865 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: signPointerSelf: 0x1f881d7a8
-Apr  9 15:36:13.542885 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1217)        sbx0: interposingTuples_ptr: 0x1f881d7b8
-Apr  9 15:36:13.696847 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1371)        sbx0: InterposeTupleAll_buffer: 0x1f881d7b8
-Apr  9 15:36:13.702738 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1377)        sbx0: RemoteRenderingBackend2 has been spin-locked
-Apr  9 15:36:13.704343 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1379)        sbx0: backend3_workQueue: 0x10a010700
-Apr  9 15:36:13.704694 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1379)        sbx0: backend3_processingThread: 0x10a010780
-Apr  9 15:36:13.704897 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1379)        sbx0: backend3_stack_bottom: 0x1702e7000
-Apr  9 15:36:13.705149 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1380)        sbx0: backend3_stack_top: 0x170264000
-Apr  9 15:36:13.705728 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1380)        sbx0: RenderingBackend3 has been mutex-locked
-Apr  9 15:36:13.705775 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1380)        sbx0: backend3_loader: 0x1702e58d0
-Apr  9 15:36:13.728225 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1403)        sbx0: RenderingBackend3 has been spin-locked
-Apr  9 15:36:13.729331 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1403)        sbx0: fontIdentifier: 0x1234
-Apr  9 15:36:13.736081 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1410)        sbx0: initMediaAccessibilityMACaptionAppearanceGetDisplayType: 0x705b8001a154ce48
-Apr  9 15:36:13.741756 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1416)        sbx0: resourceCacheMap: 0x10a1981d0
-Apr  9 15:36:13.750232 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1425)        sbx0: paciza_invoker: 0x47268002488678b4
-Apr  9 15:36:13.756746 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1431)        sbx0: paciza_security_invoker_1: 0x764e00019733a930
-Apr  9 15:36:13.763010 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1437)        sbx0: paciza_security_invoker_2: 0x4d2500019734ec00
-Apr  9 15:36:13.775822 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1450)        sbx0: paciza_signPointer: 0x575d8001b534d3e4
-Apr  9 15:36:13.810597 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1485)        sbx0: paciza_pthread_create: 0xba4b000218d96988
-Apr  9 15:36:13.822531 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1497)        sbx0: paciza_malloc: 0xc06200019ef7c03c
-Apr  9 15:36:13.828760 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1503)        sbx0: gadget_control_1:0x24aac52ec
-Apr  9 15:36:13.828818 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1503)        sbx0: gadget_control_2:0x1b917cc28
-Apr  9 15:36:13.835374 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1510)        sbx0: gadget_control_3: 0x22ad86150
-Apr  9 15:36:13.835481 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1510)        sbx0: gadget_loop_1: 0x1923585dc
-Apr  9 15:36:13.835596 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1510)        sbx0: gadget_loop_2: 0x218d41ce8
-Apr  9 15:36:13.837856 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1512)        sbx0: gadget_loop_3: 0x190a89f1c
-Apr  9 15:36:13.838058 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1512)        sbx0: gadget_set_all_registers: 0x219aba16c
-Apr  9 15:36:13.843695 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1518)        sbx0: paciza_gadget_loop_1: 0xeb328001923585dc
-Apr  9 15:36:13.857144 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1532)        sbx0: paciza_gadget_loop_2: 0xd5d800218d41ce8
-Apr  9 15:36:13.877869 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1552)        sbx0: paciza_gadget_loop_3: 0x7918800190a89f1c
-Apr  9 15:36:13.883606 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1558)        sbx0: paciza_gadget_control_2: 0x414f0001b917cc28
-Apr  9 15:36:13.891914 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1566)        sbx0: paciza_gadget_control_3: 0x666700022ad86150
-Apr  9 15:36:13.906082 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1580)        sbx0: paciza_gadget_control_3_4: 0x632b00022ad86154
-Apr  9 15:36:13.915095 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1589)        sbx0: paciza_gadget_set_all_registers: 0xf43c000219aba16c
-Apr  9 15:36:13.935611 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1610)        sbx0: gpu_memory: 0x13dbec000
-Apr  9 15:36:13.948581 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1623)        sbx0: GPU fcall thread has been spawned!!
-Apr  9 15:36:13.956077 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1630)        sbx0: pthread_node: 0x1703ff000
-Apr  9 15:36:13.961416 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1636)        sbx0: jop_stack_top: 0x17037c000
-Apr  9 15:36:13.970008 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1638)        sbx0: jop_stack_bottom: 0x170404000
-Apr  9 15:36:13.986547 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1661)        sbx0: paciza_gadget_control_1: 0xd70280024aac52ec
-Apr  9 15:36:14.000622 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1675)        sbx0: pacib_gadget_loop_1_0x80020: 0x41630001923585dc
-Apr  9 15:36:14.020723 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1695)        sbx0: pacib_gadget_loop_1_0x800c0: 0xd8120001923585dc
-Apr  9 15:36:14.036500 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1704)        sbx0: pacib_gadget_loop_2_0x80010: 0x4b5d000218d41ce8
-Apr  9 15:36:14.038397 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1713)        sbx0: pacib_gadget_loop_2_0x800b0: 0xf82e000218d41ce8
-Apr  9 15:36:14.082421 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1757)        sbx0: gpu_connection: 0x10a034340
-Apr  9 15:36:14.093057 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1767)        sbx0: gpu_sendPort: 0x3f03
-Apr  9 15:36:14.096887 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1771)        sbx0: gpu_receiveBufferDataPointer: 0x13dbec580
-Apr  9 15:36:14.097192 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1771)        sbx0: scratchPad: 0x13dbed5c4
-Apr  9 15:36:14.137277 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1812)        sbx0: this.receivePort: 0x6c03
-Apr  9 15:36:14.220125 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1894)        sbx0: memPort: 0xab03
-Apr  9 15:36:14.239709 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1914)        sbx0: gpu_memPort: 0x6b03
-Apr  9 15:36:14.247824 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1922)        sbx0: going to mach_vm_map
-Apr  9 15:36:14.249225 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1924)        sbx0: gpu_receiveBufferDataPointer: 0x13dbec580
-Apr  9 15:36:14.271218 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(1946)        sbx0: gpu_memory: 0x13d770000
-Apr  9 15:36:14.341077 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2015)        sbx0: going to suspend the spinners in the GPU
-Apr  9 15:36:14.344473 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2019)        sbx0: backend2_thread_port: 0x7703
-Apr  9 15:36:14.344681 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2019)        sbx0: backend3_thread_port: 0x6203
-Apr  9 15:36:14.344793 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2019)        sbx0: gpu scratchpad: 0x13d770480
-Apr  9 15:36:14.351018 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2024)        sbx0: wc scratchpad: 0x401c0c480
-Apr  9 15:36:14.351736 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2026)        sbx0: [+] SBX0 complete
-Apr  9 15:36:15.244582 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2919)        sbx0: Restore bmalloc metadata after emptyString Corruption
-Apr  9 15:36:15.244874 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2919)        sbx0: [+] SBX1 complete
-Apr  9 15:36:15.244980 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2919)        sbx0: Invalidate backend connection from gpu process side
-Apr  9 15:36:15.245099 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2920)        sbx0: remoteRenderingBackendMap: 0x10a0244b0
-Apr  9 15:36:15.245202 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2920)        sbx0: remoteGraphicsContextGLMap: 0x10a0245f0
-Apr  9 15:36:15.245341 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(576) deny(1) file-write-create /(2920)        sbx0: Invalidated
-Apr  9 15:36:27.448848 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(483)         sbx0: runLoopHolder_tid: 0x103
-Apr  9 15:36:27.448925 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(483)         sbx0: webProcess: 0x10e000100
-Apr  9 15:36:27.449067 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(483)         sbx0: webPage: 0x102be07d8
-Apr  9 15:36:27.449188 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(484)         sbx0: 	m_drawingArea: 0x10e005840
-Apr  9 15:36:27.449259 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(484)         sbx0: 	m_isRenderingSuspended: 0x101000000
-Apr  9 15:36:27.449282 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(484)         sbx0: -> remoteRenderingBackendProxy: 0x10c06dd90
-Apr  9 15:36:27.449326 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(484)         sbx0: -> streamConnection: 0x10e010290
-Apr  9 15:36:27.449490 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(484)         sbx0: -> connection: 0x10c055ba0
-Apr  9 15:36:27.449710 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(484)         sbx0: uiProcessConnection: 0x10c054340
-Apr  9 15:36:27.450602 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(485)         sbx0: [+] SBX0() (retry: 0)
-Apr  9 15:36:27.450713 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(485)         sbx0: crashGPUProcess("process cleanup")
-Apr  9 15:36:27.451582 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(486)         sbx0: [-] going to respawn gpu process
-Apr  9 15:36:27.451717 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(486)         sbx0: new gpuProcessConnection: 0x10cc5c0e0
-Apr  9 15:36:27.451734 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(486)         sbx0: waiting for sendPort
-Apr  9 15:36:27.511739 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(546)         sbx0: received sendPort
-Apr  9 15:36:27.511839 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(546)         sbx0: maybe_port: 0x780b
-Apr  9 15:36:27.512017 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(546)         sbx0: [+] SBX0() (retry: 1)
-Apr  9 15:36:27.512366 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(547)         sbx0: backendConnection.identifier: 0xffffffff
-Apr  9 15:36:27.512546 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(547)         sbx0: glConnection.identifier: 0x100000000
-Apr  9 15:36:27.516430 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(551)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:27.516642 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(551)         sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:27.517491 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(551)         sbx0: RemoteRenderingBackend created
-Apr  9 15:36:27.526640 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(561)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:27.526944 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(561)         sbx0: Connection.receiveMessages(): met 409
-Apr  9 15:36:27.527152 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(561)         sbx0: RemoteGraphicsContextGL created
-Apr  9 15:36:27.536878 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(571)         sbx0: Vertex shader created. ID:1
-Apr  9 15:36:27.537367 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(572)         sbx0: Vertex shader sourced
-Apr  9 15:36:27.538417 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(573)         sbx0: Vertex shader compiled
-Apr  9 15:36:27.538963 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(573)         sbx0: Fragment shader created. ID:2
-Apr  9 15:36:27.539313 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(574)         sbx0: Fragment shader sourced
-Apr  9 15:36:27.540267 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(575)         sbx0: Fragment shader compiled
-Apr  9 15:36:27.540551 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(575)         sbx0: Program has been created. ID:3
-Apr  9 15:36:27.540750 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(575)         sbx0: Vertex shader has been attached
-Apr  9 15:36:27.540911 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(575)         sbx0: Fragment shader has been attached
-Apr  9 15:36:27.541293 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(576)         sbx0: Program has been linked
-Apr  9 15:36:27.541481 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(576)         sbx0: Program enabled
-Apr  9 15:36:27.541722 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(576)         sbx0: oob()
-Apr  9 15:36:27.541799 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(576)         sbx0: spray profile: compact chipset=c33e4990a9d3afe948b98d7d4205d596
-Apr  9 15:36:27.608544 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(643)         sbx0: [profiler] prepare_layout took 31ms
-Apr  9 15:36:27.647676 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(682)         sbx0: FINISHED oob()
-Apr  9 15:36:27.647876 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(682)         sbx0: preparePrimitives
-Apr  9 15:36:27.648355 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(683)         sbx0: Cache font ID: 0x10000002e
-Apr  9 15:36:27.655553 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(690)         sbx0: glThread: 0x10d010480
-Apr  9 15:36:27.655913 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(690)         sbx0: pthread_ptr: 0x16d79b000
-Apr  9 15:36:27.656496 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(691)         sbx0: currentThreadIndex: 0x106
-Apr  9 15:36:27.656518 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(691)         sbx0: pthread_tls: 0x110bc8000
-Apr  9 15:36:27.657026 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(691)         sbx0: glBuffer: 0x11462c200
-Apr  9 15:36:27.657351 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(692)         sbx0: rxBufferMtl: 0x1144c0f00
-Apr  9 15:36:27.657652 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(692)         sbx0: rxMtlBuffer: 0x10384b580
-Apr  9 15:36:27.658017 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(692)         sbx0: AGXA13FamilyBuffer: 0x1145c2400
-Apr  9 15:36:27.660731 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(695)         sbx0: offsets.free_slabs: 0x1f9511e90
-Apr  9 15:36:27.661695 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(696)         sbx0: Found our GPUConnectionToWebProcess: 0x10d06c190
-Apr  9 15:36:27.664191 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(699)         sbx0: Found our RenderingBackend: 0x10d024540
-Apr  9 15:36:27.664323 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(699)         sbx0: m_remoteDisplayLists: 0x10d140140
-Apr  9 15:36:27.666475 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(701)         sbx0: Image ID: 0x100000021 - remote_display_list_recorder: 0x10d11cae0
-Apr  9 15:36:27.667016 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(701)         sbx0: 	m_imageBuffer: 0x10f006850
-Apr  9 15:36:27.667449 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(702)         sbx0: 	m_backend: 0x10f006730
-Apr  9 15:36:27.667878 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(702)         sbx0: 	m_platformContext: 0x114455980
-Apr  9 15:36:27.668126 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(703)         sbx0: 	CGContextDelegate: 0x110a66bc0
-Apr  9 15:36:27.668305 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(703)         sbx0: 	IOSurfaceContextDelegate: 0x1144c1380
-Apr  9 15:36:27.668609 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(703)         sbx0: 	IOSurfaceDrawable: 0x114648e00
-Apr  9 15:36:27.668847 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(703)         sbx0: 	IOSurfaceQueue: 0x114675c00
-Apr  9 15:36:27.669098 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(704)         sbx0: 	CAPointer: 0x126ea0000
-Apr  9 15:36:27.669120 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(704)         sbx0: 	CA Header Before restoration
-Apr  9 15:36:27.669374 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(704)         sbx0: 		0x126ea0000 : 0x114675c00
-Apr  9 15:36:27.669529 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(704)         sbx0: 		0x126ea0008 : 0x0
-Apr  9 15:36:27.669771 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(704)         sbx0: 		0x126ea0010 : 0x8000001000005e90
-Apr  9 15:36:27.671095 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(706)         sbx0: 		0x126ea0018 : 0x8000000fffffde70
-Apr  9 15:36:27.671597 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(706)         sbx0: 		0x126ea0020 : 0x126ea8020
-Apr  9 15:36:27.673086 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(708)         sbx0: 	CA Header After restoration
-Apr  9 15:36:27.673773 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(708)         sbx0: 		0x126ea0000 : 0x0
-Apr  9 15:36:27.674296 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(709)         sbx0: 		0x126ea0008 : 0x0
-Apr  9 15:36:27.674558 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(709)         sbx0: 		0x126ea0010 : 0x4000
-Apr  9 15:36:27.674771 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(709)         sbx0: 		0x126ea0018 : 0x4000
-Apr  9 15:36:27.675052 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(709)         sbx0: 		0x126ea0020 : 0x126ea0000
-Apr  9 15:36:27.675165 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(710)         sbx0: Image ID: 0x100000022 - remote_display_list_recorder: 0x10d11cb30
-Apr  9 15:36:27.675361 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(710)         sbx0: 	m_imageBuffer: 0x10f0068e0
-Apr  9 15:36:27.675925 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(710)         sbx0: 	m_backend: 0x10f006790
-Apr  9 15:36:27.676219 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(711)         sbx0: 	m_platformContext: 0x114455a40
-Apr  9 15:36:27.676513 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(711)         sbx0: 	CGContextDelegate: 0x110a66d00
-Apr  9 15:36:27.676798 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(711)         sbx0: 	IOSurfaceContextDelegate: 0x1144c1500
-Apr  9 15:36:27.677041 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(711)         sbx0: 	IOSurfaceDrawable: 0x114648e70
-Apr  9 15:36:27.677235 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(712)         sbx0: 	IOSurfaceQueue: 0x114675ce0
-Apr  9 15:36:27.677432 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(712)         sbx0: 	CAPointer: 0x126ea8000
-Apr  9 15:36:27.677495 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(712)         sbx0: 	CA Header Before restoration
-Apr  9 15:36:27.677754 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(712)         sbx0: 		0x126ea8000 : 0x0
-Apr  9 15:36:27.677931 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(712)         sbx0: 		0x126ea8008 : 0x0
-Apr  9 15:36:27.678059 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(712)         sbx0: 		0x126ea8010 : 0x10000
-Apr  9 15:36:27.678540 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(713)         sbx0: 		0x126ea8018 : 0x100b0
-Apr  9 15:36:27.678731 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(713)         sbx0: 		0x126ea8020 : 0x126eb8030
-Apr  9 15:36:27.680865 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(715)         sbx0: 	CA Header After restoration
-Apr  9 15:36:27.684063 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(718)         sbx0: 		0x126ea8000 : 0x0
-Apr  9 15:36:27.684263 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(719)         sbx0: 		0x126ea8008 : 0x0
-Apr  9 15:36:27.684567 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(719)         sbx0: 		0x126ea8010 : 0x4000
-Apr  9 15:36:27.684739 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(719)         sbx0: 		0x126ea8018 : 0x4000
-Apr  9 15:36:27.685016 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(719)         sbx0: 		0x126ea8020 : 0x126ea8000
-Apr  9 15:36:27.685038 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(719)         sbx0: Image ID: 0x100000023 - remote_display_list_recorder: 0x10d11cb80
-Apr  9 15:36:27.685231 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(720)         sbx0: 	m_imageBuffer: 0x10f006a30
-Apr  9 15:36:27.685396 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(720)         sbx0: 	m_backend: 0x10f0067f0
-Apr  9 15:36:27.685663 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(720)         sbx0: 	m_platformContext: 0x114455b00
-Apr  9 15:36:27.685904 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(720)         sbx0: 	CGContextDelegate: 0x110a66e40
-Apr  9 15:36:27.686031 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(720)         sbx0: 	IOSurfaceContextDelegate: 0x1144c1680
-Apr  9 15:36:27.686490 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(721)         sbx0: 	IOSurfaceDrawable: 0x114648ee0
-Apr  9 15:36:27.686733 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(721)         sbx0: 	IOSurfaceQueue: 0x114675dc0
-Apr  9 15:36:27.686916 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(721)         sbx0: 	CAPointer: 0x126eb0000
-Apr  9 15:36:27.686957 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(721)         sbx0: 	CA Header Before restoration
-Apr  9 15:36:27.687713 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(722)         sbx0: 		0x126eb0000 : 0x0
-Apr  9 15:36:27.688180 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(723)         sbx0: 		0x126eb0008 : 0x0
-Apr  9 15:36:27.688636 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(723)         sbx0: 		0x126eb0010 : 0x10000
-Apr  9 15:36:27.688880 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(723)         sbx0: 		0x126eb0018 : 0x1ff50
-Apr  9 15:36:27.689164 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(724)         sbx0: 		0x126eb0020 : 0x1f96804b8
-Apr  9 15:36:27.690108 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(725)         sbx0: 	CA Header After restoration
-Apr  9 15:36:27.690599 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(725)         sbx0: 		0x126eb0000 : 0x0
-Apr  9 15:36:27.690850 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(725)         sbx0: 		0x126eb0008 : 0x0
-Apr  9 15:36:27.691092 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(726)         sbx0: 		0x126eb0010 : 0x4000
-Apr  9 15:36:27.691318 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(726)         sbx0: 		0x126eb0018 : 0x4000
-Apr  9 15:36:27.691845 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(726)         sbx0: 		0x126eb0020 : 0x126eb0000
-Apr  9 15:36:27.691928 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(726)         sbx0: Image ID: 0x100000024 - remote_display_list_recorder: 0x10d11cbd0
-Apr  9 15:36:27.693402 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(728)         sbx0: 	m_imageBuffer: 0x10f006ac0
-Apr  9 15:36:27.693580 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(728)         sbx0: 	m_backend: 0x10f006b50
-Apr  9 15:36:27.693986 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(728)         sbx0: 	m_platformContext: 0x114455bc0
-Apr  9 15:36:27.694267 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(729)         sbx0: 	CGContextDelegate: 0x110a66f80
-Apr  9 15:36:27.694442 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(729)         sbx0: 	IOSurfaceContextDelegate: 0x1144c1800
-Apr  9 15:36:27.694621 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(729)         sbx0: 	IOSurfaceDrawable: 0x114648f50
-Apr  9 15:36:27.694749 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(729)         sbx0: 	IOSurfaceQueue: 0x114675ea0
-Apr  9 15:36:27.695069 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(729)         sbx0: 	CAPointer: 0x126eb8000
-Apr  9 15:36:27.695158 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(730)         sbx0: 	CA Header Before restoration
-Apr  9 15:36:27.695393 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(730)         sbx0: 		0x126eb8000 : 0x0
-Apr  9 15:36:27.696113 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(731)         sbx0: 		0x126eb8008 : 0x0
-Apr  9 15:36:27.696401 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(731)         sbx0: 		0x126eb8010 : 0x10000
-Apr  9 15:36:27.696983 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(731)         sbx0: 		0x126eb8018 : 0x1ff50
-Apr  9 15:36:27.697322 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(732)         sbx0: 		0x126eb8020 : 0x110bcadb0
-Apr  9 15:36:27.700084 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(734)         sbx0: 	CA Header After restoration
-Apr  9 15:36:27.700421 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(735)         sbx0: 		0x126eb8000 : 0x0
-Apr  9 15:36:27.701020 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(735)         sbx0: 		0x126eb8008 : 0x0
-Apr  9 15:36:27.701164 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(736)         sbx0: 		0x126eb8010 : 0x4000
-Apr  9 15:36:27.701912 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(736)         sbx0: 		0x126eb8018 : 0x4000
-Apr  9 15:36:27.702072 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: 		0x126eb8020 : 0x126eb8000
-Apr  9 15:36:27.702166 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: [profiler] sbx0 (read|write) took 254ms
-Apr  9 15:36:27.702240 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: gpu pac bypass start
-Apr  9 15:36:27.702519 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: backendConnection2.identifier: 0x10000008b
-Apr  9 15:36:27.702602 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: backendConnection3.identifier: 0x10000008c
-Apr  9 15:36:27.702673 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: backendConnection4.identifier: 0x10000008d
-Apr  9 15:36:27.702882 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:27.703011 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(737)         sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:27.703120 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(738)         sbx0: RemoteRenderingBackend created
-Apr  9 15:36:27.703447 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(738)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:27.703535 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(738)         sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:27.704475 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(739)         sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:27.704540 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(739)         sbx0: RemoteRenderingBackend created
-Apr  9 15:36:27.705314 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(740)         sbx0: imageBufferIdentifier1: 0x10000008e
-Apr  9 15:36:27.705662 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(740)         sbx0: imageBufferIdentifier2: 0x10000008f
-Apr  9 15:36:27.705871 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(740)         sbx0: imageBufferIdentifier3: 0x100000090
-Apr  9 15:36:27.706263 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(741)         sbx0: imageBufferIdentifier4: 0x100000091
-Apr  9 15:36:27.706530 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(741)         sbx0: imageBufferIdentifier5: 0x100000092
-Apr  9 15:36:27.706762 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(741)         sbx0: imageBufferIdentifier6: 0x100000093
-Apr  9 15:36:27.706979 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(741)         sbx0: webProcessConnectionsMap: 0x10d024370
-Apr  9 15:36:27.707403 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(742)         sbx0: webProcessConnectionsMap.size: 1
-Apr  9 15:36:27.707466 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(742)         sbx0:   [0xb] (WebProcess)0x10d06c190
-Apr  9 15:36:27.707827 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(742)         sbx0:     .remoteRenderingBackendMap = 0x10d0244b0
-Apr  9 15:36:27.708589 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(743)         sbx0: myWebProcessConnection: 0x10d06c190
-Apr  9 15:36:27.708629 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(743)         sbx0: remoteRenderingBackend2: 0x10d024680
-Apr  9 15:36:27.708718 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(743)         sbx0: remoteRenderingBackend3: 0x10d024720
-Apr  9 15:36:27.708844 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(743)         sbx0: remoteRenderingBackend4: 0x10d0247c0
-Apr  9 15:36:27.709091 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(744)         sbx0: remoteImageBuffersMap2: 0x10d058190
-Apr  9 15:36:27.709291 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(744)         sbx0: remoteImageBuffersMap3: 0x10d0d0190
-Apr  9 15:36:27.709495 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(744)         sbx0: remoteImageBuffersMap4: 0x10d184190
-Apr  9 15:36:27.711043 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(745)         sbx0: remoteImageBuffer1: 0x10d0bce70
-Apr  9 15:36:27.711177 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(746)         sbx0: remoteImageBuffer2: 0x10d0bcea0
-Apr  9 15:36:27.711223 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(746)         sbx0: remoteImageBuffer3: 0x10d17c0c0
-Apr  9 15:36:27.711270 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(746)         sbx0: remoteImageBuffer4: 0x10d17c0f0
-Apr  9 15:36:27.711387 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(746)         sbx0: remoteImageBuffer5: 0x10d1880c0
-Apr  9 15:36:27.711449 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(746)         sbx0: remoteImageBuffer6: 0x10d1880f0
-Apr  9 15:36:27.711801 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(746)         sbx0: imageBuffer1: 0x10f009430
-Apr  9 15:36:27.712220 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(747)         sbx0: imageBuffer2: 0x10f0094c0
-Apr  9 15:36:27.713628 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(748)         sbx0: imageBuffer3: 0x10f0099d0
-Apr  9 15:36:27.713847 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(748)         sbx0: imageBuffer4: 0x10f009ca0
-Apr  9 15:36:27.714082 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(749)         sbx0: imageBuffer5: 0x10f009f70
-Apr  9 15:36:27.714299 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(749)         sbx0: imageBuffer6: 0x10f00a240
-Apr  9 15:36:27.722467 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(757)         sbx0: NSBundleTables: 0x103a44080
-Apr  9 15:36:27.722685 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(757)         sbx0: loadedFrameworks: 0x102f21bd0
-Apr  9 15:36:27.723008 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(757)         sbx0: loadedFrameworks_length: 0x80
-Apr  9 15:36:27.732639 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(763)         sbx0: loadedFrameworks_buffer: 0x1144d5400
-Apr  9 15:36:27.732696 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(764)         sbx0: bundle[0]: 0x1109f8870
-Apr  9 15:36:27.733958 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(768)         sbx0: bundle[5]: 0x1109f8e60
-Apr  9 15:36:27.734336 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(769)         sbx0: bundle[7]: 0x1109f8b90
-Apr  9 15:36:27.735131 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(770)         sbx0: bundle[9]: 0x1109f87d0
-Apr  9 15:36:27.735593 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(770)         sbx0: bundle[10]: 0x1109f8af0
-Apr  9 15:36:27.739578 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(774)         sbx0: bundle[20]: 0x1109f8ff0
-Apr  9 15:36:27.740512 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(775)         sbx0: bundle[21]: 0x1109f8b40
-Apr  9 15:36:27.741560 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(776)         sbx0: bundle[25]: 0x1109f8910
-Apr  9 15:36:27.743177 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(778)         sbx0: bundle[26]: 0x1109f8e10
-Apr  9 15:36:27.744010 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(778)         sbx0: bundle[27]: 0x1109f9360
-Apr  9 15:36:27.745225 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(780)         sbx0: bundle[29]: 0x1109f93b0
-Apr  9 15:36:27.747031 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(781)         sbx0: bundle[32]: 0x1109f8dc0
-Apr  9 15:36:27.754344 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(789)         sbx0: bundle[49]: 0x1109f4aa0
-Apr  9 15:36:27.754842 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(789)         sbx0: bundle[52]: 0x1109f90e0
-Apr  9 15:36:27.756145 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(791)         sbx0: bundle[56]: 0x1109f89b0
-Apr  9 15:36:27.756623 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(791)         sbx0: bundle[57]: 0x1109f8780
-Apr  9 15:36:27.757686 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(792)         sbx0: bundle[58]: 0x1109f9090
-Apr  9 15:36:27.758826 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(793)         sbx0: bundle[61]: 0x1109f8be0
-Apr  9 15:36:27.760249 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(795)         sbx0: bundle[62]: 0x1109f8d20
-Apr  9 15:36:27.763665 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(798)         sbx0: bundle[66]: 0x1109f8d70
-Apr  9 15:36:27.763953 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(798)         sbx0: bundle[67]: 0x1109f8fa0
-Apr  9 15:36:27.764233 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(799)         sbx0: bundle[68]: 0x1109f8f00
-Apr  9 15:36:27.764526 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(799)         sbx0: bundle[69]: 0x1109f92c0
-Apr  9 15:36:27.769504 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(804)         sbx0: bundle[79]: 0x1109f8cd0
-Apr  9 15:36:27.770325 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(805)         sbx0: bundle[82]: 0x1109f88c0
-Apr  9 15:36:27.772354 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(807)         sbx0: bundle[84]: 0x1109f8f50
-Apr  9 15:36:27.775749 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(810)         sbx0: bundle[85]: 0x1109f8c80
-Apr  9 15:36:27.777101 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(811)         sbx0: bundle[86]: 0x1109f9310
-Apr  9 15:36:27.778574 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(813)         sbx0: bundle[87]: 0x1109f9180
-Apr  9 15:36:27.780159 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(815)         sbx0: bundle[88]: 0x1109f40f0
-Apr  9 15:36:27.781568 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(816)         sbx0: bundle[89]: 0x1109f8960
-Apr  9 15:36:27.782225 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(817)         sbx0: bundle[91]: 0x1109f9130
-Apr  9 15:36:27.787759 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(822)         sbx0: bundle[106]: 0x1109f8eb0
-Apr  9 15:36:27.789570 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(824)         sbx0: bundle[109]: 0x1109f8730
-Apr  9 15:36:27.789836 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(824)         sbx0: TextToSpeech_NSBundle: 0x1109f8730
-Apr  9 15:36:27.790119 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(825)         sbx0: TextToSpeech_CFBundle: 0x1109f0620
-Apr  9 15:36:27.793118 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(828)         sbx0: runtimeState: 0x1f9126bd0
-Apr  9 15:36:27.793461 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(828)         sbx0: runtimeStateLock: 0x16d3cb458
-Apr  9 15:36:27.793530 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(828)         sbx0: p_InterposeTupleAll_buffer: 0x1f9126c88
-Apr  9 15:36:27.793581 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(828)         sbx0: p_InterposeTupleAll_size: 0x1f9126c90
-Apr  9 15:36:27.793826 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(828)         sbx0: runtimeState_vtable: 0x1fe3e0ab0
-Apr  9 15:36:27.794083 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(828)         sbx0: dyld_emptySlot: 0x1b5383b6c
-Apr  9 15:36:27.794169 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(829)         sbx0: dyld_offset: 0x-bd4c000
-Apr  9 15:36:27.794296 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(829)         sbx0: dlopen_from_lambda_ret: 0x1b5341fc8
-Apr  9 15:36:27.794533 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(829)         sbx0: workQueue: 0x10d010580
-Apr  9 15:36:27.795117 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(830)         sbx0: backend2_processingThread: 0x10d010600
-Apr  9 15:36:27.796214 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(831)         sbx0: stack_bottom: 0x16d8b3000
-Apr  9 15:36:27.796843 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(831)         sbx0: stack_top: 0x16d830000
-Apr  9 15:36:27.797106 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: RemoteRenderingBackend2 has been mutex-locked
-Apr  9 15:36:27.797184 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: loader: 0x16d8b17b0
-Apr  9 15:36:27.797222 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: bss: 0x1f881d5e8
-Apr  9 15:36:27.797331 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: prev_metadata_ptr: 0x1f881d5e8
-Apr  9 15:36:27.797365 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: metadata_ptr: 0x1f881d5f8
-Apr  9 15:36:27.797397 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: invoker_arg: 0x1f881d608
-Apr  9 15:36:27.797540 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: invoker_x0: 0x1f881d618
-Apr  9 15:36:27.797709 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: gSecurityd: 0x1f881d678
-Apr  9 15:36:27.797773 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: slowFcallResult: 0x1f881d778
-Apr  9 15:36:27.797883 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: gpu_string_buffer: 0x1f881d788
-Apr  9 15:36:27.797975 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: signPointerSelf: 0x1f881d7a8
-Apr  9 15:36:27.798068 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(832)         sbx0: interposingTuples_ptr: 0x1f881d7b8
-Apr  9 15:36:27.914365 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(949)         sbx0: InterposeTupleAll_buffer: 0x1f881d7b8
-Apr  9 15:36:27.914435 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(949)         sbx0: RemoteRenderingBackend2 has been spin-locked
-Apr  9 15:36:27.946156 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(981)         sbx0: backend3_workQueue: 0x10d010700
-Apr  9 15:36:27.950358 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(985)         sbx0: backend3_processingThread: 0x10d010780
-Apr  9 15:36:27.952953 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(987)         sbx0: backend3_stack_bottom: 0x16d93f000
-Apr  9 15:36:27.956379 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(991)         sbx0: backend3_stack_top: 0x16d8bc000
-Apr  9 15:36:27.958813 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(993)         sbx0: RenderingBackend3 has been mutex-locked
-Apr  9 15:36:27.958897 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(993)         sbx0: backend3_loader: 0x16d93d8d0
-Apr  9 15:36:27.995150 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1030)        sbx0: RenderingBackend3 has been spin-locked
-Apr  9 15:36:27.995602 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1030)        sbx0: fontIdentifier: 0x1234
-Apr  9 15:36:28.009573 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1044)        sbx0: initMediaAccessibilityMACaptionAppearanceGetDisplayType: 0x705b8001a154ce48
-Apr  9 15:36:28.031753 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1059)        sbx0: resourceCacheMap: 0x10d1500f0
-Apr  9 15:36:28.051123 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1086)        sbx0: paciza_invoker: 0x47268002488678b4
-Apr  9 15:36:28.075340 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1107)        sbx0: paciza_security_invoker_1: 0x764e00019733a930
-Apr  9 15:36:28.088392 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1123)        sbx0: paciza_security_invoker_2: 0x4d2500019734ec00
-Apr  9 15:36:28.105420 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1134)        sbx0: paciza_signPointer: 0x575d8001b534d3e4
-Apr  9 15:36:28.140252 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1175)        sbx0: paciza_pthread_create: 0xba4b000218d96988
-Apr  9 15:36:28.169987 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1202)        sbx0: paciza_malloc: 0xc06200019ef7c03c
-Apr  9 15:36:28.170158 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1204)        sbx0: gadget_control_1:0x24aac52ec
-Apr  9 15:36:28.170298 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1205)        sbx0: gadget_control_2:0x1b917cc28
-Apr  9 15:36:28.184569 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1210)        sbx0: gadget_control_3: 0x22ad86150
-Apr  9 15:36:28.184840 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1219)        sbx0: gadget_loop_1: 0x1923585dc
-Apr  9 15:36:28.184940 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1219)        sbx0: gadget_loop_2: 0x218d41ce8
-Apr  9 15:36:28.199090 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1227)        sbx0: gadget_loop_3: 0x190a89f1c
-Apr  9 15:36:28.206153 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1234)        sbx0: gadget_set_all_registers: 0x219aba16c
-Apr  9 15:36:28.208034 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1242)        sbx0: paciza_gadget_loop_1: 0xeb328001923585dc
-Apr  9 15:36:28.234581 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1269)        sbx0: paciza_gadget_loop_2: 0xd5d800218d41ce8
-Apr  9 15:36:28.280082 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1308)        sbx0: paciza_gadget_loop_3: 0x7918800190a89f1c
-Apr  9 15:36:28.300827 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1335)        sbx0: paciza_gadget_control_2: 0x414f0001b917cc28
-Apr  9 15:36:28.314372 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1349)        sbx0: paciza_gadget_control_3: 0x666700022ad86150
-Apr  9 15:36:28.335139 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1358)        sbx0: paciza_gadget_control_3_4: 0x632b00022ad86154
-Apr  9 15:36:28.353345 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1385)        sbx0: paciza_gadget_set_all_registers: 0xf43c000219aba16c
-Apr  9 15:36:28.360768 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1394)        sbx0: gpu_memory: 0x142004000
-Apr  9 15:36:28.377417 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1411)        sbx0: GPU fcall thread has been spawned!!
-Apr  9 15:36:28.390852 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1425)        sbx0: pthread_node: 0x16da57000
-Apr  9 15:36:28.415999 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1443)        sbx0: jop_stack_top: 0x16d9d4000
-Apr  9 15:36:28.419339 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1451)        sbx0: jop_stack_bottom: 0x16da5c000
-Apr  9 15:36:28.481193 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1501)        sbx0: paciza_gadget_control_1: 0xd70280024aac52ec
-Apr  9 15:36:28.483134 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1517)        sbx0: pacib_gadget_loop_1_0x80020: 0xd188001923585dc
-Apr  9 15:36:28.497699 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1532)        sbx0: pacib_gadget_loop_1_0x800c0: 0xde330001923585dc
-Apr  9 15:36:28.519550 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1554)        sbx0: pacib_gadget_loop_2_0x80010: 0xf71800218d41ce8
-Apr  9 15:36:28.552396 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1587)        sbx0: pacib_gadget_loop_2_0x800b0: 0x6315000218d41ce8
-Apr  9 15:36:28.727747 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1762)        sbx0: gpu_connection: 0x10d034340
-Apr  9 15:36:28.751753 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1770)        sbx0: gpu_sendPort: 0x2a03
-Apr  9 15:36:28.751970 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1786)        sbx0: gpu_receiveBufferDataPointer: 0x142004580
-Apr  9 15:36:28.752152 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1786)        sbx0: scratchPad: 0x1420055c4
-Apr  9 15:36:28.841936 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(1876)        sbx0: this.receivePort: 0x7303
-Apr  9 15:36:29.050619 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2085)        sbx0: memPort: 0xfe03
-Apr  9 15:36:29.260362 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2287)        sbx0: gpu_memPort: 0x6503
-Apr  9 15:36:29.303111 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2338)        sbx0: going to mach_vm_map
-Apr  9 15:36:29.344868 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2363)        sbx0: gpu_receiveBufferDataPointer: 0x142004580
-Apr  9 15:36:29.457911 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2492)        sbx0: gpu_memory: 0x11623c000
-Apr  9 15:36:29.586668 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2621)        sbx0: going to suspend the spinners in the GPU
-Apr  9 15:36:29.612075 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2628)        sbx0: backend2_thread_port: 0x7903
-Apr  9 15:36:29.629971 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2664)        sbx0: backend3_thread_port: 0x5a03
-Apr  9 15:36:29.670147 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2701)        sbx0: gpu scratchpad: 0x11623c480
-Apr  9 15:36:29.675456 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2705)        sbx0: wc scratchpad: 0x404c0c480
-Apr  9 15:36:29.691329 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(2726)        sbx0: [+] SBX0 complete
-Apr  9 15:36:30.423408 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(3458)        sbx0: Restore bmalloc metadata after emptyString Corruption
-Apr  9 15:36:30.423625 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(3458)        sbx0: [+] SBX1 complete
-Apr  9 15:36:30.429594 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(3464)        sbx0: Invalidate backend connection from gpu process side
-Apr  9 15:36:30.429851 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(3464)        sbx0: remoteRenderingBackendMap: 0x10d0244b0
-Apr  9 15:36:30.436923 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(3470)        sbx0: remoteGraphicsContextGLMap: 0x10d0245f0
-Apr  9 15:36:30.442144 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(587) deny(1) file-write-create /(3476)        sbx0: Invalidated
-Apr  9 15:36:58.928618 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: runLoopHolder_tid: 0x103
-Apr  9 15:36:58.928749 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: webProcess: 0x10c000100
-Apr  9 15:36:58.928867 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: webPage: 0x10075c6c8
-Apr  9 15:36:58.928971 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: 	m_drawingArea: 0x10c009340
-Apr  9 15:36:58.929010 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: 	m_isRenderingSuspended: 0x101000000
-Apr  9 15:36:58.929045 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: -> remoteRenderingBackendProxy: 0x10a0f2250
-Apr  9 15:36:58.929109 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: -> streamConnection: 0x10c014290
-Apr  9 15:36:58.929140 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: -> connection: 0x10a03d6c0
-Apr  9 15:36:58.929161 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(393)         sbx0: uiProcessConnection: 0x10a054340
-Apr  9 15:36:58.929753 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(394)         sbx0: [+] SBX0() (retry: 0)
-Apr  9 15:36:58.929970 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(394)         sbx0: crashGPUProcess("process cleanup")
-Apr  9 15:36:58.938522 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(395)         sbx0: [-] going to respawn gpu process
-Apr  9 15:36:58.938902 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(395)         sbx0: new gpuProcessConnection: 0x10ae580e0
-Apr  9 15:36:58.967598 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(395)         sbx0: waiting for sendPort
-Apr  9 15:36:59.027667 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(492)         sbx0: received sendPort
-Apr  9 15:36:59.027863 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(492)         sbx0: maybe_port: 0x760b
-Apr  9 15:36:59.027978 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(492)         sbx0: [+] SBX0() (retry: 1)
-Apr  9 15:36:59.028460 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(493)         sbx0: backendConnection.identifier: 0xffffffff
-Apr  9 15:36:59.029270 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(493)         sbx0: glConnection.identifier: 0x100000000
-Apr  9 15:36:59.033508 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(498)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:59.033742 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(498)         sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:36:59.033902 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(498)         sbx0: RemoteRenderingBackend created
-Apr  9 15:36:59.043852 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(508)         sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:36:59.044104 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(508)         sbx0: Connection.receiveMessages(): met 409
-Apr  9 15:36:59.044173 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(509)         sbx0: RemoteGraphicsContextGL created
-Apr  9 15:36:59.054763 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(519)         sbx0: Vertex shader created. ID:1
-Apr  9 15:36:59.055955 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(520)         sbx0: Vertex shader sourced
-Apr  9 15:36:59.060288 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(525)         sbx0: Vertex shader compiled
-Apr  9 15:36:59.060727 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(525)         sbx0: Fragment shader created. ID:2
-Apr  9 15:36:59.062456 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(527)         sbx0: Fragment shader sourced
-Apr  9 15:36:59.064236 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(529)         sbx0: Fragment shader compiled
-Apr  9 15:36:59.071032 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(535)         sbx0: Program has been created. ID:3
-Apr  9 15:36:59.072280 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(537)         sbx0: Vertex shader has been attached
-Apr  9 15:36:59.075925 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(540)         sbx0: Fragment shader has been attached
-Apr  9 15:36:59.078559 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(543)         sbx0: Program has been linked
-Apr  9 15:36:59.079873 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(544)         sbx0: Program enabled
-Apr  9 15:36:59.083732 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(548)         sbx0: oob()
-Apr  9 15:36:59.083919 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(548)         sbx0: spray profile: compact chipset=c33e4990a9d3afe948b98d7d4205d596
-Apr  9 15:36:59.714019 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1178)        sbx0: [profiler] prepare_layout took 370ms
-Apr  9 15:36:59.773207 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1238)        sbx0: FINISHED oob()
-Apr  9 15:36:59.773430 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1238)        sbx0: preparePrimitives
-Apr  9 15:36:59.775857 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1240)        sbx0: Cache font ID: 0x10000002e
-Apr  9 15:36:59.809390 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1274)        sbx0: glThread: 0x10d010480
-Apr  9 15:36:59.822594 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1287)        sbx0: pthread_ptr: 0x16d32b000
-Apr  9 15:36:59.829300 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1294)        sbx0: currentThreadIndex: 0x106
-Apr  9 15:36:59.829508 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1294)        sbx0: pthread_tls: 0x11173c000
-Apr  9 15:36:59.842673 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1307)        sbx0: glBuffer: 0x1149b4200
-Apr  9 15:36:59.863261 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1328)        sbx0: rxBufferMtl: 0x114a0cf00
-Apr  9 15:36:59.869967 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1334)        sbx0: rxMtlBuffer: 0x103c5f540
-Apr  9 15:36:59.876569 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1341)        sbx0: AGXA13FamilyBuffer: 0x11493e400
-Apr  9 15:36:59.909450 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1374)        sbx0: offsets.free_slabs: 0x1f9511e90
-Apr  9 15:36:59.947695 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1412)        sbx0: Found our GPUConnectionToWebProcess: 0x10d07c190
-Apr  9 15:36:59.964504 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1429)        sbx0: Found our RenderingBackend: 0x10d024540
-Apr  9 15:36:59.977183 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1441)        sbx0: m_remoteDisplayLists: 0x10d0e8570
-Apr  9 15:36:59.983761 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1448)        sbx0: Image ID: 0x100000021 - remote_display_list_recorder: 0x10d0ccc20
-Apr  9 15:36:59.986783 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1451)        sbx0: 	m_imageBuffer: 0x10f006710
-Apr  9 15:36:59.987238 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1452)        sbx0: 	m_backend: 0x10f0064d0
-Apr  9 15:36:59.995057 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1459)        sbx0: 	m_platformContext: 0x111785980
-Apr  9 15:36:59.999793 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1464)        sbx0: 	CGContextDelegate: 0x111602bc0
-Apr  9 15:37:00.015784 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1480)        sbx0: 	IOSurfaceContextDelegate: 0x114a0d380
-Apr  9 15:37:00.022692 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1487)        sbx0: 	IOSurfaceDrawable: 0x114a40e00
-Apr  9 15:37:00.029332 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1494)        sbx0: 	IOSurfaceQueue: 0x114a45c00
-Apr  9 15:37:00.036008 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1500)        sbx0: 	CAPointer: 0x127310000
-Apr  9 15:37:00.036193 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1501)        sbx0: 	CA Header Before restoration
-Apr  9 15:37:00.042664 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1507)        sbx0: 		0x127310000 : 0x114a45c00
-Apr  9 15:37:00.042907 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1507)        sbx0: 		0x127310008 : 0x0
-Apr  9 15:37:00.048283 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1513)        sbx0: 		0x127310010 : 0x8000001000005e90
-Apr  9 15:37:00.054785 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1519)        sbx0: 		0x127310018 : 0x8000000fffffde70
-Apr  9 15:37:00.060030 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1524)        sbx0: 		0x127310020 : 0x127318020
-Apr  9 15:37:00.067056 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1531)        sbx0: 	CA Header After restoration
-Apr  9 15:37:00.067374 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1532)        sbx0: 		0x127310000 : 0x0
-Apr  9 15:37:00.070100 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1534)        sbx0: 		0x127310008 : 0x0
-Apr  9 15:37:00.070528 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1535)        sbx0: 		0x127310010 : 0x4000
-Apr  9 15:37:00.070830 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1535)        sbx0: 		0x127310018 : 0x4000
-Apr  9 15:37:00.077012 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1541)        sbx0: 		0x127310020 : 0x127310000
-Apr  9 15:37:00.077172 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1541)        sbx0: Image ID: 0x100000022 - remote_display_list_recorder: 0x10d0ccc70
-Apr  9 15:37:00.077986 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1542)        sbx0: 	m_imageBuffer: 0x10f0067a0
-Apr  9 15:37:00.080467 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1545)        sbx0: 	m_backend: 0x10f006830
-Apr  9 15:37:00.083888 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1548)        sbx0: 	m_platformContext: 0x111785a40
-Apr  9 15:37:00.084154 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1549)        sbx0: 	CGContextDelegate: 0x111602d00
-Apr  9 15:37:00.090072 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1554)        sbx0: 	IOSurfaceContextDelegate: 0x114a0d500
-Apr  9 15:37:00.096550 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1561)        sbx0: 	IOSurfaceDrawable: 0x114a40e70
-Apr  9 15:37:00.100722 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1565)        sbx0: 	IOSurfaceQueue: 0x114a45ce0
-Apr  9 15:37:00.107244 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1572)        sbx0: 	CAPointer: 0x127318000
-Apr  9 15:37:00.107408 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1572)        sbx0: 	CA Header Before restoration
-Apr  9 15:37:00.113794 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1578)        sbx0: 		0x127318000 : 0x0
-Apr  9 15:37:00.119773 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1584)        sbx0: 		0x127318008 : 0x0
-Apr  9 15:37:00.120318 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1585)        sbx0: 		0x127318010 : 0x10000
-Apr  9 15:37:00.126185 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1591)        sbx0: 		0x127318018 : 0x100b0
-Apr  9 15:37:00.132735 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1597)        sbx0: 		0x127318020 : 0x127328030
-Apr  9 15:37:00.145659 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1610)        sbx0: 	CA Header After restoration
-Apr  9 15:37:00.151774 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1616)        sbx0: 		0x127318000 : 0x0
-Apr  9 15:37:00.158184 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1623)        sbx0: 		0x127318008 : 0x0
-Apr  9 15:37:00.162383 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1627)        sbx0: 		0x127318010 : 0x4000
-Apr  9 15:37:00.162744 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1627)        sbx0: 		0x127318018 : 0x4000
-Apr  9 15:37:00.169320 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1633)        sbx0: 		0x127318020 : 0x127318000
-Apr  9 15:37:00.169380 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1634)        sbx0: Image ID: 0x100000023 - remote_display_list_recorder: 0x10d0cccc0
-Apr  9 15:37:00.175921 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1640)        sbx0: 	m_imageBuffer: 0x10f006950
-Apr  9 15:37:00.178993 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1643)        sbx0: 	m_backend: 0x10f006890
-Apr  9 15:37:00.185598 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1650)        sbx0: 	m_platformContext: 0x111785b00
-Apr  9 15:37:00.196960 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1661)        sbx0: 	CGContextDelegate: 0x111602e40
-Apr  9 15:37:00.203847 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1668)        sbx0: 	IOSurfaceContextDelegate: 0x114a0d680
-Apr  9 15:37:00.210011 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1674)        sbx0: 	IOSurfaceDrawable: 0x114a40ee0
-Apr  9 15:37:00.216250 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1681)        sbx0: 	IOSurfaceQueue: 0x114a45dc0
-Apr  9 15:37:00.220910 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1685)        sbx0: 	CAPointer: 0x127320000
-Apr  9 15:37:00.221062 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1685)        sbx0: 	CA Header Before restoration
-Apr  9 15:37:00.228146 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1693)        sbx0: 		0x127320000 : 0x0
-Apr  9 15:37:00.234297 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1699)        sbx0: 		0x127320008 : 0x0
-Apr  9 15:37:00.237769 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1702)        sbx0: 		0x127320010 : 0x10000
-Apr  9 15:37:00.243689 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1708)        sbx0: 		0x127320018 : 0x1ff50
-Apr  9 15:37:00.244383 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1709)        sbx0: 		0x127320020 : 0x1f96804b8
-Apr  9 15:37:00.265530 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1730)        sbx0: 	CA Header After restoration
-Apr  9 15:37:00.272731 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1737)        sbx0: 		0x127320000 : 0x0
-Apr  9 15:37:00.279222 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1744)        sbx0: 		0x127320008 : 0x0
-Apr  9 15:37:00.291580 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1756)        sbx0: 		0x127320010 : 0x4000
-Apr  9 15:37:00.294510 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1759)        sbx0: 		0x127320018 : 0x4000
-Apr  9 15:37:00.300254 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1765)        sbx0: 		0x127320020 : 0x127320000
-Apr  9 15:37:00.300337 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1765)        sbx0: Image ID: 0x100000024 - remote_display_list_recorder: 0x10d0ccd10
-Apr  9 15:37:00.313703 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1778)        sbx0: 	m_imageBuffer: 0x10f0069e0
-Apr  9 15:37:00.320641 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1785)        sbx0: 	m_backend: 0x10f0068f0
-Apr  9 15:37:00.327098 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1791)        sbx0: 	m_platformContext: 0x111785bc0
-Apr  9 15:37:00.336243 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1801)        sbx0: 	CGContextDelegate: 0x111602f80
-Apr  9 15:37:00.341918 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1806)        sbx0: 	IOSurfaceContextDelegate: 0x114a0d800
-Apr  9 15:37:00.343072 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1808)        sbx0: 	IOSurfaceDrawable: 0x114a40f50
-Apr  9 15:37:00.349331 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1814)        sbx0: 	IOSurfaceQueue: 0x114a45ea0
-Apr  9 15:37:00.355506 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1820)        sbx0: 	CAPointer: 0x127328000
-Apr  9 15:37:00.355604 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1820)        sbx0: 	CA Header Before restoration
-Apr  9 15:37:00.356033 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1820)        sbx0: 		0x127328000 : 0x0
-Apr  9 15:37:00.362097 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1826)        sbx0: 		0x127328008 : 0x0
-Apr  9 15:37:00.362858 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1827)        sbx0: 		0x127328010 : 0x10000
-Apr  9 15:37:00.368570 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1833)        sbx0: 		0x127328018 : 0x1ff50
-Apr  9 15:37:00.368937 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1833)        sbx0: 		0x127328020 : 0x11173edb0
-Apr  9 15:37:00.420831 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1885)        sbx0: 	CA Header After restoration
-Apr  9 15:37:00.433203 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1891)        sbx0: 		0x127328000 : 0x0
-Apr  9 15:37:00.446459 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1911)        sbx0: 		0x127328008 : 0x0
-Apr  9 15:37:00.454277 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1919)        sbx0: 		0x127328010 : 0x4000
-Apr  9 15:37:00.466837 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1931)        sbx0: 		0x127328018 : 0x4000
-Apr  9 15:37:00.473322 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1937)        sbx0: 		0x127328020 : 0x127328000
-Apr  9 15:37:00.473538 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1938)        sbx0: [profiler] sbx0 (read|write) took 1545ms
-Apr  9 15:37:00.473751 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1938)        sbx0: gpu pac bypass start
-Apr  9 15:37:00.473905 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1938)        sbx0: backendConnection2.identifier: 0x10000008b
-Apr  9 15:37:00.473993 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1938)        sbx0: backendConnection3.identifier: 0x10000008c
-Apr  9 15:37:00.474049 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1938)        sbx0: backendConnection4.identifier: 0x10000008d
-Apr  9 15:37:00.474407 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1939)        sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:37:00.474529 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1939)        sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:37:00.474619 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1939)        sbx0: RemoteRenderingBackend created
-Apr  9 15:37:00.475160 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1940)        sbx0: RemoteRenderingBackend created
-Apr  9 15:37:00.475537 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1940)        sbx0: Connection.receiveMessages(): met bda
-Apr  9 15:37:00.475658 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1940)        sbx0: Connection.receiveMessages(): met 5a5
-Apr  9 15:37:00.476083 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1940)        sbx0: imageBufferIdentifier1: 0x10000008e
-Apr  9 15:37:00.476367 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1941)        sbx0: imageBufferIdentifier2: 0x10000008f
-Apr  9 15:37:00.476670 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1941)        sbx0: imageBufferIdentifier3: 0x100000090
-Apr  9 15:37:00.477096 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1941)        sbx0: imageBufferIdentifier4: 0x100000091
-Apr  9 15:37:00.477802 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1942)        sbx0: imageBufferIdentifier5: 0x100000092
-Apr  9 15:37:00.478101 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1943)        sbx0: imageBufferIdentifier6: 0x100000093
-Apr  9 15:37:00.483454 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1948)        sbx0: webProcessConnectionsMap: 0x10d024370
-Apr  9 15:37:00.492625 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1957)        sbx0: webProcessConnectionsMap.size: 1
-Apr  9 15:37:00.492756 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1957)        sbx0:   [0x20] (WebProcess)0x10d07c190
-Apr  9 15:37:00.499393 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1964)        sbx0:     .remoteRenderingBackendMap = 0x10d0244b0
-Apr  9 15:37:00.509294 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1974)        sbx0: myWebProcessConnection: 0x10d07c190
-Apr  9 15:37:00.509395 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1974)        sbx0: remoteRenderingBackend2: 0x10d0240e0
-Apr  9 15:37:00.509553 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1974)        sbx0: remoteRenderingBackend3: 0x10d024220
-Apr  9 15:37:00.509661 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(1974)        sbx0: remoteRenderingBackend4: 0x10d024680
-Apr  9 15:37:00.538408 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2003)        sbx0: remoteImageBuffersMap2: 0x10d05c190
-Apr  9 15:37:00.544876 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2009)        sbx0: remoteImageBuffersMap3: 0x10d0d0190
-Apr  9 15:37:00.551402 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2016)        sbx0: remoteImageBuffersMap4: 0x10d128190
-Apr  9 15:37:00.576999 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2041)        sbx0: remoteImageBuffer1: 0x10d1080c0
-Apr  9 15:37:00.577115 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2041)        sbx0: remoteImageBuffer2: 0x10d1080f0
-Apr  9 15:37:00.577178 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2042)        sbx0: remoteImageBuffer3: 0x10d1200c0
-Apr  9 15:37:00.577497 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2042)        sbx0: remoteImageBuffer4: 0x10d1200f0
-Apr  9 15:37:00.577776 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2042)        sbx0: remoteImageBuffer5: 0x10d12c0c0
-Apr  9 15:37:00.577863 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2042)        sbx0: remoteImageBuffer6: 0x10d12c0f0
-Apr  9 15:37:00.584221 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2049)        sbx0: imageBuffer1: 0x10f0075c0
-Apr  9 15:37:00.590042 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2054)        sbx0: imageBuffer2: 0x10f007f50
-Apr  9 15:37:00.590928 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2055)        sbx0: imageBuffer3: 0x10f0086b0
-Apr  9 15:37:00.591170 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2056)        sbx0: imageBuffer4: 0x10f008740
-Apr  9 15:37:00.598538 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2063)        sbx0: imageBuffer5: 0x10f008860
-Apr  9 15:37:00.605072 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2069)        sbx0: imageBuffer6: 0x10f0088f0
-Apr  9 15:37:00.619237 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2083)        sbx0: NSBundleTables: 0x103e9c080
-Apr  9 15:37:00.625793 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2090)        sbx0: loadedFrameworks: 0x1033bdbd0
-Apr  9 15:37:00.630383 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2095)        sbx0: loadedFrameworks_length: 0x80
-Apr  9 15:37:00.636394 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2101)        sbx0: loadedFrameworks_buffer: 0x114865400
-Apr  9 15:37:00.653688 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2118)        sbx0: bundle[3]: 0x1114789b0
-Apr  9 15:37:00.667897 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2132)        sbx0: bundle[5]: 0x1114790e0
-Apr  9 15:37:00.675453 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2140)        sbx0: bundle[8]: 0x111478cd0
-Apr  9 15:37:00.772464 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2237)        sbx0: bundle[22]: 0x111478730
-Apr  9 15:37:00.778074 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2242)        sbx0: TextToSpeech_NSBundle: 0x111478730
-Apr  9 15:37:00.784757 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2249)        sbx0: TextToSpeech_CFBundle: 0x1115dc620
-Apr  9 15:37:00.884579 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2349)        sbx0: runtimeState: 0x1f9126bd0
-Apr  9 15:37:00.890767 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2355)        sbx0: runtimeStateLock: 0x16cf5b458
-Apr  9 15:37:00.890930 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2355)        sbx0: p_InterposeTupleAll_buffer: 0x1f9126c88
-Apr  9 15:37:00.891615 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2355)        sbx0: p_InterposeTupleAll_size: 0x1f9126c90
-Apr  9 15:37:00.905012 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2369)        sbx0: runtimeState_vtable: 0x1fe3e0ab0
-Apr  9 15:37:00.919525 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2384)        sbx0: dyld_emptySlot: 0x1b5383b6c
-Apr  9 15:37:00.919676 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2384)        sbx0: dyld_offset: 0x-bd4c000
-Apr  9 15:37:00.919706 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2384)        sbx0: dlopen_from_lambda_ret: 0x1b5341fc8
-Apr  9 15:37:00.926699 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2391)        sbx0: workQueue: 0x10d010200
-Apr  9 15:37:00.950967 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2415)        sbx0: backend2_processingThread: 0x10d010280
-Apr  9 15:37:00.955504 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2420)        sbx0: stack_bottom: 0x16d443000
-Apr  9 15:37:00.961533 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2426)        sbx0: stack_top: 0x16d3c0000
-Apr  9 15:37:00.988298 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2453)        sbx0: RemoteRenderingBackend2 has been mutex-locked
-Apr  9 15:37:00.988379 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2453)        sbx0: loader: 0x16d4417b0
-Apr  9 15:37:00.988447 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2453)        sbx0: bss: 0x1f881d5e8
-Apr  9 15:37:00.988714 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2453)        sbx0: prev_metadata_ptr: 0x1f881d5e8
-Apr  9 15:37:00.988826 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2453)        sbx0: metadata_ptr: 0x1f881d5f8
-Apr  9 15:37:00.988900 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2453)        sbx0: invoker_arg: 0x1f881d608
-Apr  9 15:37:00.989036 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2453)        sbx0: invoker_x0: 0x1f881d618
-Apr  9 15:37:00.989275 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2454)        sbx0: gSecurityd: 0x1f881d678
-Apr  9 15:37:00.989474 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2454)        sbx0: slowFcallResult: 0x1f881d778
-Apr  9 15:37:00.989582 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2454)        sbx0: gpu_string_buffer: 0x1f881d788
-Apr  9 15:37:00.989742 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2454)        sbx0: signPointerSelf: 0x1f881d7a8
-Apr  9 15:37:00.989899 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2454)        sbx0: interposingTuples_ptr: 0x1f881d7b8
-Apr  9 15:37:01.080204 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2544)        sbx0: InterposeTupleAll_buffer: 0x1f881d7b8
-Apr  9 15:37:01.081460 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2545)        sbx0: RemoteRenderingBackend2 has been spin-locked
-Apr  9 15:37:01.115757 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2579)        sbx0: backend3_workQueue: 0x10d010500
-Apr  9 15:37:01.134011 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2598)        sbx0: backend3_processingThread: 0x10d010580
-Apr  9 15:37:01.146705 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2611)        sbx0: backend3_stack_bottom: 0x16d4cf000
-Apr  9 15:37:01.159487 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2624)        sbx0: backend3_stack_top: 0x16d44c000
-Apr  9 15:37:01.170688 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2633)        sbx0: RenderingBackend3 has been mutex-locked
-Apr  9 15:37:01.170909 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2635)        sbx0: backend3_loader: 0x16d4cd8d0
-Apr  9 15:37:01.315504 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2766)        sbx0: RenderingBackend3 has been spin-locked
-Apr  9 15:37:01.321801 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2786)        sbx0: fontIdentifier: 0x1234
-Apr  9 15:37:01.335790 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(2800)        sbx0: initMediaAccessibilityMACaptionAppearanceGetDisplayType: 0x705b8001a154ce48
-Apr  9 15:37:01.966982 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(3414)        sbx0: resourceCacheMap: 0x10d0380f0
-Apr  9 15:37:02.095063 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(3559)        sbx0: paciza_invoker: 0x47268002488678b4
-Apr  9 15:37:02.160712 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(3625)        sbx0: paciza_security_invoker_1: 0x764e00019733a930
-Apr  9 15:37:02.208218 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(3672)        sbx0: paciza_security_invoker_2: 0x4d2500019734ec00
-Apr  9 15:37:02.235175 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(3692)        sbx0: paciza_signPointer: 0x575d8001b534d3e4
-Apr  9 15:37:02.603497 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4057)        sbx0: paciza_pthread_create: 0xba4b000218d96988
-Apr  9 15:37:02.730314 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4170)        sbx0: paciza_malloc: 0xc06200019ef7c03c
-Apr  9 15:37:02.734814 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4199)        sbx0: gadget_control_1:0x24aac52ec
-Apr  9 15:37:02.735206 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4200)        sbx0: gadget_control_2:0x1b917cc28
-Apr  9 15:37:02.735349 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4200)        sbx0: gadget_control_3: 0x22ad86150
-Apr  9 15:37:02.748969 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4200)        sbx0: gadget_loop_1: 0x1923585dc
-Apr  9 15:37:02.756052 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4214)        sbx0: gadget_loop_2: 0x218d41ce8
-Apr  9 15:37:02.764691 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4221)        sbx0: gadget_loop_3: 0x190a89f1c
-Apr  9 15:37:02.767211 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4232)        sbx0: gadget_set_all_registers: 0x219aba16c
-Apr  9 15:37:03.078823 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4537)        sbx0: paciza_gadget_loop_1: 0xeb328001923585dc
-Apr  9 15:37:03.174959 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4636)        sbx0: paciza_gadget_loop_2: 0xd5d800218d41ce8
-Apr  9 15:37:03.376453 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(4840)        sbx0: paciza_gadget_loop_3: 0x7918800190a89f1c
-Apr  9 15:37:03.672103 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(5123)        sbx0: paciza_gadget_control_2: 0x414f0001b917cc28
-Apr  9 15:37:03.738429 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(5202)        sbx0: paciza_gadget_control_3: 0x666700022ad86150
-Apr  9 15:37:03.963154 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(5411)        sbx0: paciza_gadget_control_3_4: 0x632b00022ad86154
-Apr  9 15:37:04.095089 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(5559)        sbx0: paciza_gadget_set_all_registers: 0xf43c000219aba16c
-Apr  9 15:37:04.284876 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(5749)        sbx0: gpu_memory: 0x1406ec000
-Apr  9 15:37:04.461993 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(5926)        sbx0: GPU fcall thread has been spawned!!
-Apr  9 15:37:04.517254 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(5981)        sbx0: pthread_node: 0x16d213000
-Apr  9 15:37:04.573267 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(6038)        sbx0: jop_stack_top: 0x16d190000
-Apr  9 15:37:04.573725 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(6038)        sbx0: jop_stack_bottom: 0x16d218000
-Apr  9 15:37:04.994651 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(6433)        sbx0: paciza_gadget_control_1: 0xd70280024aac52ec
-Apr  9 15:37:05.277098 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(6723)        sbx0: pacib_gadget_loop_1_0x80020: 0x78350001923585dc
-Apr  9 15:37:05.627826 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(7077)        sbx0: pacib_gadget_loop_1_0x800c0: 0xa65d8001923585dc
-Apr  9 15:37:05.709666 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(7173)        sbx0: pacib_gadget_loop_2_0x80010: 0x3914000218d41ce8
-Apr  9 15:37:05.968220 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(7431)        sbx0: pacib_gadget_loop_2_0x800b0: 0xf56f000218d41ce8
-Apr  9 15:37:06.833599 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(8295)        sbx0: gpu_connection: 0x10d034340
-Apr  9 15:37:06.860546 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(8318)        sbx0: gpu_sendPort: 0x2603
-Apr  9 15:37:06.860904 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(8325)        sbx0: gpu_receiveBufferDataPointer: 0x1406ec580
-Apr  9 15:37:06.861250 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(8326)        sbx0: scratchPad: 0x1406ed5c4
-Apr  9 15:37:07.532596 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(8970)        sbx0: this.receivePort: 0x5507
-Apr  9 15:37:09.913635 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(11377)       sbx0: memPort: 0x467b
-Apr  9 15:37:10.647402 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(12105)       sbx0: gpu_memPort: 0x3e0b
-Apr  9 15:37:10.650719 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(12114)       sbx0: going to mach_vm_map
-Apr  9 15:37:10.668075 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(12132)       sbx0: gpu_receiveBufferDataPointer: 0x1406ec580
-Apr  9 15:37:11.955559 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(13420)       sbx0: gpu_memory: 0x1166cc000
-Apr  9 15:37:12.930559 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(14365)       sbx0: going to suspend the spinners in the GPU
-Apr  9 15:37:12.952948 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(14414)       sbx0: backend2_thread_port: 0x5a03
-Apr  9 15:37:12.994970 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(14450)       sbx0: backend3_thread_port: 0x5d03
-Apr  9 15:37:12.995302 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(14460)       sbx0: gpu scratchpad: 0x1166cc480
-Apr  9 15:37:12.996246 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(14460)       sbx0: wc scratchpad: 0x40180c480
-Apr  9 15:37:13.022016 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(14486)       sbx0: [+] SBX0 complete
-Apr  9 15:37:14.330498 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(15794)       sbx0: Restore bmalloc metadata after emptyString Corruption
-Apr  9 15:37:14.331136 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(15795)       sbx0: [+] SBX1 complete
-Apr  9 15:37:14.331596 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(15796)       sbx0: Invalidate backend connection from gpu process side
-Apr  9 15:37:14.331846 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(15796)       sbx0: remoteRenderingBackendMap: 0x10d0244b0
-Apr  9 15:37:14.332089 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(15796)       sbx0: remoteGraphicsContextGLMap: 0x10d0245f0
-Apr  9 15:37:14.336609 kernel(Sandbox)[0] <Error>: System Policy: com.apple.WebKit.WebContent(590) deny(1) file-write-create /(15801)       sbx0: Invalidated
-Apr  9 15:37:14.347507 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Calling pe() - kernel exploit phase...
-Apr  9 15:37:14.347932 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe() entered
-Apr  9 15:37:14.348230 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] get_device_machine() called
-Apr  9 15:37:14.348372 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] calling calloc...
-Apr  9 15:37:14.348613 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] calloc returned: 0x0000000d806ef700
-Apr  9 15:37:14.348748 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] calling uname...
-Apr  9 15:37:14.348866 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] uname returned
-Apr  9 15:37:14.362782 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_init() done, about to call pe_v1()...
-Apr  9 15:37:14.363895 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1() entered
-Apr  9 15:37:14.364107 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: allocating buffers...
-Apr  9 15:37:14.364250 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: calling initialize_physical_read_write...
-Apr  9 15:37:14.365933 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: physical r/w initialized
-Apr  9 15:37:14.366049 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: entering main loop
-Apr  9 15:37:14.366208 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: allocating search mappings...
-Apr  9 15:37:14.656231 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: search mappings done, spraying sockets...
-Apr  9 15:37:16.572986 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: socket spray done
-Apr  9 15:37:16.574652 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: searching mappings for socket PCB...
-Apr  9 15:37:16.575270 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: search mapping 0
-Apr  9 15:37:18.865458 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] pe() completed
-Apr  9 15:37:18.866161 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [+] kernel_base: 0xfffffff03a884000
-Apr  9 15:37:18.866408 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [+] kernel_slide: 0x0000000033880000
-Apr  9 15:37:18.885766 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Creating MigFilterBypass...
-Apr  9 15:37:18.886400 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] MigFilterBypass created
-Apr  9 15:37:18.888125 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Running PE chain...
-Apr  9 15:37:18.890154 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] PE chain result: true
-Apr  9 15:37:31.232876 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Exfil dir: /private/var/mobile/Media/Downloads/
-Apr  9 15:37:31.234136 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Creating agent loader for SpringBoard
-Apr  9 15:37:39.882589 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Coruna tweakloader disabled
-Apr  9 15:37:39.882638 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] SpringBoard JS tweak disabled
-Apr  9 15:37:39.882689 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Powercuff tweak disabled
-Apr  9 15:37:39.882875 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Unrelated dumps master switch disabled
-Apr  9 15:37:39.883258 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Keychain dump stage disabled
-Apr  9 15:37:39.883365 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] WiFi dump stage disabled
-Apr  9 15:37:39.883436 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] iCloud dump stage disabled
-Apr  9 15:37:39.883657 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Dump copyout stage disabled
-Apr  9 15:37:39.883944 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] ENABLE_THREEAPP = true mode=enable
-Apr  9 15:37:39.884233 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] === MG PATCHER ENTRY (in-place) ===
-Apr  9 15:37:39.884516 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] Issuing sandbox tokens...
-Apr  9 15:37:39.887323 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] token for plist: bfa24030e0bcdc4062496ae419f1c10a32488f9654db492bdb3f3f926004...
-Apr  9 15:37:39.887758 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] consume(plist) = 48 (OK)
-Apr  9 15:37:39.889153 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] token for dir: c191d6fb541b0d8d52fc93344f111124cd77f6dbffbc441ef21bbc8c3f45...
-Apr  9 15:37:39.889587 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] consume(dir) = 74 (OK)
-Apr  9 15:37:39.891859 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] consume(/private plist) = 48 (OK)
-Apr  9 15:37:39.892130 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] Opening /var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist for read...
-Apr  9 15:37:39.892966 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] open(RDONLY) fd = 12 errno=316
-Apr  9 15:37:39.895646 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] file size = 10050
-Apr  9 15:37:39.896940 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] read 10050/10050 bytes
-Apr  9 15:37:39.897960 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] Parsing plist with CFPropertyList...
-Apr  9 15:37:39.898642 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] plist = 0xd80478520
-Apr  9 15:37:39.898718 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] CacheExtra = 0xd80479e40
-Apr  9 15:37:39.898913 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] mode=enable flags=bootchime
-Apr  9 15:37:39.899417 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] SET QHxt+hGLaBPbQJbXiUJX3w = 1
-Apr  9 15:37:39.900191 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] serialized: 10079 bytes (original was 10050)
-Apr  9 15:37:39.900826 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] open(WR|TRUNC) fd=12 errno=316
-Apr  9 15:37:39.903514 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] fsync=0 errno=316
-Apr  9 15:37:39.904009 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] wrote 10079/10079 bytes
-Apr  9 15:37:39.904281 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] === VERIFICATION: re-reading file ===
-Apr  9 15:37:39.904879 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] verify open fd=12 errno=316
-Apr  9 15:37:39.905220 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] verify file size=10079 (wrote 10079)
-Apr  9 15:37:39.905754 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] verify read=10079 bytes
-Apr  9 15:37:39.907480 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] VERIFY InternalInstall=PRESENT InternalStorage=PRESENT SRD=PRESENT
-Apr  9 15:37:39.908001 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] === MG PATCHER EXIT ===
-Apr  9 15:37:39.908280 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] ENABLE_APPLIMIT = true
-Apr  9 15:37:39.908605 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] === APP LIMIT BYPASS ENTRY ===
-Apr  9 15:37:39.908807 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] Consuming sandbox tokens...
-Apr  9 15:37:39.930982 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] Scanning /var/containers/Bundle/Application/...
-Apr  9 15:37:40.625734 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on kfun.app
-Apr  9 15:37:40.687706 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on AltStore.app
-Apr  9 15:37:40.856084 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on idevice.ipa.app
-Apr  9 15:37:41.063692 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on Filza.app
-Apr  9 15:37:41.138891 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] Done: scanned=94 cleared=5 skipped=89
-Apr  9 15:37:41.139182 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] === APP LIMIT BYPASS EXIT ===
-Apr  9 15:37:41.139478 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Cleaning up launchdTask...
-Apr  9 15:37:41.141737 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] start() completed successfully
+# LightSaber successful chain run
+# Device: iPhone16,2 (A17 Pro), iOS 18.6.2
+# Tweaks: MobileGestalt Patcher (bootchime) + 3-App Limit Bypass
+# Note: SBCustomizer and Powercuff logs omitted (not queued this run)
+
+# === SBX0: Sandbox escape via GPU process ===
+
+sbx0: runLoopHolder_tid: 0x103
+sbx0: webProcess: 0x10c000100
+sbx0: webPage: 0x10075c6c8
+sbx0: 	m_drawingArea: 0x10c009340
+sbx0: 	m_isRenderingSuspended: 0x101000000
+sbx0: -> remoteRenderingBackendProxy: 0x10a0f2250
+sbx0: -> streamConnection: 0x10c014290
+sbx0: -> connection: 0x10a03d6c0
+sbx0: uiProcessConnection: 0x10a054340
+sbx0: [+] SBX0() (retry: 0)
+sbx0: crashGPUProcess("process cleanup")
+sbx0: [-] going to respawn gpu process
+sbx0: new gpuProcessConnection: 0x10ae580e0
+sbx0: waiting for sendPort
+sbx0: received sendPort
+sbx0: maybe_port: 0x760b
+sbx0: [+] SBX0() (retry: 1)
+sbx0: backendConnection.identifier: 0xffffffff
+sbx0: glConnection.identifier: 0x100000000
+sbx0: Connection.receiveMessages(): met bda
+sbx0: Connection.receiveMessages(): met 5a5
+sbx0: RemoteRenderingBackend created
+sbx0: Connection.receiveMessages(): met bda
+sbx0: Connection.receiveMessages(): met 409
+sbx0: RemoteGraphicsContextGL created
+sbx0: Vertex shader created. ID:1
+sbx0: Vertex shader sourced
+sbx0: Vertex shader compiled
+sbx0: Fragment shader created. ID:2
+sbx0: Fragment shader sourced
+sbx0: Fragment shader compiled
+sbx0: Program has been created. ID:3
+sbx0: Vertex shader has been attached
+sbx0: Fragment shader has been attached
+sbx0: Program has been linked
+sbx0: Program enabled
+sbx0: oob()
+sbx0: spray profile: compact chipset=c33e4990a9d3afe948b98d7d4205d596
+sbx0: [profiler] prepare_layout took 370ms
+sbx0: FINISHED oob()
+sbx0: preparePrimitives
+sbx0: Cache font ID: 0x10000002e
+sbx0: glThread: 0x10d010480
+sbx0: pthread_ptr: 0x16d32b000
+sbx0: currentThreadIndex: 0x106
+sbx0: pthread_tls: 0x11173c000
+sbx0: glBuffer: 0x1149b4200
+sbx0: rxBufferMtl: 0x114a0cf00
+sbx0: rxMtlBuffer: 0x103c5f540
+sbx0: AGXA13FamilyBuffer: 0x11493e400
+sbx0: offsets.free_slabs: 0x1f9511e90
+sbx0: Found our GPUConnectionToWebProcess: 0x10d07c190
+sbx0: Found our RenderingBackend: 0x10d024540
+sbx0: m_remoteDisplayLists: 0x10d0e8570
+sbx0: Image ID: 0x100000021 - remote_display_list_recorder: 0x10d0ccc20
+sbx0: 	m_imageBuffer: 0x10f006710
+sbx0: 	m_backend: 0x10f0064d0
+sbx0: 	m_platformContext: 0x111785980
+sbx0: 	CGContextDelegate: 0x111602bc0
+sbx0: 	IOSurfaceContextDelegate: 0x114a0d380
+sbx0: 	IOSurfaceDrawable: 0x114a40e00
+sbx0: 	IOSurfaceQueue: 0x114a45c00
+sbx0: 	CAPointer: 0x127310000
+sbx0: 	CA Header Before restoration
+sbx0: 		0x127310000 : 0x114a45c00
+sbx0: 		0x127310008 : 0x0
+sbx0: 		0x127310010 : 0x8000001000005e90
+sbx0: 		0x127310018 : 0x8000000fffffde70
+sbx0: 		0x127310020 : 0x127318020
+sbx0: 	CA Header After restoration
+sbx0: 		0x127310000 : 0x0
+sbx0: 		0x127310008 : 0x0
+sbx0: 		0x127310010 : 0x4000
+sbx0: 		0x127310018 : 0x4000
+sbx0: 		0x127310020 : 0x127310000
+sbx0: Image ID: 0x100000022 - remote_display_list_recorder: 0x10d0ccc70
+sbx0: 	m_imageBuffer: 0x10f0067a0
+sbx0: 	m_backend: 0x10f006830
+sbx0: 	m_platformContext: 0x111785a40
+sbx0: 	CGContextDelegate: 0x111602d00
+sbx0: 	IOSurfaceContextDelegate: 0x114a0d500
+sbx0: 	IOSurfaceDrawable: 0x114a40e70
+sbx0: 	IOSurfaceQueue: 0x114a45ce0
+sbx0: 	CAPointer: 0x127318000
+sbx0: 	CA Header Before restoration
+sbx0: 		0x127318000 : 0x0
+sbx0: 		0x127318008 : 0x0
+sbx0: 		0x127318010 : 0x10000
+sbx0: 		0x127318018 : 0x100b0
+sbx0: 		0x127318020 : 0x127328030
+sbx0: 	CA Header After restoration
+sbx0: 		0x127318000 : 0x0
+sbx0: 		0x127318008 : 0x0
+sbx0: 		0x127318010 : 0x4000
+sbx0: 		0x127318018 : 0x4000
+sbx0: 		0x127318020 : 0x127318000
+sbx0: Image ID: 0x100000023 - remote_display_list_recorder: 0x10d0cccc0
+sbx0: 	m_imageBuffer: 0x10f006950
+sbx0: 	m_backend: 0x10f006890
+sbx0: 	m_platformContext: 0x111785b00
+sbx0: 	CGContextDelegate: 0x111602e40
+sbx0: 	IOSurfaceContextDelegate: 0x114a0d680
+sbx0: 	IOSurfaceDrawable: 0x114a40ee0
+sbx0: 	IOSurfaceQueue: 0x114a45dc0
+sbx0: 	CAPointer: 0x127320000
+sbx0: 	CA Header Before restoration
+sbx0: 		0x127320000 : 0x0
+sbx0: 		0x127320008 : 0x0
+sbx0: 		0x127320010 : 0x10000
+sbx0: 		0x127320018 : 0x1ff50
+sbx0: 		0x127320020 : 0x1f96804b8
+sbx0: 	CA Header After restoration
+sbx0: 		0x127320000 : 0x0
+sbx0: 		0x127320008 : 0x0
+sbx0: 		0x127320010 : 0x4000
+sbx0: 		0x127320018 : 0x4000
+sbx0: 		0x127320020 : 0x127320000
+sbx0: Image ID: 0x100000024 - remote_display_list_recorder: 0x10d0ccd10
+sbx0: 	m_imageBuffer: 0x10f0069e0
+sbx0: 	m_backend: 0x10f0068f0
+sbx0: 	m_platformContext: 0x111785bc0
+sbx0: 	CGContextDelegate: 0x111602f80
+sbx0: 	IOSurfaceContextDelegate: 0x114a0d800
+sbx0: 	IOSurfaceDrawable: 0x114a40f50
+sbx0: 	IOSurfaceQueue: 0x114a45ea0
+sbx0: 	CAPointer: 0x127328000
+sbx0: 	CA Header Before restoration
+sbx0: 		0x127328000 : 0x0
+sbx0: 		0x127328008 : 0x0
+sbx0: 		0x127328010 : 0x10000
+sbx0: 		0x127328018 : 0x1ff50
+sbx0: 		0x127328020 : 0x11173edb0
+sbx0: 	CA Header After restoration
+sbx0: 		0x127328000 : 0x0
+sbx0: 		0x127328008 : 0x0
+sbx0: 		0x127328010 : 0x4000
+sbx0: 		0x127328018 : 0x4000
+sbx0: 		0x127328020 : 0x127328000
+sbx0: [profiler] sbx0 (read|write) took 1545ms
+sbx0: gpu pac bypass start
+sbx0: backendConnection2.identifier: 0x10000008b
+sbx0: backendConnection3.identifier: 0x10000008c
+sbx0: backendConnection4.identifier: 0x10000008d
+sbx0: Connection.receiveMessages(): met bda
+sbx0: Connection.receiveMessages(): met 5a5
+sbx0: RemoteRenderingBackend created
+sbx0: RemoteRenderingBackend created
+sbx0: Connection.receiveMessages(): met bda
+sbx0: Connection.receiveMessages(): met 5a5
+sbx0: imageBufferIdentifier1: 0x10000008e
+sbx0: imageBufferIdentifier2: 0x10000008f
+sbx0: imageBufferIdentifier3: 0x100000090
+sbx0: imageBufferIdentifier4: 0x100000091
+sbx0: imageBufferIdentifier5: 0x100000092
+sbx0: imageBufferIdentifier6: 0x100000093
+sbx0: webProcessConnectionsMap: 0x10d024370
+sbx0: webProcessConnectionsMap.size: 1
+sbx0:   [0x20] (WebProcess)0x10d07c190
+sbx0:     .remoteRenderingBackendMap = 0x10d0244b0
+sbx0: myWebProcessConnection: 0x10d07c190
+sbx0: remoteRenderingBackend2: 0x10d0240e0
+sbx0: remoteRenderingBackend3: 0x10d024220
+sbx0: remoteRenderingBackend4: 0x10d024680
+sbx0: remoteImageBuffersMap2: 0x10d05c190
+sbx0: remoteImageBuffersMap3: 0x10d0d0190
+sbx0: remoteImageBuffersMap4: 0x10d128190
+sbx0: remoteImageBuffer1: 0x10d1080c0
+sbx0: remoteImageBuffer2: 0x10d1080f0
+sbx0: remoteImageBuffer3: 0x10d1200c0
+sbx0: remoteImageBuffer4: 0x10d1200f0
+sbx0: remoteImageBuffer5: 0x10d12c0c0
+sbx0: remoteImageBuffer6: 0x10d12c0f0
+sbx0: imageBuffer1: 0x10f0075c0
+sbx0: imageBuffer2: 0x10f007f50
+sbx0: imageBuffer3: 0x10f0086b0
+sbx0: imageBuffer4: 0x10f008740
+sbx0: imageBuffer5: 0x10f008860
+sbx0: imageBuffer6: 0x10f0088f0
+sbx0: NSBundleTables: 0x103e9c080
+sbx0: loadedFrameworks: 0x1033bdbd0
+sbx0: loadedFrameworks_length: 0x80
+sbx0: loadedFrameworks_buffer: 0x114865400
+sbx0: bundle[3]: 0x1114789b0
+sbx0: bundle[5]: 0x1114790e0
+sbx0: bundle[8]: 0x111478cd0
+sbx0: bundle[22]: 0x111478730
+sbx0: TextToSpeech_NSBundle: 0x111478730
+sbx0: TextToSpeech_CFBundle: 0x1115dc620
+sbx0: runtimeState: 0x1f9126bd0
+sbx0: runtimeStateLock: 0x16cf5b458
+sbx0: p_InterposeTupleAll_buffer: 0x1f9126c88
+sbx0: p_InterposeTupleAll_size: 0x1f9126c90
+sbx0: runtimeState_vtable: 0x1fe3e0ab0
+sbx0: dyld_emptySlot: 0x1b5383b6c
+sbx0: dyld_offset: 0x-bd4c000
+sbx0: dlopen_from_lambda_ret: 0x1b5341fc8
+sbx0: workQueue: 0x10d010200
+sbx0: backend2_processingThread: 0x10d010280
+sbx0: stack_bottom: 0x16d443000
+sbx0: stack_top: 0x16d3c0000
+sbx0: RemoteRenderingBackend2 has been mutex-locked
+sbx0: loader: 0x16d4417b0
+sbx0: bss: 0x1f881d5e8
+sbx0: prev_metadata_ptr: 0x1f881d5e8
+sbx0: metadata_ptr: 0x1f881d5f8
+sbx0: invoker_arg: 0x1f881d608
+sbx0: invoker_x0: 0x1f881d618
+sbx0: gSecurityd: 0x1f881d678
+sbx0: slowFcallResult: 0x1f881d778
+sbx0: gpu_string_buffer: 0x1f881d788
+sbx0: signPointerSelf: 0x1f881d7a8
+sbx0: interposingTuples_ptr: 0x1f881d7b8
+sbx0: InterposeTupleAll_buffer: 0x1f881d7b8
+sbx0: RemoteRenderingBackend2 has been spin-locked
+sbx0: backend3_workQueue: 0x10d010500
+sbx0: backend3_processingThread: 0x10d010580
+sbx0: backend3_stack_bottom: 0x16d4cf000
+sbx0: backend3_stack_top: 0x16d44c000
+sbx0: RenderingBackend3 has been mutex-locked
+sbx0: backend3_loader: 0x16d4cd8d0
+sbx0: RenderingBackend3 has been spin-locked
+sbx0: fontIdentifier: 0x1234
+sbx0: initMediaAccessibilityMACaptionAppearanceGetDisplayType: 0x705b8001a154ce48
+sbx0: resourceCacheMap: 0x10d0380f0
+sbx0: paciza_invoker: 0x47268002488678b4
+sbx0: paciza_security_invoker_1: 0x764e00019733a930
+sbx0: paciza_security_invoker_2: 0x4d2500019734ec00
+sbx0: paciza_signPointer: 0x575d8001b534d3e4
+sbx0: paciza_pthread_create: 0xba4b000218d96988
+sbx0: paciza_malloc: 0xc06200019ef7c03c
+sbx0: gadget_control_1:0x24aac52ec
+sbx0: gadget_control_2:0x1b917cc28
+sbx0: gadget_control_3: 0x22ad86150
+sbx0: gadget_loop_1: 0x1923585dc
+sbx0: gadget_loop_2: 0x218d41ce8
+sbx0: gadget_loop_3: 0x190a89f1c
+sbx0: gadget_set_all_registers: 0x219aba16c
+sbx0: paciza_gadget_loop_1: 0xeb328001923585dc
+sbx0: paciza_gadget_loop_2: 0xd5d800218d41ce8
+sbx0: paciza_gadget_loop_3: 0x7918800190a89f1c
+sbx0: paciza_gadget_control_2: 0x414f0001b917cc28
+sbx0: paciza_gadget_control_3: 0x666700022ad86150
+sbx0: paciza_gadget_control_3_4: 0x632b00022ad86154
+sbx0: paciza_gadget_set_all_registers: 0xf43c000219aba16c
+sbx0: gpu_memory: 0x1406ec000
+sbx0: GPU fcall thread has been spawned!!
+sbx0: pthread_node: 0x16d213000
+sbx0: jop_stack_top: 0x16d190000
+sbx0: jop_stack_bottom: 0x16d218000
+sbx0: paciza_gadget_control_1: 0xd70280024aac52ec
+sbx0: pacib_gadget_loop_1_0x80020: 0x78350001923585dc
+sbx0: pacib_gadget_loop_1_0x800c0: 0xa65d8001923585dc
+sbx0: pacib_gadget_loop_2_0x80010: 0x3914000218d41ce8
+sbx0: pacib_gadget_loop_2_0x800b0: 0xf56f000218d41ce8
+sbx0: gpu_connection: 0x10d034340
+sbx0: gpu_sendPort: 0x2603
+sbx0: gpu_receiveBufferDataPointer: 0x1406ec580
+sbx0: scratchPad: 0x1406ed5c4
+sbx0: this.receivePort: 0x5507
+sbx0: memPort: 0x467b
+sbx0: gpu_memPort: 0x3e0b
+sbx0: going to mach_vm_map
+sbx0: gpu_receiveBufferDataPointer: 0x1406ec580
+sbx0: gpu_memory: 0x1166cc000
+sbx0: going to suspend the spinners in the GPU
+sbx0: backend2_thread_port: 0x5a03
+sbx0: backend3_thread_port: 0x5d03
+sbx0: gpu scratchpad: 0x1166cc480
+sbx0: wc scratchpad: 0x40180c480
+sbx0: [+] SBX0 complete
+sbx0: Restore bmalloc metadata after emptyString Corruption
+sbx0: [+] SBX1 complete
+sbx0: Invalidate backend connection from gpu process side
+sbx0: remoteRenderingBackendMap: 0x10d0244b0
+sbx0: remoteGraphicsContextGLMap: 0x10d0245f0
+sbx0: Invalidated
+
+# === PE: Post-exploit in mediaplaybackd ===
+
+[PE] Calling pe() - kernel exploit phase...
+[PE-DBG] pe() entered
+[PE-DBG] get_device_machine() called
+[PE-DBG] calling calloc...
+[PE-DBG] calloc returned: 0x0000000d806ef700
+[PE-DBG] calling uname...
+[PE-DBG] uname returned
+[PE-DBG] pe_init() done, about to call pe_v1()...
+[PE-DBG] pe_v1() entered
+[PE-DBG] pe_v1: allocating buffers...
+[PE-DBG] pe_v1: calling initialize_physical_read_write...
+[PE-DBG] pe_v1: physical r/w initialized
+[PE-DBG] pe_v1: entering main loop
+[PE-DBG] pe_v1: allocating search mappings...
+[PE-DBG] pe_v1: search mappings done, spraying sockets...
+[PE-DBG] pe_v1: socket spray done
+[PE-DBG] pe_v1: searching mappings for socket PCB...
+[PE-DBG] pe_v1: search mapping 0
+[PE] pe() completed
+[+] kernel_base: 0xfffffff03a884000
+[+] kernel_slide: 0x0000000033880000
+[PE] Creating MigFilterBypass...
+[PE] MigFilterBypass created
+[PE] Running PE chain...
+[PE] PE chain result: true
+[PE] Exfil dir: /private/var/mobile/Media/Downloads/
+[PE] Creating agent loader for SpringBoard
+[PE] Coruna tweakloader disabled
+[PE] SpringBoard JS tweak disabled
+[PE] Powercuff tweak disabled
+[PE] Unrelated dumps master switch disabled
+[PE] Keychain dump stage disabled
+[PE] WiFi dump stage disabled
+[PE] iCloud dump stage disabled
+[PE] Dump copyout stage disabled
+[MG] ENABLE_THREEAPP = true mode=enable
+[MG] === MG PATCHER ENTRY (in-place) ===
+[MG] Issuing sandbox tokens...
+[MG] token for plist: bfa24030e0bcdc4062496ae419f1c10a32488f9654db492bdb3f3f926004...
+[MG] consume(plist) = 48 (OK)
+[MG] token for dir: c191d6fb541b0d8d52fc93344f111124cd77f6dbffbc441ef21bbc8c3f45...
+[MG] consume(dir) = 74 (OK)
+[MG] consume(/private plist) = 48 (OK)
+[MG] Opening /var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist for read...
+[MG] open(RDONLY) fd = 12 errno=316
+[MG] file size = 10050
+[MG] read 10050/10050 bytes
+[MG] Parsing plist with CFPropertyList...
+[MG] plist = 0xd80478520
+[MG] CacheExtra = 0xd80479e40
+[MG] mode=enable flags=bootchime
+[MG] SET QHxt+hGLaBPbQJbXiUJX3w = 1
+[MG] serialized: 10079 bytes (original was 10050)
+[MG] open(WR|TRUNC) fd=12 errno=316
+[MG] fsync=0 errno=316
+[MG] wrote 10079/10079 bytes
+[MG] === VERIFICATION: re-reading file ===
+[MG] verify open fd=12 errno=316
+[MG] verify file size=10079 (wrote 10079)
+[MG] verify read=10079 bytes
+[MG] VERIFY InternalInstall=PRESENT InternalStorage=PRESENT SRD=PRESENT
+[MG] === MG PATCHER EXIT ===
+[APPLIMIT] ENABLE_APPLIMIT = true
+[APPLIMIT] === APP LIMIT BYPASS ENTRY ===
+[APPLIMIT] Consuming sandbox tokens...
+[APPLIMIT] Scanning /var/containers/Bundle/Application/...
+[APPLIMIT] SET xattr (3 null bytes) on kfun.app
+[APPLIMIT] SET xattr (3 null bytes) on AltStore.app
+[APPLIMIT] SET xattr (3 null bytes) on idevice.ipa.app
+[APPLIMIT] SET xattr (3 null bytes) on Filza.app
+[APPLIMIT] Done: scanned=94 cleared=5 skipped=89
+[APPLIMIT] === APP LIMIT BYPASS EXIT ===
+[PE] Cleaning up launchdTask...
+[PE] start() completed successfully
