@@ -613,18 +613,23 @@
     .tweak-sheet-backdrop.active { display: block; opacity: 1; }
     .tweak-sheet {
       position: fixed;
-      top: 0; right: 0; bottom: 0;
-      width: min(92vw, 480px);
+      top: 50%; left: 50%;
+      width: min(88vw, 420px);
+      max-height: 75vh;
       z-index: 910;
-      background: var(--bg);
-      box-shadow: -8px 0 40px rgba(10,15,28,0.22);
-      transform: translateX(100%);
-      transition: transform 0.3s var(--ease-out);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-lg);
+      transform: translate(-50%, -50%) scale(0.92);
+      opacity: 0;
+      transition: transform 0.25s var(--ease-out), opacity 0.2s var(--ease);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       padding: 0;
+      pointer-events: none;
     }
-    .tweak-sheet.active { transform: translateX(0); }
+    .tweak-sheet.active { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
     @media (prefers-reduced-motion: reduce) {
       .tweak-sheet-backdrop { transition: none; }
       .tweak-sheet { transition: none; }
@@ -793,60 +798,38 @@
     .tweak-row.expanded .tweak-row-desc-inline {
       display: none;
     }
-    /* iOS-style toggle switch */
-    .tweak-toggle {
-      position: relative;
-      display: inline-block;
-      width: 51px;
-      height: 31px;
-      flex-shrink: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .tweak-toggle input {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      opacity: 0;
+    /* Sileo-style queue button */
+    .tweak-queue-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: none;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
       cursor: pointer;
-      z-index: 1;
-    }
-    .tweak-toggle-track {
-      position: absolute;
-      inset: 0;
-      background: var(--card-inset);
-      border: 1px solid var(--border-soft);
-      border-radius: 31px;
-      transition: background 0.22s var(--ease), border-color 0.22s var(--ease);
-    }
-    .tweak-toggle-track::before {
-      content: '';
-      position: absolute;
-      left: 2px;
-      top: 2px;
-      width: 25px;
-      height: 25px;
-      background: var(--card);
-      border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(15,23,42,0.18), 0 1px 1px rgba(15,23,42,0.12);
-      transition: transform 0.22s var(--ease);
-    }
-    .tweak-toggle input:checked ~ .tweak-toggle-track {
+      flex-shrink: 0;
+      transition: background 0.18s var(--ease), color 0.18s var(--ease), transform 0.12s var(--ease-out);
+      -webkit-tap-highlight-color: transparent;
       background: var(--accent);
-      border-color: var(--accent-hover);
+      color: #fff;
+      letter-spacing: -0.005em;
     }
-    .tweak-toggle input:checked ~ .tweak-toggle-track::before { transform: translateX(20px); background: #fff; }
-    .tweak-toggle input:focus-visible ~ .tweak-toggle-track {
-      box-shadow: var(--ring);
-    }
-    .tweak-row.experimental .tweak-toggle-track {
+    .tweak-queue-btn:active { transform: scale(0.95); }
+    .tweak-queue-btn.queued {
       background: var(--card-inset);
+      color: var(--muted);
+      border: 1px solid var(--border);
     }
+    /* Hidden checkbox drives the queued state (only top-level row toggles) */
+    .tweak-row-head > .tweak-toggle { display: none; }
+    /* Sub-option toggles inside sheets keep their styling */
+    .tweak-sheet-body .tweak-toggle,
+    .tweak-row-options .tweak-toggle { display: inline-block; }
     @media (prefers-reduced-motion: reduce) {
-      .tweak-row-caret,
-      .tweak-toggle-track,
-      .tweak-toggle-track::before { transition: none; }
+      .tweak-queue-btn { transition: none; }
     }
     .tweak-row-options {
       display: none;
@@ -1092,10 +1075,8 @@
           <div class="tweak-row-head">
             <span class="tweak-row-name">SBCustomizer</span>
             <button type="button" class="tweak-row-info" aria-label="SBCustomizer details" data-sheet="tweakRowFiveicon">i</button>
-            <label class="tweak-toggle" aria-label="Enable SBCustomizer">
-              <input type="checkbox" id="tweakFiveicon">
-              <span class="tweak-toggle-track" aria-hidden="true"></span>
-            </label>
+            <input type="checkbox" id="tweakFiveicon" class="tweak-toggle">
+            <button type="button" class="tweak-queue-btn" data-cb="tweakFiveicon">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailFiveicon" hidden>
             <div class="tweak-row-desc">Fine-tune the SpringBoard dock and home screen grid at runtime: number of icons in the dock, home columns, and home rows. Runtime patch only &mdash; no on-disk changes.</div>
@@ -1151,10 +1132,8 @@
           <div class="tweak-row-head">
             <span class="tweak-row-name">Powercuff</span>
             <button type="button" class="tweak-row-info" aria-label="Powercuff details" data-sheet="tweakRowPowercuff">i</button>
-            <label class="tweak-toggle" aria-label="Enable Powercuff">
-              <input type="checkbox" id="tweakPowercuff">
-              <span class="tweak-toggle-track" aria-hidden="true"></span>
-            </label>
+            <input type="checkbox" id="tweakPowercuff" class="tweak-toggle">
+            <button type="button" class="tweak-queue-btn" data-cb="tweakPowercuff">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailPowercuff" hidden>
             <div class="tweak-row-desc">Underclocks the CPU/GPU for longer battery, at the cost of speed. Port of <a href="https://github.com/rpetrich/Powercuff">rpetrich's Powercuff</a>. Lasts until reboot.</div>
@@ -1176,10 +1155,8 @@
           <div class="tweak-row-head">
             <span class="tweak-row-name">MobileGestalt Patcher</span>
             <button type="button" class="tweak-row-info" aria-label="MobileGestalt Patcher details" data-sheet="tweakRowThreeapp">i</button>
-            <label class="tweak-toggle" aria-label="Enable MobileGestalt Patcher">
-              <input type="checkbox" id="tweakThreeapp">
-              <span class="tweak-toggle-track" aria-hidden="true"></span>
-            </label>
+            <input type="checkbox" id="tweakThreeapp" class="tweak-toggle">
+            <button type="button" class="tweak-queue-btn" data-cb="tweakThreeapp">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailThreeapp" hidden>
             <div class="tweak-row-desc">Patches <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a>-style MobileGestalt flags. Modifies a system file &mdash; persists across reboots until reverted. Respring to apply.</div>
@@ -1213,10 +1190,8 @@
           <div class="tweak-row-head">
             <span class="tweak-row-name">3-App Limit Bypass</span>
             <button type="button" class="tweak-row-info" aria-label="3-App Limit Bypass details" data-sheet="tweakRowApplimit">i</button>
-            <label class="tweak-toggle" aria-label="Enable 3-App Limit Bypass">
-              <input type="checkbox" id="tweakApplimit">
-              <span class="tweak-toggle-track" aria-hidden="true"></span>
-            </label>
+            <input type="checkbox" id="tweakApplimit" class="tweak-toggle">
+            <button type="button" class="tweak-queue-btn" data-cb="tweakApplimit">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailApplimit" hidden>
             <div class="tweak-row-desc">Removes the 3-app sideloading limit for free developer accounts by clearing the installd tracking xattr on all sideloaded app bundles. Must be re-run after installing new sideloaded apps.</div>
@@ -1230,7 +1205,7 @@
       </div>
 
       <div class="install-zone">
-        <button id="runBtn" class="btn btn-run" onclick="confirmInstall()">Install Selected</button>
+        <button id="runBtn" class="btn btn-run" onclick="confirmInstall()">Install Queue</button>
       </div>
       <div id="installStatus" class="install-status"></div>
       <div class="tip">
@@ -1502,6 +1477,12 @@
       if (!el || !cb) return;
       if (cb.checked) el.classList.add('checked');
       else el.classList.remove('checked');
+      // Sync queue button state
+      var btn = el.querySelector('.tweak-queue-btn[data-cb="' + row.cbId + '"]');
+      if (btn) {
+        if (cb.checked) { btn.textContent = 'QUEUED'; btn.classList.add('queued'); }
+        else { btn.textContent = 'GET'; btn.classList.remove('queued'); }
+      }
     }
     // Sheet names for each tweak row
     var tweakSheetNames = {
@@ -1561,7 +1542,24 @@
       })(tweakRows[ti]);
     }
 
-    // Options are now in the sheet panel, no inline stop-propagation needed
+    // Wire queue buttons: toggle hidden checkbox + update button text/style
+    document.querySelectorAll('.tweak-queue-btn[data-cb]').forEach(function(btn) {
+      var cbId = btn.getAttribute('data-cb');
+      var cb = document.getElementById(cbId);
+      if (!cb) return;
+      function syncBtn() {
+        if (cb.checked) { btn.textContent = 'QUEUED'; btn.classList.add('queued'); }
+        else { btn.textContent = 'GET'; btn.classList.remove('queued'); }
+      }
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        cb.checked = !cb.checked;
+        cb.dispatchEvent(new Event('change'));
+        syncBtn();
+      });
+      syncBtn();
+      cb.addEventListener('change', syncBtn);
+    });
     // Slider binding: keep the display value in sync with the native range
     // input, live while dragging. The count constants are used by both the
     // initial wiring and the reset handler so they stay in one place.
