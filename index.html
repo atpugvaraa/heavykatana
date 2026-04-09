@@ -1197,12 +1197,12 @@
             <button type="button" class="tweak-queue-btn" data-cb="tweakApplimit">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailApplimit" hidden>
-            <div class="tweak-row-desc">Removes the 3-app sideloading limit for free developer accounts by clearing the installd tracking xattr on all sideloaded app bundles. Must be re-run after installing new sideloaded apps.</div>
+            <div class="tweak-row-desc">Removes the 3-app sideloading limit for free developer accounts by clearing the installd tracking xattr on all sideloaded app bundles. Must be re-run once you hit the 3-app limit again.</div>
           </div>
           <div class="tweak-row-options">
-            <div class="tweak-row-desc tweak-row-desc-inline">Removes the 3-app sideloading limit for free developer accounts by clearing the installd tracking xattr on all sideloaded app bundles. Must be re-run after installing new sideloaded apps.</div>
+            <div class="tweak-row-desc tweak-row-desc-inline">Removes the 3-app sideloading limit for free developer accounts by clearing the installd tracking xattr on all sideloaded app bundles. Must be re-run once you hit the 3-app limit again.</div>
             <div style="margin-bottom:10px;padding:10px 12px;background:#fff0f0;border:1px solid #f87171;border-radius:10px;font-size:0.7rem;color:#7f1d1d;line-height:1.55"><strong>Reboot first.</strong> Do not run this on top of a previous chain run in the same boot session. The kernel exploit leaves residual state that makes subsequent runs more likely to panic. Reboot your device, then run this as the only queued tweak.</div>
-            <div class="tweak-row-notes"><strong>Note:</strong> Only affects apps signed with a free provisioning profile. Does not modify any system files &mdash; changes persist until installd re-stamps the apps (next sideload install). Still limited to 10 App IDs per Apple ID per 7-day window.</div>
+            <div class="tweak-row-notes"><strong>Note:</strong> Only affects apps signed with a free provisioning profile. Does not modify any system files &mdash; changes persist until installd re-stamps 3 more apps. Still limited to 10 App IDs per Apple ID per 7-day window.</div>
           </div>
         </div>
 
