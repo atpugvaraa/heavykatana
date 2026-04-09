@@ -1578,6 +1578,7 @@
 
     // Clear all queued tweaks
     document.getElementById('clearQueueBtn').addEventListener('click', function() {
+      if (!confirm('Clear all queued tweaks?')) return;
       for (var ci = 0; ci < tweakRows.length; ci++) {
         var cb = document.getElementById(tweakRows[ci].cbId);
         if (cb && cb.checked) {
