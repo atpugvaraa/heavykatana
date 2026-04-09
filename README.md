@@ -37,6 +37,14 @@ Runtime SpringBoard layout customization: dock icon count, home screen columns a
 
 Port of [rpetrich's Powercuff](https://github.com/rpetrich/Powercuff). Underclocks CPU/GPU via thermalmonitord for extended battery life. Four levels: nominal, light, moderate, heavy. Lasts until reboot.
 
+## Roadmap
+
+- [ ] Improve chain reliability and reproducibility
+- [ ] Add offsets to support more iOS 18.x versions
+- [ ] Get StatBar functional (data reporting works but UI display hits nonstop PAC violations)
+- [ ] ColorBanners payload (WIP)
+- [ ] Resolve compatibility issues with Nugget and similar tools
+
 ## Usage
 
 Visit [zeroxjf.github.io/lightsaber](https://zeroxjf.github.io/lightsaber/) in Safari on a supported device. Pick your tweaks, tap **Install Selected**, and keep Safari in the foreground for up to 60 seconds while the chain runs.
