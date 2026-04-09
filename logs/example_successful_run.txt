@@ -1,0 +1,57 @@
+Apr  9 15:37:14.347507 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Calling pe() - kernel exploit phase...
+Apr  9 15:37:14.347932 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe() entered
+Apr  9 15:37:14.348230 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] get_device_machine() called
+Apr  9 15:37:14.348372 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] calling calloc...
+Apr  9 15:37:14.348613 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] calloc returned: 0x0000000d806ef700
+Apr  9 15:37:14.348748 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] calling uname...
+Apr  9 15:37:14.348866 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] uname returned
+Apr  9 15:37:14.362782 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_init() done, about to call pe_v1()...
+Apr  9 15:37:14.363895 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1() entered
+Apr  9 15:37:14.364107 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: allocating buffers...
+Apr  9 15:37:14.364250 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: calling initialize_physical_read_write...
+Apr  9 15:37:14.365933 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: physical r/w initialized
+Apr  9 15:37:14.366049 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: entering main loop
+Apr  9 15:37:14.366208 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: allocating search mappings...
+Apr  9 15:37:14.656231 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: search mappings done, spraying sockets...
+Apr  9 15:37:16.572986 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: socket spray done
+Apr  9 15:37:16.574652 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: searching mappings for socket PCB...
+Apr  9 15:37:16.575270 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE-DBG] pe_v1: search mapping 0
+Apr  9 15:37:18.865458 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] pe() completed
+Apr  9 15:37:18.866161 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [+] kernel_base: 0xfffffff03a884000
+Apr  9 15:37:18.866408 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [+] kernel_slide: 0x0000000033880000
+Apr  9 15:37:18.885766 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Creating MigFilterBypass...
+Apr  9 15:37:18.886400 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] MigFilterBypass created
+Apr  9 15:37:18.888125 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Running PE chain...
+Apr  9 15:37:18.890154 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] PE chain result: true
+Apr  9 15:37:31.232876 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Exfil dir: /private/var/mobile/Media/Downloads/
+Apr  9 15:37:31.234136 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Creating agent loader for SpringBoard
+Apr  9 15:37:39.882589 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Coruna tweakloader disabled
+Apr  9 15:37:39.882638 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] SpringBoard JS tweak disabled
+Apr  9 15:37:39.882689 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Powercuff tweak disabled
+Apr  9 15:37:39.883258 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] ENABLE_THREEAPP = true mode=enable
+Apr  9 15:37:39.884233 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] === MG PATCHER ENTRY (in-place) ===
+Apr  9 15:37:39.887323 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] token for plist: bfa24030e0bcdc4062496ae419f1c10a...
+Apr  9 15:37:39.887758 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] consume(plist) = 48 (OK)
+Apr  9 15:37:39.892130 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] Opening MobileGestalt plist for read...
+Apr  9 15:37:39.892966 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] open(RDONLY) fd = 12 errno=316
+Apr  9 15:37:39.895646 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] file size = 10050
+Apr  9 15:37:39.898642 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] plist = 0xd80478520
+Apr  9 15:37:39.898913 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] mode=enable flags=bootchime
+Apr  9 15:37:39.899417 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] SET QHxt+hGLaBPbQJbXiUJX3w = 1
+Apr  9 15:37:39.900191 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] serialized: 10079 bytes (original was 10050)
+Apr  9 15:37:39.903514 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] fsync=0 errno=316
+Apr  9 15:37:39.904009 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] wrote 10079/10079 bytes
+Apr  9 15:37:39.905220 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] verify file size=10079 (wrote 10079)
+Apr  9 15:37:39.907480 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] VERIFY InternalInstall=PRESENT InternalStorage=PRESENT SRD=PRESENT
+Apr  9 15:37:39.908001 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [MG] === MG PATCHER EXIT ===
+Apr  9 15:37:39.908280 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] ENABLE_APPLIMIT = true
+Apr  9 15:37:39.908605 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] === APP LIMIT BYPASS ENTRY ===
+Apr  9 15:37:39.930982 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] Scanning /var/containers/Bundle/Application/...
+Apr  9 15:37:40.625734 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on kfun.app
+Apr  9 15:37:40.687706 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on AltStore.app
+Apr  9 15:37:40.856084 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on idevice.ipa.app
+Apr  9 15:37:41.063692 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] SET xattr (3 null bytes) on Filza.app
+Apr  9 15:37:41.138891 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] Done: scanned=94 cleared=5 skipped=89
+Apr  9 15:37:41.139182 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [APPLIMIT] === APP LIMIT BYPASS EXIT ===
+Apr  9 15:37:41.139478 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] Cleaning up launchdTask...
+Apr  9 15:37:41.141737 mediaplaybackd(FitnessCanvasUI)[376] <Notice>: [PE] start() completed successfully

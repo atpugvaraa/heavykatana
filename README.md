@@ -61,6 +61,23 @@ Visit [zeroxjf.github.io/lightsaber](https://zeroxjf.github.io/lightsaber/) in S
 
 **If it fails** (page flash, "A problem repeatedly occurred", or "webpage crashed" banner): clear Safari's cache (book icon > Clear), reload, and retry. If it keeps failing, reboot, clear cache again, and try once more.
 
+## Debugging with syslog.py
+
+`syslog.py` is a filtered device syslog viewer that shows only chain-relevant log lines. Requires a Mac with `idevicesyslog` installed (`brew install libimobiledevice`) and the device connected via USB.
+
+```bash
+python3 syslog.py
+```
+
+Each run creates a timestamped log file in `logs/` (e.g. `logs/syslog_2026-04-09_15-37-00.txt`). Log tags are color-coded:
+
+- **Green** `[PE]` `[PE-DBG]` - post-exploit / kernel phase
+- **Magenta** `[SBX1]` `SBX0` - sandbox escape stages
+- **Cyan** `[SBC]` `[POWERCUFF]` `[MG]` `[APPLIMIT]` - tweak payloads
+- **Red** - crashes, PAC violations, JS errors
+
+See [`logs/example_successful_run.txt`](logs/example_successful_run.txt) for what a successful chain run looks like.
+
 ## Project structure
 
 ```
@@ -85,6 +102,8 @@ syslog.py               Device syslog capture helper
 - [DarkSword](https://iverify.io/blog/darksword-ios-exploit-kit-explained) - the original exploit chain this is derived from
 - [34306](https://github.com/34306) & [khanhduytran0](https://github.com/khanhduytran0) - their [site design](http://34306.lol/darksword/) helped stabilize payload delivery
 - [@cro4js](https://twitter.com/cro4js) - UI suggestions
+- [leminlimez](https://github.com/leminlimez/Nugget) - Nugget (MobileGestalt tweak design and BookRestore exploit)
+- [khanhduytran0](https://github.com/khanhduytran0/SparseBox) - SparseBox (SparseRestore 3-app limit bypass technique)
 - [rpetrich](https://github.com/rpetrich/Powercuff) - original Powercuff tweak
 - Anonymous contributors for help stabilizing the exploit chain
 

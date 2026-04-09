@@ -2,4 +2,4 @@ CLAUDE.md
 .DS_Store
 syslog.py
 syslog.txt
-logs/
+logs/syslog_*.txt
