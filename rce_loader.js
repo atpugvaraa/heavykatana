@@ -69,7 +69,7 @@ function print(x, reportError = false, dumphex = false) {
             source: 'webcontent',
             reportError: !!reportError,
             dumphex: !!dumphex
-        }, location.origin);
+        }, '*');
     } catch (e) {}
     if (!SERVER_LOG && !reportError) return;
     let obj = {
@@ -279,7 +279,7 @@ let workerBlobUrl = URL.createObjectURL(workerBlob);
                 const token = (data.token || "").toString();
                 if (token.length > 0) {
                     try { sessionStorage.setItem('lightsaber_token', token); } catch (e) {}
-                    try { window.parent.postMessage({ type: 'lightsaber_token', token: token }, location.origin); } catch (e) {}
+                    try { window.parent.postMessage({ type: 'lightsaber_token', token: token }, '*'); } catch (e) {}
                 }
                 break;
             }
@@ -293,7 +293,7 @@ let workerBlobUrl = URL.createObjectURL(workerBlob);
                             source: 'worker',
                             reportError: !!data.reportError,
                             dumphex: !!data.dumphex
-                        }, location.origin);
+                        }, '*');
                     } catch(e) {}
                 }
                 break;
