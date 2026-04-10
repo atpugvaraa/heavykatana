@@ -1495,7 +1495,8 @@
   <div id="killSafariOverlay" class="overlay">
     <div class="dialog">
       <h2 style="color:#b91c1c">Force-close Safari</h2>
-      <p>Safari got corrupted during a recent failed run. Reusing it can kernel-panic the device. From the app switcher, swipe up on Safari to kill the process, then reopen and try again.</p>
+      <p>Safari is in a dirty state from a previous run. From the app switcher, swipe up on Safari to kill it, then reopen this page and try again.</p>
+      <p style="font-size:0.78rem;color:var(--subtle);margin-top:8px">If this keeps happening, clear Safari's cache (Settings &rarr; Apps &rarr; Safari &rarr; Clear History and Website Data) and/or reboot your device before retrying. A reboot gives you a fresh kernel state and the cleanest chance of success.</p>
       <div class="dialog-btns">
         <button class="btn-confirm" onclick="dismissKillSafari()">Got it</button>
       </div>
