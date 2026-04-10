@@ -1560,7 +1560,7 @@
       { match: 'RCE success',           stage: 'rce2',  name: 'Code execution achieved',         sub: 'Moving to next stage',                                 log: 'Code execution achieved' },
       { match: 'check_dlopen',          stage: 'dyld',  name: 'Loading system libraries',        sub: 'Patching dyld for library access',                     log: 'Loading system libraries...' },
       { match: 'sign_pointers',         stage: 'dyld',  name: 'Signing function pointers',       sub: 'Bypassing pointer authentication' },
-      { match: 'inside setup_fcall',    stage: 'fcall', name: 'Exploit chain running',            sub: 'Safari is about to freeze \u2014 this is a good sign', log: 'First phase of the exploit chain completed. Safari will freeze now \u2014 this means it\u2019s working.' },
+      { match: 'inside setup_fcall',    stage: 'fcall', name: 'Exploit chain running',            sub: 'Safari is about to freeze \u2014 this is a good sign', log: 'Safari will freeze soon \u2014 that means it\u2019s working.' },
     ];
 
     // After fcall setup, Safari's main thread freezes — no more JS runs.
