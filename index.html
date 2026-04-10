@@ -580,6 +580,17 @@
     .log-line.ok { color: #0f7a3d; }
     .log-line.err { color: #c41e1e; }
     .log-line.device { color: var(--accent-dark); }
+    .log-line.freeze-hint {
+      opacity: 0;
+      max-height: 0;
+      padding: 0;
+      border-bottom: none;
+      overflow: hidden;
+      animation: freezeReveal 0.4s ease forwards;
+    }
+    @keyframes freezeReveal {
+      to { opacity: 1; max-height: 80px; padding: 5px 0; border-bottom: 1px solid var(--border-soft); }
+    }
     .btn-view-log {
       display: none;
       background: none;
@@ -1536,9 +1547,6 @@
     var watchdogTicks = 0;
     var currentStage = '';
     var currentStageName = '';
-    var freezeTimer = null;
-    var freezeStep = 0;
-
     // Maps raw log patterns to user-friendly stage descriptions.
     // Order matters: first match wins. 'log' = message shown in scrolling log (omit to skip).
     var stageRules = [
@@ -1558,9 +1566,10 @@
       { match: 'ALL DONE',              stage: 'done',  name: 'Chain complete',                  sub: 'All stages finished',                                  log: 'All done!' },
     ];
 
-    // After the sbx0 fetch, Safari's main thread freezes and no more
-    // postMessages arrive. We can't detect completion from here — the
-    // user has to check their device. These messages set expectations.
+    // After the sbx0 fetch, Safari's main thread freezes — setTimeout
+    // won't fire either. We write all guidance to the DOM synchronously
+    // and use CSS animation-delay to reveal them on the compositor
+    // thread, which keeps running even when JS is blocked.
     var freezeMessages = [
       { delay: 3,  text: 'Safari is frozen \u2014 this is expected. The kernel exploit is running in the background.' },
       { delay: 12, text: 'This usually takes 10\u201330 seconds. Keep Safari in the foreground.' },
@@ -1569,28 +1578,18 @@
       { delay: 60, text: 'Force-quit Safari now, then check your home screen. If the tweaks didn\u2019t apply, reboot your device before retrying \u2014 this gives you a fresh kernel state and the cleanest chance of success.' },
     ];
 
-    function startFreezeCountdown() {
-      stopFreezeCountdown();
-      freezeStep = 0;
-      scheduleNextFreezeMsg();
-    }
-
-    function scheduleNextFreezeMsg() {
-      if (freezeStep >= freezeMessages.length) return;
-      if (doneSignal) return;
-      var msg = freezeMessages[freezeStep];
-      var prevDelay = freezeStep > 0 ? freezeMessages[freezeStep - 1].delay : 0;
-      var wait = (msg.delay - prevDelay) * 1000;
-      freezeTimer = setTimeout(function() {
-        if (doneSignal) return;
-        logAppend(msg.text, 'device');
-        freezeStep++;
-        scheduleNextFreezeMsg();
-      }, wait);
-    }
-
-    function stopFreezeCountdown() {
-      if (freezeTimer) { clearTimeout(freezeTimer); freezeTimer = null; }
+    function writeFreezeHints() {
+      var body = document.getElementById('logSheetBody');
+      for (var i = 0; i < freezeMessages.length; i++) {
+        var line = document.createElement('div');
+        line.className = 'log-line freeze-hint device';
+        line.textContent = freezeMessages[i].text;
+        line.style.animationDelay = freezeMessages[i].delay + 's';
+        body.appendChild(line);
+      }
+      // Force layout flush so the browser commits the elements + their
+      // animation state before the main thread freezes.
+      void body.offsetHeight;
     }
 
     function updateStage(text) {
@@ -1610,10 +1609,10 @@
             dot.className = 'log-stage-dot' + (rule.stage === 'done' ? ' done' : '');
           }
           if (rule.log) logAppend(rule.log, rule.stage === 'done' ? 'ok' : '');
-          // Once we hit sbx0 (kernel exploit load), start the freeze countdown
-          if (rule.stage === 'sbx0') startFreezeCountdown();
-          // If we somehow get sbx0ok or done, stop the countdown
-          if (rule.stage === 'sbx0ok' || rule.stage === 'done') stopFreezeCountdown();
+          // Once we hit sbx0 (kernel exploit load), write all freeze
+          // guidance to the DOM with CSS animation-delay so the
+          // compositor reveals them even while JS is frozen.
+          if (rule.stage === 'sbx0') writeFreezeHints();
           return;
         }
       }
@@ -2037,7 +2036,6 @@
       if (doneSignal) return;
       doneSignal = true;
       stopLogWatchdog();
-      stopFreezeCountdown();
       logAppend('Install complete!', 'ok');
       var dot = document.getElementById('logStageDot');
       var stageText = document.getElementById('logStageText');
@@ -2198,7 +2196,6 @@
       if (dot) dot.className = 'log-stage-dot';
       if (stageText) stageText.textContent = 'Starting exploit chain';
       if (stageSub) stageSub.textContent = 'Loading components...';
-      stopFreezeCountdown();
       var viewLogBtn = document.getElementById('viewLogBtn');
       if (viewLogBtn) viewLogBtn.className = 'btn-view-log visible';
       logAppend('Starting install with: ' + tweaks.join(', '), 'ok');
