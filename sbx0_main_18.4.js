@@ -7455,7 +7455,7 @@
       return true;
     }
     function iterativeRead(address, size) {
-      const max_attempts = 50;
+      const max_attempts = 4;
       let last_leak_size = 0;
       for (let attempt = 0; attempt < max_attempts; attempt++) {
         if (dirty_read_count++ != 0) {
