@@ -517,6 +517,42 @@
       letter-spacing: -0.02em;
       text-align: right;
     }
+    .log-stage-banner {
+      padding: 10px 18px;
+      background: var(--card-alt);
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+    }
+    .log-stage-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      animation: stagePulse 1.6s ease-in-out infinite;
+    }
+    .log-stage-dot.done { background: #30d158; animation: none; }
+    .log-stage-dot.err { background: #ff453a; animation: none; }
+    @keyframes stagePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .log-stage-text {
+      flex: 1;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .log-stage-sub {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--subtle);
+      margin-top: 1px;
+    }
     .log-sheet-body {
       flex: 1;
       overflow-y: auto;
@@ -525,7 +561,7 @@
       background: #1a1a1c;
       padding: 10px 14px;
       min-height: 180px;
-      max-height: 55vh;
+      max-height: 50vh;
     }
     .log-sheet-empty {
       font-family: var(--mono);
@@ -1408,6 +1444,13 @@
       <button type="button" class="tweak-sheet-back" onclick="closeLogSheet()">&lsaquo; Close</button>
       <span class="log-sheet-title">Activity Log</span>
     </div>
+    <div class="log-stage-banner" id="logStageBanner">
+      <div class="log-stage-dot" id="logStageDot"></div>
+      <div>
+        <div class="log-stage-text" id="logStageText">Waiting to start</div>
+        <div class="log-stage-sub" id="logStageSub"></div>
+      </div>
+    </div>
     <div class="log-sheet-body" id="logSheetBody">
       <div class="log-sheet-empty" id="logSheetEmpty">Waiting for exploit chain...</div>
     </div>
@@ -1496,6 +1539,75 @@
     var lastLogTime = 0;
     var lastLogText = '';
     var watchdogTicks = 0;
+    var currentStage = '';
+    var currentStageName = '';
+
+    // Maps raw log patterns to user-friendly stage descriptions.
+    // Order matters: first match wins, so put specific patterns before broad ones.
+    var stageRules = [
+      // Loader / setup
+      { match: 'Loading worker code',   stage: 'load',    name: 'Downloading exploit code',            sub: 'Fetching worker scripts from server' },
+      { match: 'Worker code loaded',    stage: 'load',    name: 'Exploit code downloaded',             sub: 'Worker scripts ready' },
+      { match: 'Worker created',        stage: 'init',    name: 'Initializing WebKit exploit',         sub: 'Web worker started' },
+      { match: 'Evaluating RCE module', stage: 'init',    name: 'Preparing exploit module',            sub: 'Evaluating exploit code' },
+      { match: 'RCE module ready',      stage: 'init',    name: 'Exploit module ready',                sub: '' },
+      // RCE stages
+      { match: 'inside stage1',         stage: 'rce',     name: 'Running WebKit exploit (step 1)',     sub: 'Gaining initial code execution' },
+      { match: 'Finished prims',        stage: 'rce',     name: 'WebKit exploit primitives ready',     sub: 'Read/write access established' },
+      { match: 'Inside stage2',         stage: 'rce',     name: 'Running WebKit exploit (step 2)',     sub: 'Setting up advanced primitives' },
+      { match: 'Finished stage2',       stage: 'rce',     name: 'WebKit exploit complete',             sub: 'Full code execution achieved' },
+      { match: 'RCE success',           stage: 'rce',     name: 'Code execution achieved',             sub: 'Moving to sandbox escape' },
+      // dyld / dlopen
+      { match: 'check_dlopen',          stage: 'dyld',    name: 'Loading system libraries',            sub: 'Patching dyld for library access' },
+      { match: 'sign_pointers',         stage: 'dyld',    name: 'Signing function pointers',           sub: 'Bypassing pointer authentication' },
+      // fcall setup
+      { match: 'inside setup_fcall',    stage: 'fcall',   name: 'Setting up function calling',         sub: 'Preparing to call native functions' },
+      { match: 'fcall_init',            stage: 'fcall',   name: 'Function call bridge ready',          sub: '' },
+      // SBX1 - sandbox escape
+      { match: '[SBX1] Stage 5',        stage: 'sbx1',    name: 'Sandbox escape in progress',          sub: 'Escaping WebKit sandbox (this can take a moment)' },
+      { match: '[SBX1]',                stage: 'sbx1',    name: 'Sandbox escape in progress',          sub: 'Working through sandbox escape steps' },
+      // SBX0 - kernel exploit
+      { match: 'sbx0: [+] SBX0()',      stage: 'sbx0',    name: 'Running kernel exploit',              sub: 'Safari will freeze \u2014 this is normal, wait ~30s' },
+      { match: 'SBX0 complete',         stage: 'sbx0ok',  name: 'Kernel exploit succeeded',            sub: 'Sandbox fully escaped' },
+      { match: 'sbx0:',                 stage: 'sbx0',    name: 'Running kernel exploit',              sub: 'Safari may freeze \u2014 this is normal' },
+      // PE - process injection
+      { match: 'spawn_pe',              stage: 'pe',      name: 'Injecting into target process',       sub: 'Spawning payload in system daemon' },
+      { match: '[PE]',                  stage: 'pe',      name: 'Injecting tweaks',                    sub: 'Running payload inside target process' },
+      // Tweak application
+      { match: '[SBC]',                 stage: 'tweak',   name: 'Applying SpringBoard tweaks',         sub: 'Modifying home screen layout' },
+      { match: '[POWERCUFF]',           stage: 'tweak',   name: 'Applying Powercuff',                  sub: 'Setting thermal throttle level' },
+      // Done
+      { match: 'ALL DONE',              stage: 'done',    name: 'Chain complete',                      sub: 'All stages finished' },
+    ];
+
+    function updateStage(text) {
+      if (!text) return;
+      for (var i = 0; i < stageRules.length; i++) {
+        if (text.indexOf(stageRules[i].match) !== -1) {
+          if (stageRules[i].stage === currentStage && stageRules[i].name === currentStageName) return;
+          currentStage = stageRules[i].stage;
+          currentStageName = stageRules[i].name;
+          var dot = document.getElementById('logStageDot');
+          var stageText = document.getElementById('logStageText');
+          var stageSub = document.getElementById('logStageSub');
+          if (stageText) stageText.textContent = stageRules[i].name;
+          if (stageSub) stageSub.textContent = stageRules[i].sub;
+          if (dot) {
+            dot.className = 'log-stage-dot' + (stageRules[i].stage === 'done' ? ' done' : '');
+          }
+          return;
+        }
+      }
+    }
+
+    function setStageError(msg) {
+      var dot = document.getElementById('logStageDot');
+      var stageText = document.getElementById('logStageText');
+      var stageSub = document.getElementById('logStageSub');
+      if (dot) dot.className = 'log-stage-dot err';
+      if (stageText) stageText.textContent = msg || 'Something went wrong';
+      if (stageSub) stageSub.textContent = 'Check the log below for details';
+    }
 
     function startLogWatchdog() {
       stopLogWatchdog();
@@ -1508,18 +1620,15 @@
         if (elapsed < 8) { watchdogTicks = 0; return; }
         watchdogTicks++;
         var hint = '';
+        var step = currentStageName ? (' during "' + currentStageName + '"') : '';
         if (watchdogTicks === 1) {
-          hint = '[UI] No new activity for ' + elapsed + 's \u2014 the chain may be working on a slow step';
-          if (lastLogText) {
-            var short = lastLogText.length > 80 ? lastLogText.slice(0, 80) + '\u2026' : lastLogText;
-            hint += ' (last: ' + short + ')';
-          }
+          hint = 'No activity for ' + elapsed + 's' + step + ' \u2014 working on a slow step';
         } else if (watchdogTicks === 3) {
-          hint = '[UI] Still waiting (' + elapsed + 's) \u2014 if Safari freezes, that means the kernel exploit is running. Wait ~30s';
+          hint = 'Still waiting (' + elapsed + 's)' + step + ' \u2014 if Safari freezes, that means the kernel exploit is running. Wait ~30s';
         } else if (watchdogTicks === 6) {
-          hint = '[UI] ' + elapsed + 's since last activity \u2014 if nothing happens after 60s total, force-quit Safari and retry';
+          hint = elapsed + 's with no response' + step + ' \u2014 if nothing happens after 60s total, force-quit Safari and retry';
         } else if (watchdogTicks > 6 && watchdogTicks % 4 === 0) {
-          hint = '[UI] Still no response (' + elapsed + 's)';
+          hint = 'Still no response (' + elapsed + 's)';
         }
         if (hint) logAppend(hint, 'device');
       }, 5000);
@@ -1922,6 +2031,12 @@
       doneSignal = true;
       stopLogWatchdog();
       logAppend('[UI] Chain finished', 'ok');
+      var dot = document.getElementById('logStageDot');
+      var stageText = document.getElementById('logStageText');
+      var stageSub = document.getElementById('logStageSub');
+      if (dot) dot.className = 'log-stage-dot done';
+      if (stageText) stageText.textContent = 'Install complete';
+      if (stageSub) stageSub.textContent = 'All tweaks applied successfully';
       try { sessionStorage.removeItem('ls_running'); } catch(e) {}
       var installStatusEl = document.getElementById('installStatus');
       if (installStatusEl) {
@@ -1941,12 +2056,18 @@
       lastLogText = text;
       watchdogTicks = 0;
       logAppend(text, classifyLogLine(text));
+      updateStage(text);
+      // Error detection
+      var lower = text.toLowerCase();
+      if (lower.indexOf('error') !== -1 || lower.indexOf('exception') !== -1 || lower.indexOf('failed') !== -1 || lower.indexOf('fetch failed') !== -1) {
+        if (lower.indexOf('reporterror') === -1) setStageError('Error encountered');
+      }
       if (text.indexOf('sbx0: [+] SBX0 complete') !== -1) {
         var el = document.getElementById('installStatus');
         if (el && el.dataset.sbxDone !== '1') {
           el.dataset.sbxDone = '1';
           el.classList.remove('error');
-          el.textContent = 'kernel exploit + sandbox escape underway, attempting install. Safari will freeze, wait ~30 more seconds to see if changes took hold';
+          el.textContent = 'Kernel exploit succeeded \u2014 injecting tweaks. Safari will freeze, wait ~30s';
         }
       }
     }
@@ -2060,6 +2181,14 @@
 
       var logBody = document.getElementById('logSheetBody');
       logBody.innerHTML = '';
+      currentStage = 'start';
+      currentStageName = 'Starting';
+      var dot = document.getElementById('logStageDot');
+      var stageText = document.getElementById('logStageText');
+      var stageSub = document.getElementById('logStageSub');
+      if (dot) dot.className = 'log-stage-dot';
+      if (stageText) stageText.textContent = 'Starting exploit chain';
+      if (stageSub) stageSub.textContent = 'Loading components...';
       var viewLogBtn = document.getElementById('viewLogBtn');
       if (viewLogBtn) viewLogBtn.className = 'btn-view-log visible';
       logAppend('[UI] Exploit chain started', 'ok');
