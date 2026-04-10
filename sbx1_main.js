@@ -6227,7 +6227,7 @@
     let services_idx = 0n;
     set_realtime_priority(gpu_fcall(PTHREAD_SELF), 0, 50, 50);
     pthread_yield_np(pthread_self());
-    for (let attempt = 0n; attempt < 10n; attempt++) {
+    for (let attempt = 0n; attempt < 50n; attempt++) {
       if (services_idx >= services.length) {
         break;
       }
