@@ -1577,10 +1577,10 @@
           if (rule.stage === 'fcall') {
             // Safari is about to freeze — no more messages will show
             // after this. Write all guidance now as static log lines.
-            logAppend('Safari will freeze soon \u2014 that means it\u2019s working.', '');
-            logAppend('Wait about 45\u201360 seconds, then check your home screen to see if changes took hold.', '');
-            logAppend('For MobileGestalt modifications and 3-app limit bypass, you will need to respring or reboot to see changes take effect.', '');
-            logAppend('If the tweaks didn\u2019t apply, reboot your device before retrying \u2014 a reboot gives you a fresh kernel state and the cleanest chance of success.', 'device');
+            logAppend('Safari will freeze soon \u2014 that means it\u2019s working.', '', 0);
+            logAppend('Wait about 45\u201360 seconds, then check your home screen to see if changes took hold.', '', 0.15);
+            logAppend('For MobileGestalt modifications and 3-app limit bypass, you will need to respring or reboot to see changes take effect.', '', 0.3);
+            logAppend('If the tweaks didn\u2019t apply, reboot your device before retrying \u2014 a reboot gives you a fresh kernel state and the cleanest chance of success.', 'device', 0.45);
           } else if (rule.log) {
             logAppend(rule.log, rule.stage === 'done' ? 'ok' : '');
           }
@@ -1638,20 +1638,16 @@
       document.getElementById('logSheet').className = 'log-sheet';
     }
 
-    var logLineCount = 0;
-
-    function logAppend(text, cls) {
+    function logAppend(text, cls, delay) {
       var body = document.getElementById('logSheetBody');
       var empty = document.getElementById('logSheetEmpty');
       if (empty) empty.remove();
       var line = document.createElement('div');
       line.className = 'log-line' + (cls ? ' ' + cls : '');
       line.textContent = text;
-      line.style.animationDelay = (logLineCount * 0.12) + 's';
-      logLineCount++;
+      if (delay) line.style.animationDelay = delay + 's';
       body.appendChild(line);
-      // Scroll after the animation starts
-      setTimeout(function() { body.scrollTop = body.scrollHeight; }, (logLineCount * 120) + 100);
+      body.scrollTop = body.scrollHeight;
     }
 
     var supportMsg = document.getElementById('supportMsg');
@@ -2156,7 +2152,6 @@
 
       var logBody = document.getElementById('logSheetBody');
       logBody.innerHTML = '';
-      logLineCount = 0;
       currentStage = 'start';
       currentStageName = 'Starting';
       var dot = document.getElementById('logStageDot');
