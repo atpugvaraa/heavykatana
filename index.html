@@ -558,33 +558,28 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
-      background: #1a1a1c;
-      padding: 10px 14px;
-      min-height: 180px;
+      background: var(--card);
+      padding: 6px 18px 16px;
+      min-height: 140px;
       max-height: 50vh;
     }
     .log-sheet-empty {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: #555;
+      font-size: 0.78rem;
+      color: var(--subtle);
       text-align: center;
       padding: 32px 0;
     }
     .log-line {
-      font-family: 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 10.5px;
-      line-height: 1.5;
-      color: #8e8e93;
-      white-space: pre-wrap;
-      word-break: break-all;
-      padding: 1px 0;
+      font-size: 0.76rem;
+      line-height: 1.55;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border-soft);
     }
-    .log-line.ok { color: #30d158; }
-    .log-line.err { color: #ff453a; }
-    .log-line.device { color: #5ac8fa; }
-    .log-line.kernel { color: #ff9f0a; }
-    .log-line.springboard { color: #bf5af2; }
-    .log-line.pe { color: #30d158; }
+    .log-line:last-child { border-bottom: none; }
+    .log-line.ok { color: #0f7a3d; }
+    .log-line.err { color: #c41e1e; }
+    .log-line.device { color: var(--accent-dark); }
     .btn-view-log {
       display: none;
       background: none;
