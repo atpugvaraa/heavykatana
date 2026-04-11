@@ -1341,18 +1341,17 @@
 
         <div class="tweak-row" id="tweakRowApplimit">
           <div class="tweak-row-head">
-            <span class="tweak-row-name">3-App Limit Bypass <span class="tweak-row-badge" style="color:#7d3d02;background:#ffe8cc;border-color:#ff9a1f">caution</span><span class="tweak-row-hint">tap for info</span></span>
+            <span class="tweak-row-name">3-App Limit Bypass <span class="tweak-row-badge" style="color:#7f1d1d;background:#fee2e2;border-color:#f87171">unstable</span><span class="tweak-row-hint">tap for info</span></span>
             <button type="button" class="tweak-row-info" aria-label="3-App Limit Bypass details" data-sheet="tweakRowApplimit">i</button>
-            <input type="checkbox" id="tweakApplimit" class="tweak-toggle">
-            <button type="button" class="tweak-queue-btn" data-cb="tweakApplimit">GET</button>
+            <input type="checkbox" id="tweakApplimit" class="tweak-toggle" disabled>
+            <button type="button" class="tweak-queue-btn" data-cb="tweakApplimit" disabled style="opacity:0.5;cursor:not-allowed">DISABLED</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailApplimit" hidden>
-            <div class="tweak-row-desc">Removes the 3-app sideloading limit for free developer accounts by clearing the installd tracking xattr on all sideloaded app bundles. Must be re-run once you hit the 3-app limit again.</div>
+            <div class="tweak-row-desc">Disabled &mdash; this bypass proved too unstable on top of the LightSaber chain. Use <a href="https://github.com/rooootdev/lara" target="_blank" rel="noopener">Lara</a> instead for removing the 3-app sideloading limit.</div>
           </div>
           <div class="tweak-row-options">
-            <div class="tweak-row-desc tweak-row-desc-inline">Removes the 3-app sideloading limit for free developer accounts by clearing the installd tracking xattr on all sideloaded app bundles. Must be re-run once you hit the 3-app limit again.</div>
-            <div style="margin-bottom:10px;padding:10px 12px;background:#fff0f0;border:1px solid #f87171;border-radius:10px;font-size:0.7rem;color:#7f1d1d;line-height:1.55"><strong>Reboot first.</strong> Do not run this on top of a previous chain run in the same boot session. The kernel exploit leaves residual state that makes subsequent runs more likely to panic. Reboot your device, then run this as the only queued tweak.</div>
-            <div class="tweak-row-notes"><strong>Note:</strong> Only affects apps signed with a free provisioning profile. Does not modify any system files &mdash; changes persist until installd re-stamps 3 more apps. Still limited to 10 App IDs per Apple ID per 7-day window.</div>
+            <div class="tweak-row-desc tweak-row-desc-inline">Disabled &mdash; this bypass proved too unstable on top of the LightSaber chain.</div>
+            <div style="margin-bottom:10px;padding:10px 12px;background:#fff0f0;border:1px solid #f87171;border-radius:10px;font-size:0.7rem;color:#7f1d1d;line-height:1.55"><strong>Use <a href="https://github.com/rooootdev/lara" target="_blank" rel="noopener" style="color:#7f1d1d;text-decoration:underline">Lara</a> instead.</strong> Running the 3-app limit bypass on top of the kernel exploit leaves residual state that makes panics and SpringBoard crashes too frequent to ship. Lara is a standalone, purpose-built 3-app limit removal tool and is the recommended replacement.</div>
           </div>
         </div>
 
@@ -1427,7 +1426,7 @@
       <a href="https://twitter.com/cro4js" target="_blank" rel="noopener">@cro4js</a> &mdash; UI suggestions
     </div>
 
-    <p class="version">v0.0.93</p>
+    <p class="version">v0.0.94</p>
   </div>
 
   <div class="tweak-sheet-backdrop" id="tweakSheetBackdrop"></div>
@@ -1917,7 +1916,9 @@
         var hlEl = document.getElementById('sbcHideLabels');
         if (hlEl && typeof s.hideLabels === 'boolean') hlEl.checked = s.hideLabels;
         if (typeof s.mgpatcher === 'boolean') document.getElementById('tweakMgpatcher').checked = s.mgpatcher;
-        if (typeof s.applimit === 'boolean') document.getElementById('tweakApplimit').checked = s.applimit;
+        // 3-App Limit Bypass is disabled (too unstable on top of the chain);
+        // force it off even if an older stored state had it queued.
+        document.getElementById('tweakApplimit').checked = false;
         var mgCbIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
         for (var mgi = 0; mgi < mgCbIds.length; mgi++) {
           var mgEl = document.getElementById(mgCbIds[mgi]);
