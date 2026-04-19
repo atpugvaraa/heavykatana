@@ -1,6 +1,6 @@
-# LightSaber
+# heavykatana
 
-**[zeroxjf.github.io/lightsaber](https://zeroxjf.github.io/lightsaber/)**
+**[atpugvaraa.github.io/heavykatana](https://atpugvaraa.github.io/heavykatana/)**
 
 > ## ⚠ LightSaber is moving to [Cyanide](https://github.com/zeroxjf/cyanide-ios)
 >
@@ -36,7 +36,7 @@ Every arm64e iPhone (A12 - A18 Pro) running iOS 18.4 - 18.6.2.
 
 ## How it works
 
-LightSaber chains a WebContent RCE into kernel R/W via sandbox escape, then uses a JSC + `objc_msgSend` / `dlsym` native bridge to inject JavaScript into other processes (SpringBoard, mediaplaybackd, thermalmonitord, etc.).
+heavykatana chains a WebContent RCE into kernel R/W via sandbox escape, then uses a JSC + `objc_msgSend` / `dlsym` native bridge to inject JavaScript into other processes (SpringBoard, mediaplaybackd, thermalmonitord, etc.).
 
 ### Chain stages
 
@@ -63,7 +63,7 @@ Port of [rpetrich's Powercuff](https://github.com/rpetrich/Powercuff). Undercloc
 
 ## Usage
 
-Visit [zeroxjf.github.io/lightsaber](https://zeroxjf.github.io/lightsaber/) in Safari on a supported device. Pick your tweaks, tap **Install Selected**, and keep Safari in the foreground for up to 60 seconds while the chain runs.
+Visit [atpugvaraa.github.io/heavykatana](https://atpugvaraa.github.io/heavykatana/) in Safari on a supported device. Pick your tweaks, tap **Install Selected**, and keep Safari in the foreground for up to 60 seconds while the chain runs.
 
 **If it fails** (page flash, "A problem repeatedly occurred", or "webpage crashed" banner): clear Safari's cache (book icon > Clear), reload, and retry. If it keeps failing, reboot, clear cache again, and try once more.
 
