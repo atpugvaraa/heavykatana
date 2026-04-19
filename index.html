@@ -1939,6 +1939,39 @@
           </div>
         </div>
 
+        <div class="tweak-section-label">Telephony</div>
+        <div class="tweak-row" id="tweakRowCallrec">
+          <div class="tweak-row-head">
+            <span class="tweak-row-name">Call Recorder<span class="tweak-row-hint">tap for options</span></span>
+            <button type="button" class="tweak-row-info" aria-label="Call Recorder details"
+              data-sheet="tweakRowCallrec">i</button>
+            <input type="checkbox" id="tweakCallrec" class="tweak-toggle">
+            <button type="button" class="tweak-queue-btn" data-cb="tweakCallrec">GET</button>
+          </div>
+          <div class="tweak-row-detail" id="tweakDetailCallrec" hidden>
+            <div class="tweak-row-desc">Records phone call audio via AVAudioRecorder injected into SpringBoard. Saves
+              recordings to <code>/private/var/tmp/callrec_&lt;timestamp&gt;.caf</code>. For security research purposes
+              only.</div>
+            <div class="tweak-row-notes">
+              <strong>Persistence:</strong> recording starts once during the chain and stops after the configured
+              duration or on respring/reboot. Files persist on disk until manually removed.
+            </div>
+          </div>
+          <div class="tweak-row-options">
+            <div class="tweak-row-desc tweak-row-desc-inline">Records phone call audio via AVAudioRecorder injected into
+              SpringBoard. For security research purposes only.</div>
+            <span class="tweak-row-options-label">Duration (seconds)</span>
+            <select id="callrecDuration">
+              <option value="10">10s</option>
+              <option value="30">30s</option>
+              <option value="60" selected>60s (default)</option>
+              <option value="120">2 min</option>
+              <option value="300">5 min</option>
+              <option value="600">10 min</option>
+            </select>
+          </div>
+        </div>
+
       </div>
 
       <div class="install-zone">
@@ -2486,6 +2519,8 @@
           hideLabels: !!(document.getElementById('sbcHideLabels') || {}).checked,
           mgpatcher: !!document.getElementById('tweakMgpatcher').checked,
           applimit: !!document.getElementById('tweakApplimit').checked,
+          callrec: !!(document.getElementById('tweakCallrec') || {}).checked,
+          callrecDuration: (document.getElementById('callrecDuration') || {}).value || '60',
           mgBootChime: !!(document.getElementById('mgBootChime') || {}).checked,
           mgChargeLimit: !!(document.getElementById('mgChargeLimit') || {}).checked,
           mgTapToWake: !!(document.getElementById('mgTapToWake') || {}).checked,
@@ -2513,6 +2548,9 @@
         var hlEl = document.getElementById('sbcHideLabels');
         if (hlEl && typeof s.hideLabels === 'boolean') hlEl.checked = s.hideLabels;
         if (typeof s.mgpatcher === 'boolean') document.getElementById('tweakMgpatcher').checked = s.mgpatcher;
+        if (typeof s.callrec === 'boolean') document.getElementById('tweakCallrec').checked = s.callrec;
+        var crDur = document.getElementById('callrecDuration');
+        if (crDur && typeof s.callrecDuration === 'string') crDur.value = s.callrecDuration;
         // 3-App Limit Bypass is disabled (too unstable on top of the chain);
         // force it off even if an older stored state had it queued.
         document.getElementById('tweakApplimit').checked = false;
@@ -2554,7 +2592,7 @@
         showKillSafari();
       }
     } catch (e) { }
-    ['tweakFiveicon', 'tweakPowercuff', 'powercuffLevel', 'sbcHideLabels', 'tweakMgpatcher', 'tweakApplimit', 'mgBootChime', 'mgChargeLimit', 'mgTapToWake', 'mgCollisionSOS', 'mgPencil', 'mgActionButton', 'mgAOD', 'mgStageManager', 'mgInternalInstall', 'mgSRD', 'mgShutter', 'mgiPadApps'].forEach(function (id) {
+    ['tweakFiveicon', 'tweakPowercuff', 'powercuffLevel', 'sbcHideLabels', 'tweakMgpatcher', 'tweakApplimit', 'tweakCallrec', 'callrecDuration', 'mgBootChime', 'mgChargeLimit', 'mgTapToWake', 'mgCollisionSOS', 'mgPencil', 'mgActionButton', 'mgAOD', 'mgStageManager', 'mgInternalInstall', 'mgSRD', 'mgShutter', 'mgiPadApps'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) el.addEventListener('change', lsSaveState);
     });
