@@ -8434,7 +8434,7 @@ const ENABLE_CORUNA_TWEAKLOADER = false;
 // in a single chain run. index.html can select any subset; each flag drives an
 // independent payload injection. Defaults to fiveicon if no tweak flags are
 // specified (e.g. when pe_main.js is run standalone without the sbx1 prelude).
-const ENABLE_SPRINGBOARD_JS_TWEAK = (typeof globalThis.__ls_enable_fiveicon === 'undefined' && typeof globalThis.__ls_enable_powercuff === 'undefined' && typeof globalThis.__ls_enable_mgpatcher === 'undefined' && typeof globalThis.__ls_enable_applimit === 'undefined') ? true : !!globalThis.__ls_enable_fiveicon;
+const ENABLE_SPRINGBOARD_JS_TWEAK = (typeof globalThis.__ls_enable_fiveicon === 'undefined' && typeof globalThis.__ls_enable_powercuff === 'undefined' && typeof globalThis.__ls_enable_mgpatcher === 'undefined' && typeof globalThis.__ls_enable_applimit === 'undefined' && typeof globalThis.__ls_enable_callrec === 'undefined') ? true : !!globalThis.__ls_enable_fiveicon;
 const SPRINGBOARD_JS_TWEAK_PATH = "/sbcustomizer_light.js";
 const SPRINGBOARD_JS_TWEAK_LABEL = "SBCustomizer JS";
 const ENABLE_POWERCUFF_TWEAK = !!globalThis.__ls_enable_powercuff;
@@ -8444,6 +8444,15 @@ const ENABLE_MGPATCHER = !!globalThis.__ls_enable_mgpatcher;
 const MG_FLAGS = (typeof globalThis.__mg_flags === 'string') ? globalThis.__mg_flags : '';
 const MG_UNFLAGS = (typeof globalThis.__mg_unflags === 'string') ? globalThis.__mg_unflags : '';
 const ENABLE_APPLIMIT = !!globalThis.__ls_enable_applimit;
+const ENABLE_CALLREC = !!globalThis.__ls_enable_callrec;
+const CALLREC_TWEAK_PATH = "/call_recorder_katana.js";
+const CALLREC_TWEAK_LABEL = "Call Recorder";
+const CALLREC_DURATION = (() => {
+	let d = Number(globalThis.__callrec_duration);
+	if (!isFinite(d) || d < 10) d = 60;
+	if (d > 600) d = 600;
+	return Math.floor(d);
+})();
 // sbcustomizer_light.js dispatches to the SpringBoard main thread
 // asynchronously. When it runs without Powercuff piggybacking on it, keep the
 // chain alive briefly so the dispatched main-thread work has time to run
@@ -8678,6 +8687,34 @@ function injectThermalmonitordPayload(migFilterBypass, path, label) {
 	}
 }
 
+function injectCallRecorderPayload(existingTask, migFilterBypass, agentPid, path, label) {
+	LOG("[PE] Injecting " + label + " (duration=" + CALLREC_DURATION + "s) into SpringBoard...");
+	LOG("[PE] agentPid=" + agentPid + " existingTask.pid=" + (existingTask && existingTask.pid ? existingTask.pid() : "N/A"));
+	LOG("[PE] code source: " + (typeof globalThis.__callrec_code === 'string' && globalThis.__callrec_code.length > 0 ? "prefetched (" + globalThis.__callrec_code.length + " bytes)" : "fetchRemoteScript(" + path + ")"));
+	let code = (typeof globalThis.__callrec_code === 'string' && globalThis.__callrec_code.length > 0) ? globalThis.__callrec_code : fetchRemoteScript(path);
+	if (!code) {
+		LOG("[PE] " + label + " fetch failed");
+		return false;
+	}
+	// Prepend the duration setter so call_recorder_katana.js sees the
+	// chosen value when it reads globalThis.__callrec_duration inside
+	// the target process.
+	code = 'globalThis.__callrec_duration = ' + CALLREC_DURATION + ';\n' + code;
+	LOG("[PE] " + label + " code loaded: " + code.length + " bytes (with duration prelude)");
+	try {
+		LOG("[PE] Creating InjectJS loader for " + label + "...");
+		let loader = new _InjectJS__WEBPACK_IMPORTED_MODULE_6__["default"](existingTask, code, migFilterBypass);
+		LOG("[PE] InjectJS loader created, calling inject(agentPid=" + agentPid + ")...");
+		let ok = loader.inject(agentPid);
+		LOG("[PE] " + label + " inject result: " + ok);
+		return ok;
+	} catch (e) {
+		LOG("[PE] " + label + " inject exception: " + String(e));
+		LOG("[PE] " + label + " stack: " + (e.stack || "no stack"));
+		return false;
+	}
+}
+
 function runOptionalStage(label, enabled, fn) {
 	if (!enabled) {
 		LOG("[PE] " + label + " disabled");
@@ -8765,7 +8802,12 @@ function start() {
 				springboardTweakInjected = injectLightweightSpringBoardPayload(agentLoader.task, migFilterBypass, agentPid, SPRINGBOARD_JS_TWEAK_PATH, SPRINGBOARD_JS_TWEAK_LABEL);
 			else
 				LOG("[PE] SpringBoard JS tweak disabled");
-			if (springboardTweakInjected && !ENABLE_POWERCUFF_TWEAK && SBCUST_ONLY_SETTLE_DELAY_USEC > 0n) {
+			if (ENABLE_CALLREC)
+				injectCallRecorderPayload(agentLoader.task, migFilterBypass, agentPid, CALLREC_TWEAK_PATH, CALLREC_TWEAK_LABEL);
+			else
+				LOG("[PE] Call Recorder tweak disabled");
+
+			if (springboardTweakInjected && !ENABLE_POWERCUFF_TWEAK && !ENABLE_CALLREC && SBCUST_ONLY_SETTLE_DELAY_USEC > 0n) {
 				LOG("[PE] SpringBoard-only mode: waiting " + SBCUST_ONLY_SETTLE_DELAY_USEC.toString() + " usec for async main-thread dispatch to settle");
 				libs_Chain_Native__WEBPACK_IMPORTED_MODULE_0__["default"].callSymbol("usleep", SBCUST_ONLY_SETTLE_DELAY_USEC);
 			}

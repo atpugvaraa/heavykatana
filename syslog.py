@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Filtered idevicesyslog viewer for LightSaber/DarkSword exploit chain debugging.
+"""Filtered idevicesyslog viewer for heavykatana/DarkSword exploit chain debugging.
 
 Usage: python3 syslog.py [output_file]
   output_file defaults to syslog.txt

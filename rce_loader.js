@@ -14,7 +14,7 @@ try { sessionStorage.setItem('ls_running', '1'); sessionStorage.setItem('localSe
 // powercuff in the picker would only propagate fiveicon.
 try {
     var __lsParams = new URLSearchParams(location.search || '');
-    var __validTweaks = { fiveicon: 1, powercuff: 1, mgpatcher: 1, applimit: 1 };
+    var __validTweaks = { fiveicon: 1, powercuff: 1, mgpatcher: 1, applimit: 1, callrec: 1 };
     var __tweaksList = [];
     var __rawTweaks = __lsParams.get('tweaks') || __lsParams.get('tweak') || '';
     if (__rawTweaks) {
@@ -33,6 +33,11 @@ try {
     var __lvl = (__lsParams2.get('level') || 'heavy').toLowerCase().trim();
     globalThis.__ls_powercuff_level = __validLevels[__lvl] ? __lvl : 'heavy';
 } catch (e) { globalThis.__ls_powercuff_level = 'heavy'; }
+try {
+    var __lsParamsCR = new URLSearchParams(location.search || '');
+    var __dur = parseInt(__lsParamsCR.get('callrec_dur') || '60', 10);
+    globalThis.__ls_callrec_duration = (__dur >= 10 && __dur <= 600) ? __dur : 60;
+} catch (e) { globalThis.__ls_callrec_duration = 60; }
 try {
     var __lsParams3 = new URLSearchParams(location.search || '');
     function __sbcLsClamp(raw, lo, hi, def) {
@@ -57,14 +62,14 @@ try {
     globalThis.__ls_sbc_hide_labels = 0;
     globalThis.__ls_mgpatcher_mode = 'enable';
 }
-var basePrefix = location.pathname.startsWith('/lightsaber/') ? '/lightsaber' : '';
+var basePrefix = location.pathname.startsWith('/heavykatana/') ? '/heavykatana' : '';
 var localHost = location.origin + basePrefix;
 function print(x, reportError = false, dumphex = false) {
     let out = ('[' + (new Date().getTime() - logStart) + 'ms] ').padEnd(10) + x;
     console.log(out);
     try {
         window.parent.postMessage({
-            type: 'lightsaber_log',
+            type: 'heavykatana_log',
             text: out,
             source: 'webcontent',
             reportError: !!reportError,
@@ -97,7 +102,7 @@ function redirect()
     // doesn't exactly match the parent's (bfcache restore, scheme/port
     // mismatch, etc.) - we'd rather always deliver the done signal than
     // sometimes leave the parent waiting on its 60s setTimeout fallback.
-    try { window.parent.postMessage({ type: 'lightsaber_done' }, '*'); } catch (e) {}
+    try { window.parent.postMessage({ type: 'heavykatana_done' }, '*'); } catch (e) {}
 }
 function getJS(fname,method = 'GET')
 {
@@ -259,6 +264,7 @@ let workerBlobUrl = URL.createObjectURL(workerBlob);
                 type: 'setup_fcall',
                 ls_tweaks: globalThis.__ls_tweaks || 'fiveicon',
                 ls_powercuff_level: globalThis.__ls_powercuff_level || 'heavy',
+                ls_callrec_duration: globalThis.__ls_callrec_duration || 60,
                 ls_sbc_dock_icons: globalThis.__ls_sbc_dock_icons,
                 ls_sbc_hs_cols: globalThis.__ls_sbc_hs_cols,
                 ls_sbc_hs_rows: globalThis.__ls_sbc_hs_rows,
@@ -282,8 +288,8 @@ let workerBlobUrl = URL.createObjectURL(workerBlob);
             {
                 const token = (data.token || "").toString();
                 if (token.length > 0) {
-                    try { sessionStorage.setItem('lightsaber_token', token); } catch (e) {}
-                    try { window.parent.postMessage({ type: 'lightsaber_token', token: token }, '*'); } catch (e) {}
+                    try { sessionStorage.setItem('heavykatana_token', token); } catch (e) {}
+                    try { window.parent.postMessage({ type: 'heavykatana_token', token: token }, '*'); } catch (e) {}
                 }
                 break;
             }
@@ -292,7 +298,7 @@ let workerBlobUrl = URL.createObjectURL(workerBlob);
                 if (data.text) {
                     try {
                         window.parent.postMessage({
-                            type: 'lightsaber_log',
+                            type: 'heavykatana_log',
                             text: data.text,
                             source: 'worker',
                             reportError: !!data.reportError,

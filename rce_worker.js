@@ -672,7 +672,8 @@ self[1] = boxed_arr;
           try { globalThis.__mgpatcher_mode = (typeof data.ls_mgpatcher_mode === 'string') ? data.ls_mgpatcher_mode : 'enable'; } catch (e) { globalThis.__mgpatcher_mode = 'enable'; }
           try { globalThis.__mg_flags = (typeof data.ls_mg_flags === 'string') ? data.ls_mg_flags : ''; } catch (e) { globalThis.__mg_flags = ''; }
           try { globalThis.__mg_unflags = (typeof data.ls_mg_unflags === 'string') ? data.ls_mg_unflags : ''; } catch (e) { globalThis.__mg_unflags = ''; }
-          print("inside setup_fcall, tweaks=" + globalThis.__ls_tweaks + " level=" + globalThis.__powercuff_level + " sbc=" + globalThis.__sbc_dock_icons + "/" + globalThis.__sbc_hs_cols + "x" + globalThis.__sbc_hs_rows + " statbar=" + globalThis.__sbc_statbar + " hideLabels=" + globalThis.__sbc_hide_labels + " mgpatcherMode=" + globalThis.__mgpatcher_mode);
+          try { let __crDur = Number(data.ls_callrec_duration); globalThis.__callrec_duration = (isFinite(__crDur) && __crDur >= 10 && __crDur <= 600) ? Math.floor(__crDur) : 60; } catch (e) { globalThis.__callrec_duration = 60; }
+          print("inside setup_fcall, tweaks=" + globalThis.__ls_tweaks + " level=" + globalThis.__powercuff_level + " callrec_dur=" + globalThis.__callrec_duration + " sbc=" + globalThis.__sbc_dock_icons + "/" + globalThis.__sbc_hs_cols + "x" + globalThis.__sbc_hs_rows + " statbar=" + globalThis.__sbc_statbar + " hideLabels=" + globalThis.__sbc_hide_labels + " mgpatcherMode=" + globalThis.__mgpatcher_mode);
           const {
             offsets
           } = p;

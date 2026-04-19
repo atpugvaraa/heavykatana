@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LightSaber</title>
-  <meta name="description" content="iOS 18.4-18.6.2 userland exploit chain with JavaScript injection that modifies SpringBoard and other processes at runtime. Open source, derived from DarkSword.">
+  <title>HeavyKatana</title>
+  <meta name="description"
+    content="iOS 18.4-18.6.2 userland exploit chain with JavaScript injection that modifies SpringBoard and other processes at runtime. Open source, derived from DarkSword.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="LightSaber">
-  <meta property="og:title" content="LightSaber - iOS 18.4-18.6.2 research tool">
-  <meta property="og:description" content="iOS userland exploit chain with JavaScript injection that modifies SpringBoard and other processes at runtime. Open source, derived from DarkSword.">
-  <meta property="og:url" content="https://zeroxjf.github.io/lightsaber/">
-  <meta property="og:image" content="https://zeroxjf.github.io/lightsaber/icons/lightsaber-logo.png">
+  <meta property="og:site_name" content="HeavyKatana">
+  <meta property="og:title" content="HeavyKatana - iOS 18.4-18.6.2 research tool">
+  <meta property="og:description"
+    content="iOS userland exploit chain with JavaScript injection that modifies SpringBoard and other processes at runtime. Open source, derived from DarkSword.">
+  <meta property="og:url" content="https://atpugvaraa.github.io/heavykatana/">
+  <meta property="og:image" content="https://atpugvaraa.github.io/heavykatana/icons/heavykatana-logo.png">
   <meta property="og:image:width" content="1536">
   <meta property="og:image:height" content="1024">
-  <meta property="og:image:alt" content="LightSaber logo - blue lightsaber with the LightSaber wordmark">
+  <meta property="og:image:alt" content="HeavyKatana logo - black katana with the HeavyKatana wordmark">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@zeroxjf">
-  <meta name="twitter:creator" content="@zeroxjf">
-  <meta name="twitter:title" content="LightSaber - iOS 18.4-18.6.2 research tool">
-  <meta name="twitter:description" content="iOS userland exploit chain with JavaScript injection that modifies SpringBoard and other processes at runtime. Open source, derived from DarkSword.">
-  <meta name="twitter:image" content="https://zeroxjf.github.io/lightsaber/icons/lightsaber-logo.png">
-  <meta name="twitter:image:alt" content="LightSaber logo - blue lightsaber with the LightSaber wordmark">
-  <link rel="icon" type="image/png" href="icons/lightsaber-logo.png">
-  <link rel="apple-touch-icon" href="icons/lightsaber-logo.png">
+  <meta name="twitter:site" content="@atpugvaraa">
+  <meta name="twitter:creator" content="@atpugvaraa">
+  <meta name="twitter:title" content="HeavyKatana - iOS 18.4-18.6.2 research tool">
+  <meta name="twitter:description"
+    content="iOS userland exploit chain with JavaScript injection that modifies SpringBoard and other processes at runtime. Open source, derived from DarkSword.">
+  <meta name="twitter:image" content="https://atpugvaraa.github.io/heavykatana/icons/heavykatana-logo.png">
+  <meta name="twitter:image:alt" content="HeavyKatana logo - black katana with the HeavyKatana wordmark">
+  <link rel="icon" type="image/png" href="icons/heavykatana-logo.png">
+  <link rel="apple-touch-icon" href="icons/heavykatana-logo.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
     :root {
       /* Sileo-inspired light palette: pale blue-gray canvas, pure white
          surfaces, sharp system blue accent. Not a carbon copy - softer
          shadows, more breathing room, consistent 14-18px corner radii. */
-      --bg:         #eef0f5;
-      --bg-grad:    radial-gradient(1200px 700px at 50% -220px, rgba(45,169,255,0.12), transparent 62%);
-      --card:       #ffffff;
-      --card-alt:   #f7f8fb;
+      --bg: #eef0f5;
+      --bg-grad: radial-gradient(1200px 700px at 50% -220px, rgba(45, 169, 255, 0.12), transparent 62%);
+      --card: #ffffff;
+      --card-alt: #f7f8fb;
       --card-inset: #f0f2f6;
-      --border:        #e5e7ec;
-      --border-soft:   #eef0f4;
+      --border: #e5e7ec;
+      --border-soft: #eef0f4;
       --border-strong: #d4d6dd;
-      --shadow-sm:  0 1px 2px rgba(10,15,28,0.05);
-      --shadow-md:  0 1px 3px rgba(10,15,28,0.05), 0 12px 32px -12px rgba(10,15,28,0.14);
-      --shadow-lg:  0 6px 16px -6px rgba(10,15,28,0.10), 0 30px 64px -20px rgba(10,15,28,0.22);
-      --shadow-row: 0 1px 2px rgba(10,15,28,0.05), 0 8px 22px -8px rgba(45,169,255,0.16);
-      --ring:       0 0 0 3px rgba(45,169,255,0.22);
-      --ink:    #0a0f1c;
-      --text:   #1b2030;
-      --muted:  #4b5362;
+      --shadow-sm: 0 1px 2px rgba(10, 15, 28, 0.05);
+      --shadow-md: 0 1px 3px rgba(10, 15, 28, 0.05), 0 12px 32px -12px rgba(10, 15, 28, 0.14);
+      --shadow-lg: 0 6px 16px -6px rgba(10, 15, 28, 0.10), 0 30px 64px -20px rgba(10, 15, 28, 0.22);
+      --shadow-row: 0 1px 2px rgba(10, 15, 28, 0.05), 0 8px 22px -8px rgba(45, 169, 255, 0.16);
+      --ring: 0 0 0 3px rgba(45, 169, 255, 0.22);
+      --ink: #0a0f1c;
+      --text: #1b2030;
+      --muted: #4b5362;
       --subtle: #8e8e95;
-      --faint:  #aaacb4;
-      --accent:        #2da9ff;
-      --accent-hover:  #1596f0;
-      --accent-dark:   #0b66a8;
-      --accent-soft:   #e6f4ff;
+      --faint: #aaacb4;
+      --accent: #2da9ff;
+      --accent-hover: #1596f0;
+      --accent-dark: #0b66a8;
+      --accent-soft: #e6f4ff;
       --accent-border: #b7dcff;
-      --hover:    #f0f2f6;
-      --code-bg:  #f0f2f6;
-      --ease:     cubic-bezier(0.22, 0.61, 0.36, 1);
+      --hover: #f0f2f6;
+      --code-bg: #f0f2f6;
+      --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --mono: 'JetBrains Mono', 'SF Mono', 'Menlo', monospace;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    button, input, select, textarea { font-family: inherit; font-size: inherit; }
-    html { scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif;
       font-feature-settings: 'cv11', 'ss01', 'ss03';
@@ -76,9 +97,23 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
-    a { color: var(--accent-hover); text-decoration: none; transition: color 0.15s var(--ease); }
-    a:hover { color: var(--accent-dark); }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    a {
+      color: var(--accent-hover);
+      text-decoration: none;
+      transition: color 0.15s var(--ease);
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     .page {
       max-width: 520px;
       margin: 0 auto;
@@ -89,23 +124,33 @@
       padding: 26px 22px 22px;
       position: relative;
     }
+
     @media (max-width: 520px) {
-      body { padding: 16px 8px; }
-      .page { padding: 22px 16px 18px; border-radius: 18px; }
+      body {
+        padding: 16px 8px;
+      }
+
+      .page {
+        padding: 22px 16px 18px;
+        border-radius: 18px;
+      }
     }
+
     .page::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 20px;
       pointer-events: none;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
+
     .page-header {
       margin-bottom: 12px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border-soft);
     }
+
     .page-title {
       font-size: 2.35rem;
       font-weight: 800;
@@ -114,11 +159,13 @@
       line-height: 1;
       margin-bottom: 6px;
     }
+
     .page-subtitle {
       font-size: 0.82rem;
       color: var(--muted);
       font-weight: 500;
     }
+
     .page-author {
       font-family: var(--mono);
       font-size: 0.68rem;
@@ -133,6 +180,7 @@
       justify-content: center;
       gap: 6px;
     }
+
     .page-author a {
       color: var(--accent-hover);
       text-decoration: none;
@@ -150,12 +198,17 @@
       font-size: 0.72rem;
       transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
     }
+
     .page-author a:hover {
       background: var(--card);
       border-color: var(--border-strong);
       color: var(--accent-dark);
     }
-    .page-author a svg { opacity: 0.85; }
+
+    .page-author a svg {
+      opacity: 0.85;
+    }
+
     .section {
       background: var(--card-alt);
       border: 1px solid var(--border-soft);
@@ -164,6 +217,7 @@
       margin-bottom: 14px;
       box-shadow: var(--shadow-sm);
     }
+
     .section-title {
       font-size: 1rem;
       font-weight: 700;
@@ -171,14 +225,24 @@
       letter-spacing: -0.015em;
       margin-bottom: 4px;
     }
+
     .section-desc {
       font-size: 0.8rem;
       color: var(--subtle);
       margin-bottom: 12px;
       font-weight: 500;
     }
-    .supported { color: #0f7a3d; font-weight: 700; }
-    .unsupported { color: #a51016; font-weight: 700; }
+
+    .supported {
+      color: #0f7a3d;
+      font-weight: 700;
+    }
+
+    .unsupported {
+      color: #a51016;
+      font-weight: 700;
+    }
+
     .btn {
       display: inline-block;
       border: 1px solid var(--border);
@@ -192,19 +256,30 @@
       box-shadow: var(--shadow-sm);
       transition: transform 0.2s var(--ease-out), border-color 0.15s var(--ease), background 0.15s var(--ease), box-shadow 0.2s var(--ease);
     }
-    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-row); }
-    .btn:active { transform: translateY(0); opacity: 0.85; }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-row);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      opacity: 0.85;
+    }
+
     .btn-run {
       background: var(--accent);
       color: #fff;
       border-color: var(--accent);
-      box-shadow: 0 1px 2px rgba(10,15,28,0.06), 0 10px 24px -8px rgba(45,169,255,0.55);
+      box-shadow: 0 1px 2px rgba(10, 15, 28, 0.06), 0 10px 24px -8px rgba(45, 169, 255, 0.55);
     }
+
     .btn-run:hover {
       background: var(--accent-hover);
       border-color: var(--accent-hover);
-      box-shadow: 0 2px 4px rgba(10,15,28,0.08), 0 14px 30px -8px rgba(45,169,255,0.65);
+      box-shadow: 0 2px 4px rgba(10, 15, 28, 0.08), 0 14px 30px -8px rgba(45, 169, 255, 0.65);
     }
+
     .btn-clear-queue {
       background: none;
       border: none;
@@ -217,7 +292,11 @@
       -webkit-tap-highlight-color: transparent;
       margin-top: 6px;
     }
-    .btn-clear-queue:active { opacity: 0.5; }
+
+    .btn-clear-queue:active {
+      opacity: 0.5;
+    }
+
     .btn-disabled {
       background: var(--card-inset);
       color: var(--faint);
@@ -225,24 +304,28 @@
       pointer-events: none;
       box-shadow: none;
     }
+
     .btn-done {
       background: #30d158;
       color: #fff;
       border-color: #30d158;
       pointer-events: none;
     }
+
     .note {
       font-size: 0.72rem;
       color: var(--subtle);
       margin-top: 10px;
       line-height: 1.6;
     }
+
     .install-zone {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 18px 0;
     }
+
     .install-status {
       font-size: 13px;
       color: var(--subtle);
@@ -251,10 +334,15 @@
       max-width: 520px;
       margin: 0 auto;
     }
+
     .install-status:not(:empty) {
       margin: -6px auto 12px;
     }
-    .install-status.error { color: #dc2626; }
+
+    .install-status.error {
+      color: #dc2626;
+    }
+
     .tip {
       display: flex;
       align-items: flex-start;
@@ -270,6 +358,7 @@
       box-shadow: var(--shadow-sm);
       animation: tipPulse 3.2s ease-in-out infinite;
     }
+
     .tip-icon {
       flex: 0 0 20px;
       width: 20px;
@@ -286,20 +375,51 @@
       margin-top: 1px;
       animation: tipIconBob 2.4s ease-in-out infinite;
     }
-    .tip-body { flex: 1; }
-    .tip-body strong { color: var(--accent-dark); font-weight: 700; }
+
+    .tip-body {
+      flex: 1;
+    }
+
+    .tip-body strong {
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
     @keyframes tipPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(45, 169, 255, 0.0); }
-      50%      { box-shadow: 0 0 0 6px rgba(45, 169, 255, 0.18); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(45, 169, 255, 0.0);
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(45, 169, 255, 0.18);
+      }
     }
+
     @keyframes tipIconBob {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-2px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-2px);
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .tip, .tip-icon { animation: none; }
+
+      .tip,
+      .tip-icon {
+        animation: none;
+      }
     }
-    .warning, .disclaimer, .caution {
+
+    .warning,
+    .disclaimer,
+    .caution {
       border-radius: 10px;
       padding: 11px 13px;
       margin-bottom: 12px;
@@ -307,6 +427,7 @@
       line-height: 1.6;
       box-shadow: var(--shadow-sm);
     }
+
     /* Callout boxes - solid tinted fills with bright borders and saturated
        text so they keep punch on the new white card background. The old
        alpha-based fills lost all contrast against white. */
@@ -314,32 +435,62 @@
       background: #ffecec;
       border: 1px solid #ff6b63;
       color: #a51016;
-      box-shadow: 0 1px 2px rgba(255,59,48,0.10), 0 4px 14px -6px rgba(255,59,48,0.24);
+      box-shadow: 0 1px 2px rgba(255, 59, 48, 0.10), 0 4px 14px -6px rgba(255, 59, 48, 0.24);
     }
-    .warning strong { color: #7a0a10; font-weight: 700; }
-    .warning a { color: #a51016; text-decoration: underline; }
+
+    .warning strong {
+      color: #7a0a10;
+      font-weight: 700;
+    }
+
+    .warning a {
+      color: #a51016;
+      text-decoration: underline;
+    }
+
     .disclaimer {
       background: #fff3df;
       border: 1px solid #ffae40;
       color: #8a4a04;
-      box-shadow: 0 1px 2px rgba(255,149,0,0.10), 0 4px 14px -6px rgba(255,149,0,0.24);
+      box-shadow: 0 1px 2px rgba(255, 149, 0, 0.10), 0 4px 14px -6px rgba(255, 149, 0, 0.24);
     }
-    .disclaimer strong { color: #5a3005; font-weight: 700; }
-    .disclaimer a { color: #8a4a04; text-decoration: underline; }
+
+    .disclaimer strong {
+      color: #5a3005;
+      font-weight: 700;
+    }
+
+    .disclaimer a {
+      color: #8a4a04;
+      text-decoration: underline;
+    }
+
     .caution {
       background: #ffe8cc;
       border: 1px solid #ff9a1f;
       color: #7d3d02;
-      box-shadow: 0 1px 2px rgba(255,149,0,0.12), 0 4px 14px -6px rgba(255,149,0,0.28);
+      box-shadow: 0 1px 2px rgba(255, 149, 0, 0.12), 0 4px 14px -6px rgba(255, 149, 0, 0.28);
     }
-    .caution strong { color: #4d2806; font-weight: 700; }
-    .caution a { color: #7d3d02; text-decoration: underline; }
+
+    .caution strong {
+      color: #4d2806;
+      font-weight: 700;
+    }
+
+    .caution a {
+      color: #7d3d02;
+      text-decoration: underline;
+    }
+
     /* Collapsible <details>/<summary> versions of the three warning boxes
        on the page itself. The intro overlay still shows the full text;
        these inline boxes start collapsed and can be tapped to expand. */
-    details.warning, details.disclaimer, details.caution {
+    details.warning,
+    details.disclaimer,
+    details.caution {
       cursor: pointer;
     }
+
     details.warning summary,
     details.disclaimer summary,
     details.caution summary {
@@ -350,11 +501,13 @@
       gap: 10px;
       outline: none;
     }
+
     details.warning summary::-webkit-details-marker,
     details.disclaimer summary::-webkit-details-marker,
     details.caution summary::-webkit-details-marker {
       display: none;
     }
+
     details.warning summary::after,
     details.disclaimer summary::after,
     details.caution summary::after {
@@ -371,11 +524,14 @@
       border-radius: 50%;
       opacity: 0.7;
     }
+
     details[open].warning summary::after,
     details[open].disclaimer summary::after,
     details[open].caution summary::after {
-      content: "\2212"; /* minus sign */
+      content: "\2212";
+      /* minus sign */
     }
+
     details.warning .details-body,
     details.disclaimer .details-body,
     details.caution .details-body {
@@ -383,26 +539,33 @@
       padding-top: 8px;
       border-top: 1px dashed currentColor;
     }
+
     .info {
       font-size: 0.72rem;
       color: var(--subtle);
       line-height: 1.55;
       margin-bottom: 10px;
     }
-    .info strong { color: var(--muted); }
+
+    .info strong {
+      color: var(--muted);
+    }
+
     .info a {
       color: var(--accent);
       font-weight: 600;
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 2px;
-      text-decoration-color: rgba(45,169,255,0.55);
+      text-decoration-color: rgba(45, 169, 255, 0.55);
       transition: color 0.15s var(--ease), text-decoration-color 0.15s var(--ease);
     }
+
     .info a:hover {
       color: var(--accent-hover);
       text-decoration-color: var(--accent-hover);
     }
+
     .header-cards {
       display: flex;
       flex-wrap: wrap;
@@ -410,6 +573,7 @@
       margin-top: 8px;
       justify-content: center;
     }
+
     .header-card {
       display: inline-flex;
       align-items: center;
@@ -426,15 +590,28 @@
       box-shadow: var(--shadow-sm);
       transition: background 0.15s var(--ease), border-color 0.15s var(--ease), transform 0.2s var(--ease-out);
     }
+
     a.header-card:hover {
       background: var(--card-alt);
       border-color: var(--border-strong);
       color: var(--ink);
       transform: translateY(-1px);
     }
-    .header-card svg { flex-shrink: 0; color: var(--ink); }
-    .header-card-static { color: var(--muted); }
-    .header-card-label { color: var(--subtle); font-weight: 500; }
+
+    .header-card svg {
+      flex-shrink: 0;
+      color: var(--ink);
+    }
+
+    .header-card-static {
+      color: var(--muted);
+    }
+
+    .header-card-label {
+      color: var(--subtle);
+      font-weight: 500;
+    }
+
     .header-card-modelmark {
       display: inline-flex;
       align-items: center;
@@ -442,6 +619,7 @@
       color: var(--ink);
       font-weight: 600;
     }
+
     .header-card-modelmark svg,
     .header-card-modelmark-img {
       width: 12px;
@@ -450,21 +628,28 @@
       display: inline-block;
       vertical-align: middle;
     }
+
     /* Log sheet popup - mirrors tweak-sheet design */
     .log-sheet-backdrop {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 900;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0, 0, 0, 0.35);
       opacity: 0;
       transition: opacity 0.25s var(--ease);
       -webkit-tap-highlight-color: transparent;
     }
-    .log-sheet-backdrop.active { display: block; opacity: 1; }
+
+    .log-sheet-backdrop.active {
+      display: block;
+      opacity: 1;
+    }
+
     .log-sheet {
       position: fixed;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       width: min(92vw, 460px);
       max-height: 80vh;
       z-index: 910;
@@ -481,11 +666,23 @@
       display: flex;
       flex-direction: column;
     }
-    .log-sheet.active { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
-    @media (prefers-reduced-motion: reduce) {
-      .log-sheet-backdrop { transition: none; }
-      .log-sheet { transition: none; }
+
+    .log-sheet.active {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      pointer-events: auto;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .log-sheet-backdrop {
+        transition: none;
+      }
+
+      .log-sheet {
+        transition: none;
+      }
+    }
+
     .log-sheet-header {
       display: flex;
       align-items: center;
@@ -493,6 +690,7 @@
       padding: 14px 18px 12px;
       border-bottom: 1px solid var(--border-soft);
     }
+
     .log-sheet-header .tweak-sheet-back {
       background: none;
       border: none;
@@ -508,7 +706,11 @@
       font-family: inherit;
       -webkit-tap-highlight-color: transparent;
     }
-    .log-sheet-header .tweak-sheet-back:active { opacity: 0.6; }
+
+    .log-sheet-header .tweak-sheet-back:active {
+      opacity: 0.6;
+    }
+
     .log-sheet-title {
       flex: 1;
       font-size: 0.95rem;
@@ -517,6 +719,7 @@
       letter-spacing: -0.02em;
       text-align: right;
     }
+
     .log-stage-banner {
       padding: 10px 18px;
       background: var(--card-alt);
@@ -526,6 +729,7 @@
       gap: 10px;
       min-height: 42px;
     }
+
     .log-stage-dot {
       width: 8px;
       height: 8px;
@@ -534,12 +738,29 @@
       flex-shrink: 0;
       animation: stagePulse 1.6s ease-in-out infinite;
     }
-    .log-stage-dot.done { background: #30d158; animation: none; }
-    .log-stage-dot.err { background: #ff453a; animation: none; }
-    @keyframes stagePulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+
+    .log-stage-dot.done {
+      background: #30d158;
+      animation: none;
     }
+
+    .log-stage-dot.err {
+      background: #ff453a;
+      animation: none;
+    }
+
+    @keyframes stagePulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
     .log-stage-text {
       flex: 1;
       font-size: 0.8rem;
@@ -547,12 +768,14 @@
       color: var(--ink);
       line-height: 1.35;
     }
+
     .log-stage-sub {
       font-size: 0.7rem;
       font-weight: 500;
       color: var(--subtle);
       margin-top: 1px;
     }
+
     .log-sheet-body {
       flex: 1;
       overflow-y: auto;
@@ -563,12 +786,14 @@
       min-height: 140px;
       max-height: 50vh;
     }
+
     .log-sheet-empty {
       font-size: 0.78rem;
       color: var(--subtle);
       text-align: center;
       padding: 32px 0;
     }
+
     .log-line {
       font-size: 0.76rem;
       line-height: 1.55;
@@ -579,13 +804,30 @@
       transform: translateY(6px);
       animation: logLineIn 0.3s var(--ease-out) forwards;
     }
+
     @keyframes logLineIn {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .log-line:last-child { border-bottom: none; }
-    .log-line.ok { color: #0f7a3d; }
-    .log-line.err { color: #c41e1e; }
-    .log-line.device { color: var(--accent-dark); }
+
+    .log-line:last-child {
+      border-bottom: none;
+    }
+
+    .log-line.ok {
+      color: #0f7a3d;
+    }
+
+    .log-line.err {
+      color: #c41e1e;
+    }
+
+    .log-line.device {
+      color: var(--accent-dark);
+    }
+
     .btn-view-log {
       display: none;
       background: none;
@@ -598,8 +840,15 @@
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
-    .btn-view-log:active { opacity: 0.5; }
-    .btn-view-log.visible { display: inline-block; }
+
+    .btn-view-log:active {
+      opacity: 0.5;
+    }
+
+    .btn-view-log.visible {
+      display: inline-block;
+    }
+
     .version {
       font-family: var(--mono);
       font-size: 0.66rem;
@@ -608,11 +857,12 @@
       margin-top: 10px;
       letter-spacing: 0.04em;
     }
+
     .overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(15,23,42,0.58);
+      background: rgba(15, 23, 42, 0.58);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       z-index: 100;
@@ -620,7 +870,11 @@
       justify-content: center;
       padding: 24px;
     }
-    .overlay.active { display: flex; }
+
+    .overlay.active {
+      display: flex;
+    }
+
     .dialog {
       background: var(--card);
       border: 1px solid var(--border-soft);
@@ -631,9 +885,27 @@
       text-align: center;
       box-shadow: var(--shadow-lg);
     }
-    .dialog h2 { font-size: 1.15rem; font-weight: 700; color: #a51016; margin-bottom: 12px; letter-spacing: -0.02em; }
-    .dialog p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
-    .dialog-btns { display: flex; gap: 10px; }
+
+    .dialog h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #a51016;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .dialog p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .dialog-btns {
+      display: flex;
+      gap: 10px;
+    }
+
     .dialog-btns button {
       flex: 1;
       padding: 12px;
@@ -646,11 +918,32 @@
       box-shadow: var(--shadow-sm);
       transition: transform 0.2s var(--ease-out), background 0.15s var(--ease);
     }
-    .dialog-btns button:hover { transform: translateY(-1px); }
-    .btn-cancel { background: var(--card-alt); color: var(--muted); border-color: var(--border); }
-    .btn-cancel:hover { background: var(--hover); }
-    .btn-confirm { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn-confirm:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+    .dialog-btns button:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-cancel {
+      background: var(--card-alt);
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
+    .btn-cancel:hover {
+      background: var(--hover);
+    }
+
+    .btn-confirm {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-confirm:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
     .dialog.intro {
       max-width: 420px;
       max-height: 88vh;
@@ -658,31 +951,37 @@
       text-align: left;
       padding: 24px 20px 20px;
     }
+
     .dialog.intro h2 {
       text-align: center;
       color: var(--ink);
       margin-bottom: 6px;
     }
+
     .dialog.intro .intro-sub {
       text-align: center;
       font-size: 0.78rem;
       color: var(--subtle);
       margin-bottom: 16px;
     }
+
     .dialog.intro .disclaimer,
     .dialog.intro .caution,
     .dialog.intro .warning {
       margin-bottom: 10px;
     }
+
     .dialog.intro .dialog-btns {
       margin-top: 6px;
     }
+
     .level-list {
       display: flex;
       flex-direction: column;
       gap: 8px;
       margin: 14px 0 18px;
     }
+
     .level-list label {
       display: flex;
       align-items: center;
@@ -696,20 +995,38 @@
       background: var(--card);
       transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
     }
-    .level-list label:hover { background: var(--card-alt); border-color: var(--border); }
-    .level-list input[type="radio"] { accent-color: var(--accent); }
+
+    .level-list label:hover {
+      background: var(--card-alt);
+      border-color: var(--border);
+    }
+
+    .level-list input[type="radio"] {
+      accent-color: var(--accent);
+    }
+
     .level-list label.selected {
       border-color: var(--accent);
       background: var(--accent-soft);
     }
-    .level-list .lvl-name { font-weight: 600; }
-    .level-list .lvl-desc { font-size: 0.7rem; color: var(--subtle); margin-left: auto; }
+
+    .level-list .lvl-name {
+      font-weight: 600;
+    }
+
+    .level-list .lvl-desc {
+      font-size: 0.7rem;
+      color: var(--subtle);
+      margin-left: auto;
+    }
+
     .tweak-list {
       display: flex;
       flex-direction: column;
       gap: 6px;
       margin: 10px 0 8px;
     }
+
     .tweak-section-label {
       font-family: var(--mono);
       font-size: 0.62rem;
@@ -719,6 +1036,7 @@
       text-transform: uppercase;
       padding: 6px 4px 2px;
     }
+
     .tweak-row {
       background: var(--card);
       border: 1px solid var(--border);
@@ -727,54 +1045,68 @@
       box-shadow: var(--shadow-sm);
       transition: background 0.18s var(--ease), border-color 0.18s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease-out);
     }
+
     .tweak-row.checked {
       border-color: var(--accent);
       background: var(--card);
       box-shadow: var(--shadow-row);
       transform: translateY(-1px);
     }
+
     .tweak-row.is-disabled {
       background: #f3f4f6;
       border-color: #e5e7eb;
       box-shadow: none;
       filter: grayscale(0.85);
     }
+
     .tweak-row.is-disabled .tweak-row-name,
     .tweak-row.is-disabled .tweak-row-desc,
     .tweak-row.is-disabled .tweak-row-notes {
       color: #9ca3af;
     }
+
     .tweak-row.is-disabled .tweak-row-name {
       text-decoration: line-through;
       text-decoration-color: #cbd1d8;
     }
+
     .tweak-row.is-disabled .tweak-row-hint {
       color: #b5bac3;
     }
+
     .tweak-row.is-disabled .tweak-queue-btn {
       background: #d1d5db;
       color: #6b7280;
       cursor: not-allowed;
       box-shadow: none;
     }
+
     .tweak-row.is-disabled .tweak-row-info {
       opacity: 0.6;
     }
+
     /* Tweak detail sheet - slides in from right like Sileo */
     .tweak-sheet-backdrop {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 900;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0, 0, 0, 0.35);
       opacity: 0;
       transition: opacity 0.25s var(--ease);
       -webkit-tap-highlight-color: transparent;
     }
-    .tweak-sheet-backdrop.active { display: block; opacity: 1; }
+
+    .tweak-sheet-backdrop.active {
+      display: block;
+      opacity: 1;
+    }
+
     .tweak-sheet {
       position: fixed;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       width: min(88vw, 420px);
       max-height: 75vh;
       z-index: 910;
@@ -790,11 +1122,23 @@
       padding: 0;
       pointer-events: none;
     }
-    .tweak-sheet.active { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: auto; }
-    @media (prefers-reduced-motion: reduce) {
-      .tweak-sheet-backdrop { transition: none; }
-      .tweak-sheet { transition: none; }
+
+    .tweak-sheet.active {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      pointer-events: auto;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tweak-sheet-backdrop {
+        transition: none;
+      }
+
+      .tweak-sheet {
+        transition: none;
+      }
+    }
+
     .tweak-sheet-header {
       position: sticky;
       top: 0;
@@ -807,6 +1151,7 @@
       border-bottom: none;
       border-radius: 18px 18px 0 0;
     }
+
     .tweak-sheet-back {
       background: none;
       border: none;
@@ -822,7 +1167,11 @@
       font-family: inherit;
       -webkit-tap-highlight-color: transparent;
     }
-    .tweak-sheet-back:active { opacity: 0.6; }
+
+    .tweak-sheet-back:active {
+      opacity: 0.6;
+    }
+
     .tweak-sheet-title {
       flex: 1;
       font-size: 0.95rem;
@@ -831,41 +1180,59 @@
       letter-spacing: -0.02em;
       text-align: right;
     }
+
     .tweak-sheet-body {
       padding: 16px 18px 20px;
     }
+
     .tweak-sheet-body .tweak-row-desc {
       font-size: 0.78rem;
       color: var(--muted);
       line-height: 1.6;
       margin-bottom: 14px;
     }
+
     .tweak-sheet-body .tweak-row-notes {
       font-size: 0.72rem;
       color: var(--subtle);
       line-height: 1.55;
       margin-bottom: 14px;
     }
+
     .tweak-sheet-body .tweak-row-options {
       display: block !important;
       margin-top: 0;
       padding-top: 0;
       border-top: none;
     }
-    .tweak-sheet-body .tweak-row-desc-inline { display: none; }
-    .tweak-sheet-body .tweak-row-detail { border-top: none; margin-top: 0; padding-top: 0; padding-left: 0; }
+
+    .tweak-sheet-body .tweak-row-desc-inline {
+      display: none;
+    }
+
+    .tweak-sheet-body .tweak-row-detail {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+      padding-left: 0;
+    }
+
     .tweak-sheet-body .sbc-list {
       border-radius: 12px;
     }
+
     .tweak-sheet-body .sbc-row {
       padding: 10px 14px;
     }
+
     .tweak-sheet-body .tweak-row-options-label {
       margin-top: 14px;
     }
+
     .tweak-sheet-body select {
       margin-bottom: 4px;
     }
+
     .tweak-row-badge {
       display: inline-block;
       font-size: 0.58rem;
@@ -880,6 +1247,7 @@
       margin-left: 6px;
       vertical-align: middle;
     }
+
     .tweak-row-head {
       display: flex;
       align-items: center;
@@ -887,6 +1255,7 @@
       gap: 12px;
       min-height: 28px;
     }
+
     .tweak-row-title {
       flex: 1;
       min-width: 0;
@@ -903,17 +1272,21 @@
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
+
     .tweak-row-title:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
       border-radius: 4px;
     }
+
     .tweak-row-info {
       display: none;
     }
+
     .tweak-row-head {
       cursor: pointer;
     }
+
     .tweak-row-caret {
       display: none;
       align-items: center;
@@ -928,7 +1301,12 @@
       flex-shrink: 0;
       font-weight: 400;
     }
-    .tweak-row.expanded .tweak-row-caret { transform: rotate(90deg); color: var(--accent); }
+
+    .tweak-row.expanded .tweak-row-caret {
+      transform: rotate(90deg);
+      color: var(--accent);
+    }
+
     .tweak-row-name {
       flex: 1;
       min-width: 0;
@@ -938,6 +1316,7 @@
       line-height: 1.3;
       letter-spacing: -0.01em;
     }
+
     .tweak-row-hint {
       display: block;
       font-size: 0.68rem;
@@ -946,18 +1325,24 @@
       margin-top: 1px;
       letter-spacing: 0;
     }
+
     .tweak-row-detail {
       margin-top: 10px;
       padding-top: 10px;
       padding-left: 24px;
       border-top: 1px solid var(--border-soft);
     }
-    .tweak-row-detail[hidden] { display: none; }
+
+    .tweak-row-detail[hidden] {
+      display: none;
+    }
+
     .tweak-row-desc {
       font-size: 0.76rem;
       color: var(--subtle);
       line-height: 1.55;
     }
+
     /* Inline description shown inside .tweak-row-options (e.g. Powercuff
        shows its blurb next to the level picker whenever the toggle is on,
        no caret-expand required). Hidden when the caret-expand detail
@@ -966,9 +1351,11 @@
     .tweak-row-desc-inline {
       margin-bottom: 10px;
     }
+
     .tweak-row.expanded .tweak-row-desc-inline {
       display: none;
     }
+
     /* Sileo-style queue button */
     .tweak-queue-btn {
       display: inline-flex;
@@ -988,28 +1375,46 @@
       color: #fff;
       letter-spacing: -0.005em;
     }
-    .tweak-queue-btn:active { transform: scale(0.95); }
+
+    .tweak-queue-btn:active {
+      transform: scale(0.95);
+    }
+
     .tweak-queue-btn.queued {
       background: var(--card-inset);
       color: var(--muted);
       border: 1px solid var(--border);
     }
+
     /* Hidden checkbox drives the queued state (only top-level row toggles) */
-    .tweak-row-head > .tweak-toggle { display: none; }
+    .tweak-row-head>.tweak-toggle {
+      display: none;
+    }
+
     /* Sub-option toggles inside sheets keep their styling */
     .tweak-sheet-body .tweak-toggle,
-    .tweak-row-options .tweak-toggle { display: inline-block; }
-    @media (prefers-reduced-motion: reduce) {
-      .tweak-queue-btn { transition: none; }
+    .tweak-row-options .tweak-toggle {
+      display: inline-block;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tweak-queue-btn {
+        transition: none;
+      }
+    }
+
     .tweak-row-options {
       display: none;
       margin-top: 6px;
       padding-top: 6px;
       border-top: 1px solid var(--border-soft);
     }
+
     /* Options only visible inside the sheet panel, never inline */
-    .tweak-row.checked .tweak-row-options { display: none; }
+    .tweak-row.checked .tweak-row-options {
+      display: none;
+    }
+
     .tweak-row-options-label {
       font-family: var(--mono);
       font-size: 0.64rem;
@@ -1020,6 +1425,7 @@
       margin-bottom: 6px;
       display: block;
     }
+
     .tweak-row-options select {
       width: 100%;
       padding: 9px 12px;
@@ -1037,12 +1443,14 @@
       padding-right: 32px;
       box-shadow: var(--shadow-sm);
     }
+
     .tweak-row-options .tweak-row-opt-help {
       font-size: 0.7rem;
       color: var(--subtle);
       margin-top: 6px;
       line-height: 1.55;
     }
+
     .sbc-list {
       display: flex;
       flex-direction: column;
@@ -1053,6 +1461,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
     }
+
     .sbc-row {
       display: flex;
       align-items: center;
@@ -1061,8 +1470,16 @@
       border-bottom: 1px solid var(--border-soft);
       gap: 10px;
     }
-    .sbc-row:last-child { border-bottom: none; }
-    .sbc-row-meta { min-width: 0; flex: 1; }
+
+    .sbc-row:last-child {
+      border-bottom: none;
+    }
+
+    .sbc-row-meta {
+      min-width: 0;
+      flex: 1;
+    }
+
     .sbc-row-label {
       font-size: 0.85rem;
       color: var(--ink);
@@ -1070,6 +1487,7 @@
       letter-spacing: -0.01em;
       line-height: 1.2;
     }
+
     .sbc-row-sub {
       font-size: 0.74rem;
       color: var(--subtle);
@@ -1077,6 +1495,7 @@
       font-weight: 500;
       line-height: 1.35;
     }
+
     /* Count rows stack vertically: label + current value on top, slider
        underneath. Gives the slider full row width for proper feel. */
     .sbc-row-slider {
@@ -1084,12 +1503,14 @@
       align-items: stretch;
       gap: 8px;
     }
+
     .sbc-slider-head {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 10px;
     }
+
     .sbc-slider-value {
       font-variant-numeric: tabular-nums;
       font-size: 1rem;
@@ -1099,6 +1520,7 @@
       min-width: 18px;
       text-align: right;
     }
+
     .sbc-slider {
       -webkit-appearance: none;
       appearance: none;
@@ -1111,11 +1533,13 @@
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
+
     .sbc-slider::-webkit-slider-runnable-track {
       height: 4px;
       background: var(--border);
       border-radius: 2px;
     }
+
     .sbc-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -1124,24 +1548,29 @@
       border-radius: 50%;
       background: #fff;
       border: none;
-      box-shadow: 0 1px 3px rgba(10,15,28,0.18), 0 0 0 1px rgba(10,15,28,0.10);
+      box-shadow: 0 1px 3px rgba(10, 15, 28, 0.18), 0 0 0 1px rgba(10, 15, 28, 0.10);
       cursor: pointer;
       margin-top: -10px;
       transition: transform 0.12s var(--ease-out), box-shadow 0.12s var(--ease);
     }
+
     .sbc-slider::-webkit-slider-thumb:hover {
-      box-shadow: 0 1px 4px rgba(10,15,28,0.22), 0 0 0 6px rgba(45,169,255,0.16);
+      box-shadow: 0 1px 4px rgba(10, 15, 28, 0.22), 0 0 0 6px rgba(45, 169, 255, 0.16);
     }
+
     .sbc-slider:active::-webkit-slider-thumb {
       transform: scale(1.08);
-      box-shadow: 0 1px 4px rgba(10,15,28,0.22), 0 0 0 8px rgba(45,169,255,0.22);
+      box-shadow: 0 1px 4px rgba(10, 15, 28, 0.22), 0 0 0 8px rgba(45, 169, 255, 0.22);
     }
+
     .sbc-slider:focus-visible::-webkit-slider-thumb {
-      box-shadow: 0 1px 4px rgba(10,15,28,0.22), 0 0 0 4px rgba(45,169,255,0.35);
+      box-shadow: 0 1px 4px rgba(10, 15, 28, 0.22), 0 0 0 4px rgba(45, 169, 255, 0.35);
     }
+
     .sbc-slider-wrap {
       position: relative;
     }
+
     .sbc-slider-ticks {
       display: flex;
       justify-content: space-between;
@@ -1151,12 +1580,14 @@
       user-select: none;
       -webkit-user-select: none;
     }
+
     .sbc-slider-ticks span {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 2px;
     }
+
     .sbc-slider-ticks span::before {
       content: '';
       display: block;
@@ -1165,6 +1596,7 @@
       background: var(--border);
       border-radius: 1px;
     }
+
     .sbc-slider-ticks span::after {
       content: attr(data-v);
       font-family: var(--mono);
@@ -1172,12 +1604,14 @@
       color: var(--faint);
       font-weight: 500;
     }
+
     .sbc-reset-row {
       display: flex;
       justify-content: center;
       padding: 10px 0 2px;
       border-bottom: none !important;
     }
+
     .sbc-reset-btn {
       background: none;
       border: none;
@@ -1192,14 +1626,22 @@
       -webkit-tap-highlight-color: transparent;
       letter-spacing: -0.005em;
     }
-    .sbc-reset-btn:hover { background: rgba(45,169,255,0.12); }
-    .sbc-reset-btn:active { background: rgba(45,169,255,0.22); }
+
+    .sbc-reset-btn:hover {
+      background: rgba(45, 169, 255, 0.12);
+    }
+
+    .sbc-reset-btn:active {
+      background: rgba(45, 169, 255, 0.22);
+    }
+
     .sbc-row-label-wrap {
       display: flex;
       align-items: center;
       gap: 6px;
       flex-wrap: wrap;
     }
+
     .sbc-row-badge {
       display: inline-block;
       font-size: 0.55rem;
@@ -1214,6 +1656,7 @@
       vertical-align: middle;
       line-height: 1.3;
     }
+
     .sbc-wip-note {
       margin-top: 6px;
       padding: 8px 10px;
@@ -1224,37 +1667,62 @@
       color: #8a4a04;
       line-height: 1.55;
     }
-    .sbc-wip-note strong { color: #5a3005; font-weight: 700; }
+
+    .sbc-wip-note strong {
+      color: #5a3005;
+      font-weight: 700;
+    }
+
     .tweak-row-notes {
       font-size: 0.7rem;
       color: var(--subtle);
       line-height: 1.55;
       margin-top: 8px;
     }
-    .tweak-row-notes a { color: var(--muted); }
-    .tweak-row-notes strong { color: var(--muted); font-weight: 600; }
+
+    .tweak-row-notes a {
+      color: var(--muted);
+    }
+
+    .tweak-row-notes strong {
+      color: var(--muted);
+      font-weight: 600;
+    }
   </style>
 </head>
+
 <body>
   <div class="page">
     <div class="page-header">
-      <div class="page-title">LightSaber</div>
+      <div class="page-title">HeavyKatana</div>
       <div class="page-subtitle">iOS research tool(s)? 👀</div>
       <div class="page-author">
-        <a href="https://twitter.com/zeroxjf" target="_blank" rel="noopener" title="Follow @zeroxjf on X / Twitter">
-          @zeroxjf
-          <svg height="11" width="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h2.039L6.486 3.24H4.298z"/></svg>
+        <a href="https://twitter.com/atpugvaraa" target="_blank" rel="noopener"
+          title="Follow @atpugvaraa on X / Twitter">
+          @atpugvaraa
+          <svg height="11" width="11" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h2.039L6.486 3.24H4.298z" />
+          </svg>
         </a>
       </div>
       <div class="header-cards">
-        <a class="header-card" href="https://github.com/zeroxjf/LightSaber" target="_blank" rel="noopener" title="View lightsaber source on GitHub">
-          <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <a class="header-card" href="https://github.com/atpugvaraa/heavykatana" target="_blank" rel="noopener"
+          title="View HeavyKatana source on GitHub">
+          <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>
           <span>Open source on GitHub</span>
         </a>
-        <div class="header-card header-card-static" title="Built with AI pair-programming assistance from Codex and Claude Code">
+        <div class="header-card header-card-static"
+          title="Built with AI pair-programming assistance from Codex and Claude Code">
           <span class="header-card-label">Built with</span>
           <span class="header-card-modelmark">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973v5.677a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0l-5.843 3.371V6.949a.066.066 0 0 1 .028-.063l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.78 2.758a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973v5.677a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0l-5.843 3.371V6.949a.066.066 0 0 1 .028-.063l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.78 2.758a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5Z" />
+            </svg>
             Codex
           </span>
           <span class="header-card-label">and</span>
@@ -1268,19 +1736,22 @@
 
     <div class="section">
       <p id="supportMsg" style="font-size:0.78rem;margin-bottom:4px"></p>
-      <p style="font-size:0.7rem;color:var(--faint);margin-bottom:10px">A12&ndash;A18 Pro &middot; iOS 18.4&ndash;18.6.2</p>
+      <p style="font-size:0.7rem;color:var(--faint);margin-bottom:10px">A12&ndash;A18 Pro &middot; iOS 18.4&ndash;18.6.2
+      </p>
 
       <div class="tweak-list">
         <div class="tweak-section-label">SpringBoard</div>
         <div class="tweak-row" id="tweakRowFiveicon">
           <div class="tweak-row-head">
             <span class="tweak-row-name">SBCustomizer<span class="tweak-row-hint">tap for options</span></span>
-            <button type="button" class="tweak-row-info" aria-label="SBCustomizer details" data-sheet="tweakRowFiveicon">i</button>
+            <button type="button" class="tweak-row-info" aria-label="SBCustomizer details"
+              data-sheet="tweakRowFiveicon">i</button>
             <input type="checkbox" id="tweakFiveicon" class="tweak-toggle">
             <button type="button" class="tweak-queue-btn" data-cb="tweakFiveicon">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailFiveicon" hidden>
-            <div class="tweak-row-desc">Fine-tune the SpringBoard dock and home screen grid at runtime: number of icons in the dock, home columns, and home rows. Runtime patch only &mdash; no on-disk changes.</div>
+            <div class="tweak-row-desc">Fine-tune the SpringBoard dock and home screen grid at runtime: number of icons
+              in the dock, home columns, and home rows. Runtime patch only &mdash; no on-disk changes.</div>
             <div class="tweak-row-notes">
               <strong>Persistence:</strong> lives only inside SpringBoard, so it clears on respring/reboot.
             </div>
@@ -1293,8 +1764,10 @@
                   <span class="sbc-slider-value" id="sbcDockIconsVal">4</span>
                 </div>
                 <div class="sbc-slider-wrap">
-                  <input type="range" id="sbcDockIcons" class="sbc-slider" min="4" max="7" step="1" value="4" aria-label="Dock icons">
-                  <div class="sbc-slider-ticks"><span data-v="4"></span><span data-v="5"></span><span data-v="6"></span><span data-v="7"></span></div>
+                  <input type="range" id="sbcDockIcons" class="sbc-slider" min="4" max="7" step="1" value="4"
+                    aria-label="Dock icons">
+                  <div class="sbc-slider-ticks"><span data-v="4"></span><span data-v="5"></span><span
+                      data-v="6"></span><span data-v="7"></span></div>
                 </div>
               </div>
               <div class="sbc-row sbc-row-slider">
@@ -1303,8 +1776,10 @@
                   <span class="sbc-slider-value" id="sbcHsColsVal">4</span>
                 </div>
                 <div class="sbc-slider-wrap">
-                  <input type="range" id="sbcHsCols" class="sbc-slider" min="3" max="7" step="1" value="4" aria-label="Home columns">
-                  <div class="sbc-slider-ticks"><span data-v="3"></span><span data-v="4"></span><span data-v="5"></span><span data-v="6"></span><span data-v="7"></span></div>
+                  <input type="range" id="sbcHsCols" class="sbc-slider" min="3" max="7" step="1" value="4"
+                    aria-label="Home columns">
+                  <div class="sbc-slider-ticks"><span data-v="3"></span><span data-v="4"></span><span
+                      data-v="5"></span><span data-v="6"></span><span data-v="7"></span></div>
                 </div>
               </div>
               <div class="sbc-row sbc-row-slider">
@@ -1313,8 +1788,10 @@
                   <span class="sbc-slider-value" id="sbcHsRowsVal">6</span>
                 </div>
                 <div class="sbc-slider-wrap">
-                  <input type="range" id="sbcHsRows" class="sbc-slider" min="4" max="8" step="1" value="6" aria-label="Home rows">
-                  <div class="sbc-slider-ticks"><span data-v="4"></span><span data-v="5"></span><span data-v="6"></span><span data-v="7"></span><span data-v="8"></span></div>
+                  <input type="range" id="sbcHsRows" class="sbc-slider" min="4" max="8" step="1" value="6"
+                    aria-label="Home rows">
+                  <div class="sbc-slider-ticks"><span data-v="4"></span><span data-v="5"></span><span
+                      data-v="6"></span><span data-v="7"></span><span data-v="8"></span></div>
                 </div>
               </div>
               <div class="sbc-row">
@@ -1332,7 +1809,8 @@
               </div>
             </div>
             <div class="sbc-wip-note">
-              <strong>Heads up:</strong> the grid is patched once during the chain, so moving icons to or from the dock after install can reset some of the layout preferences you set. Respring and rerun if it looks off.
+              <strong>Heads up:</strong> the grid is patched once during the chain, so moving icons to or from the dock
+              after install can reset some of the layout preferences you set. Respring and rerun if it looks off.
             </div>
           </div>
         </div>
@@ -1341,27 +1819,97 @@
         <div class="tweak-row" id="tweakRowMgpatcher">
           <div class="tweak-row-head">
             <span class="tweak-row-name">MobileGestalt Patcher<span class="tweak-row-hint">tap for options</span></span>
-            <button type="button" class="tweak-row-info" aria-label="MobileGestalt Patcher details" data-sheet="tweakRowMgpatcher">i</button>
+            <button type="button" class="tweak-row-info" aria-label="MobileGestalt Patcher details"
+              data-sheet="tweakRowMgpatcher">i</button>
             <input type="checkbox" id="tweakMgpatcher" class="tweak-toggle">
             <button type="button" class="tweak-queue-btn" data-cb="tweakMgpatcher">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailMgpatcher" hidden>
           </div>
           <div class="tweak-row-options">
-            <div style="margin-bottom:8px;padding:8px 10px;background:#fff0f0;border:1px solid #f87171;border-radius:8px;font-size:0.7rem;color:#7f1d1d;line-height:1.55"><strong>Warning:</strong> Enabling features your hardware does not support may cause UI glitches, crashes, or in rare cases a bootloop requiring a restore. Only enable features you understand. Uncheck to revert. Use at your own risk.</div>
+            <div
+              style="margin-bottom:8px;padding:8px 10px;background:#fff0f0;border:1px solid #f87171;border-radius:8px;font-size:0.7rem;color:#7f1d1d;line-height:1.55">
+              <strong>Warning:</strong> Enabling features your hardware does not support may cause UI glitches, crashes,
+              or in rare cases a bootloop requiring a restore. Only enable features you understand. Uncheck to revert.
+              Use at your own risk.
+            </div>
             <div class="sbc-list">
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Boot Chime</div><div class="sbc-row-sub">Startup sound on boot</div></div><input type="checkbox" id="mgBootChime"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Charge Limit</div><div class="sbc-row-sub">Battery charge limiting setting</div></div><input type="checkbox" id="mgChargeLimit"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Tap to Wake</div><div class="sbc-row-sub">For iPhone SE models</div></div><input type="checkbox" id="mgTapToWake"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Collision SOS</div><div class="sbc-row-sub">Crash detection for emergency SOS</div></div><input type="checkbox" id="mgCollisionSOS"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Apple Pencil</div><div class="sbc-row-sub">Pencil settings tab</div></div><input type="checkbox" id="mgPencil"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Action Button</div><div class="sbc-row-sub">Action Button settings tab</div></div><input type="checkbox" id="mgActionButton"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Always On Display</div><div class="sbc-row-sub">Lock screen stays visible</div><div class="sbc-row-sub" style="color:#b91c1c">May cause burn-in on unsupported displays</div></div><input type="checkbox" id="mgAOD"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Stage Manager</div><div class="sbc-row-sub">Multitasking windowing</div></div><input type="checkbox" id="mgStageManager"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Internal Install</div><div class="sbc-row-sub">Apple internal flag (Metal HUD, etc.)</div><div class="sbc-row-sub" style="color:#b91c1c">Risky for some devices, mainly iPads</div></div><input type="checkbox" id="mgInternalInstall"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">SRD Mode</div><div class="sbc-row-sub">Security Research Device</div><div class="sbc-row-sub" style="color:#b91c1c">Changes lock screen text to "Security Research Device"</div></div><input type="checkbox" id="mgSRD"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">Disable Shutter Sound</div><div class="sbc-row-sub">Remove regional camera shutter restriction</div></div><input type="checkbox" id="mgShutter"></label>
-              <label class="sbc-row"><div class="sbc-row-meta"><div class="sbc-row-label">iPad Apps on iPhone</div><div class="sbc-row-sub">Allow iPad-only apps to install</div></div><input type="checkbox" id="mgiPadApps"></label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Boot Chime</div>
+                  <div class="sbc-row-sub">Startup sound on boot</div>
+                </div><input type="checkbox" id="mgBootChime">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Charge Limit</div>
+                  <div class="sbc-row-sub">Battery charge limiting setting</div>
+                </div><input type="checkbox" id="mgChargeLimit">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Tap to Wake</div>
+                  <div class="sbc-row-sub">For iPhone SE models</div>
+                </div><input type="checkbox" id="mgTapToWake">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Collision SOS</div>
+                  <div class="sbc-row-sub">Crash detection for emergency SOS</div>
+                </div><input type="checkbox" id="mgCollisionSOS">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Apple Pencil</div>
+                  <div class="sbc-row-sub">Pencil settings tab</div>
+                </div><input type="checkbox" id="mgPencil">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Action Button</div>
+                  <div class="sbc-row-sub">Action Button settings tab</div>
+                </div><input type="checkbox" id="mgActionButton">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Always On Display</div>
+                  <div class="sbc-row-sub">Lock screen stays visible</div>
+                  <div class="sbc-row-sub" style="color:#b91c1c">May cause burn-in on unsupported displays</div>
+                </div><input type="checkbox" id="mgAOD">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Stage Manager</div>
+                  <div class="sbc-row-sub">Multitasking windowing</div>
+                </div><input type="checkbox" id="mgStageManager">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Internal Install</div>
+                  <div class="sbc-row-sub">Apple internal flag (Metal HUD, etc.)</div>
+                  <div class="sbc-row-sub" style="color:#b91c1c">Risky for some devices, mainly iPads</div>
+                </div><input type="checkbox" id="mgInternalInstall">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">SRD Mode</div>
+                  <div class="sbc-row-sub">Security Research Device</div>
+                  <div class="sbc-row-sub" style="color:#b91c1c">Changes lock screen text to "Security Research Device"
+                  </div>
+                </div><input type="checkbox" id="mgSRD">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">Disable Shutter Sound</div>
+                  <div class="sbc-row-sub">Remove regional camera shutter restriction</div>
+                </div><input type="checkbox" id="mgShutter">
+              </label>
+              <label class="sbc-row">
+                <div class="sbc-row-meta">
+                  <div class="sbc-row-label">iPad Apps on iPhone</div>
+                  <div class="sbc-row-sub">Allow iPad-only apps to install</div>
+                </div><input type="checkbox" id="mgiPadApps">
+              </label>
             </div>
           </div>
         </div>
@@ -1373,10 +1921,13 @@
             <button type="button" class="tweak-queue-btn" data-cb="tweakPowercuff">GET</button>
           </div>
           <div class="tweak-row-detail" id="tweakDetailPowercuff" hidden>
-            <div class="tweak-row-desc">Underclocks the CPU/GPU for longer battery, at the cost of speed. Port of <a href="https://github.com/rpetrich/Powercuff">rpetrich's Powercuff</a>. Lasts until reboot.</div>
+            <div class="tweak-row-desc">Underclocks the CPU/GPU for longer battery, at the cost of speed. Port of <a
+                href="https://github.com/rpetrich/Powercuff">rpetrich's Powercuff</a>. Lasts until reboot.</div>
           </div>
           <div class="tweak-row-options">
-            <div class="tweak-row-desc tweak-row-desc-inline">Underclocks the CPU/GPU for longer battery, at the cost of speed. Port of <a href="https://github.com/rpetrich/Powercuff">rpetrich's Powercuff</a>. Lasts until reboot.</div>
+            <div class="tweak-row-desc tweak-row-desc-inline">Underclocks the CPU/GPU for longer battery, at the cost of
+              speed. Port of <a href="https://github.com/rpetrich/Powercuff">rpetrich's Powercuff</a>. Lasts until
+              reboot.</div>
             <span class="tweak-row-options-label">Level</span>
             <select id="powercuffLevel">
               <option value="off">Off</option>
@@ -1385,23 +1936,6 @@
               <option value="moderate">Moderate</option>
               <option value="heavy">Heavy</option>
             </select>
-          </div>
-        </div>
-
-        <div class="tweak-section-label">Unstable</div>
-        <div class="tweak-row is-disabled" id="tweakRowApplimit">
-          <div class="tweak-row-head">
-            <span class="tweak-row-name">3-App Limit Bypass <span class="tweak-row-badge" style="color:#7f1d1d;background:#fee2e2;border-color:#f87171">unstable</span><span class="tweak-row-hint">tap for info</span></span>
-            <button type="button" class="tweak-row-info" aria-label="3-App Limit Bypass details" data-sheet="tweakRowApplimit">i</button>
-            <input type="checkbox" id="tweakApplimit" class="tweak-toggle" disabled>
-            <button type="button" class="tweak-queue-btn" data-cb="tweakApplimit" disabled>DISABLED</button>
-          </div>
-          <div class="tweak-row-detail" id="tweakDetailApplimit" hidden>
-            <div class="tweak-row-desc">Disabled &mdash; this bypass proved too unstable on top of the LightSaber chain. Use <a href="https://github.com/rooootdev/lara" target="_blank" rel="noopener">Lara</a> instead &mdash; it's a WIP app that takes advantage of the kernel exploit with a proper reimplementation.</div>
-          </div>
-          <div class="tweak-row-options">
-            <div class="tweak-row-desc tweak-row-desc-inline">Disabled &mdash; this bypass proved too unstable on top of the LightSaber chain.</div>
-            <div style="margin-bottom:10px;padding:10px 12px;background:#fff0f0;border:1px solid #f87171;border-radius:10px;font-size:0.7rem;color:#7f1d1d;line-height:1.55"><strong>Use <a href="https://github.com/rooootdev/lara" target="_blank" rel="noopener" style="color:#7f1d1d;text-decoration:underline">Lara</a> instead.</strong> Running the 3-app limit bypass on top of the kernel exploit leaves residual state that makes panics and SpringBoard crashes too frequent to ship. Lara is a WIP app that takes advantage of the kernel exploit with a proper reimplementation and is the recommended replacement.</div>
           </div>
         </div>
 
@@ -1416,9 +1950,14 @@
       <div class="tip">
         <div class="tip-icon">i</div>
         <div class="tip-body">
-          <strong>Tip:</strong> takes up to 60 seconds. Keep Safari in the foreground while it runs &mdash; don't switch apps or lock the device. If it works, don't press your luck.<br><br>
-          <strong>Expect multiple attempts.</strong> This is a kernel exploit chain &mdash; it genuinely can take up to 5 tries before it lands. Kill Safari from the app switcher between attempts, reopen, and try again. That's normal.<br><br>
-          <strong>If it keeps failing:</strong> clear Safari's cache (book icon &rarr; Clear), reload this page, and retry. If it still won't land after several attempts, reboot the device, clear the cache again, and start fresh.
+          <strong>Tip:</strong> takes up to 60 seconds. Keep Safari in the foreground while it runs &mdash; don't switch
+          apps or lock the device. If it works, don't press your luck.<br><br>
+          <strong>Expect multiple attempts.</strong> This is a kernel exploit chain &mdash; it genuinely can take up to
+          5 tries before it lands. Kill Safari from the app switcher between attempts, reopen, and try again. That's
+          normal.<br><br>
+          <strong>If it keeps failing:</strong> clear Safari's cache (book icon &rarr; Clear), reload this page, and
+          retry. If it still won't land after several attempts, reboot the device, clear the cache again, and start
+          fresh.
         </div>
       </div>
     </div>
@@ -1426,31 +1965,45 @@
     <details class="disclaimer">
       <summary><strong>Not tweak injection</strong> &mdash; runtime JS modification only</summary>
       <div class="details-body">
-        This is JavaScript injection during the exploit chain that modifies processes at runtime. While changes persist until respring or reboot, this is not a standard dylib injection found with a full jailbreak &mdash; it is limited in nature and only some things can be done with it.
+        This is JavaScript injection during the exploit chain that modifies processes at runtime. While changes persist
+        until respring or reboot, this is not a standard dylib injection found with a full jailbreak &mdash; it is
+        limited in nature and only some things can be done with it.
       </div>
     </details>
 
     <details class="caution">
       <summary><strong>Compatibility warning</strong> &mdash; may conflict with Nugget</summary>
       <div class="details-body">
-        This may cause compatibility issues with modifications made by <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a> and other similar tools. While I will work on resolving this, keep this in mind in the interim.
+        This may cause compatibility issues with modifications made by <a href="https://github.com/leminlimez/Nugget"
+          target="_blank" rel="noopener">Nugget</a> and other similar tools. While I will work on resolving this, keep
+        this in mind in the interim.
       </div>
     </details>
 
     <details class="warning">
       <summary><strong>Use caution</strong> &mdash; unstable, not for daily drivers</summary>
       <div class="details-body">
-        Derived from the <a href="https://iverify.io/blog/darksword-ios-exploit-kit-explained">DarkSword</a> exploit chain with all malware communication stripped and <a href="https://github.com/zeroxjf/LightSaber">fully open source</a>, but this is an inherently unstable chain and is <strong>not recommended for deployment on a daily driver</strong> unless you are willing to accept the risk. The chain may take several tries to succeed, SpringBoard may crash, the kernel may panic. Use at your own risk &mdash; I am not liable for any damage or data loss.
+        Derived from the <a href="https://iverify.io/blog/darksword-ios-exploit-kit-explained">DarkSword</a> exploit
+        chain with all malware communication stripped and <a href="https://github.com/atpugvaraa/heavykatana">fully open
+          source</a>, but this is an inherently unstable chain and is <strong>not recommended for deployment on a daily
+          driver</strong> unless you are willing to accept the risk. The chain may take several tries to succeed,
+        SpringBoard may crash, the kernel may panic. Use at your own risk &mdash; I am not liable for any damage or data
+        loss.
       </div>
     </details>
 
     <div style="margin-top:8px;font-size:0.72rem;color:var(--subtle);line-height:1.7">
-      <div style="font-family:var(--mono);font-size:0.6rem;font-weight:600;color:var(--faint);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Credits</div>
-      <a href="https://iverify.io/blog/darksword-ios-exploit-kit-explained">iVerify</a> &amp; <a href="https://cloud.google.com/blog/topics/threat-intelligence/darksword-ios-exploit-chain">Google GTIG</a> &mdash; DarkSword chain documentation<br>
+      <div
+        style="font-family:var(--mono);font-size:0.6rem;font-weight:600;color:var(--faint);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">
+        Credits</div>
+      <a href="https://iverify.io/blog/darksword-ios-exploit-kit-explained">iVerify</a> &amp; <a
+        href="https://cloud.google.com/blog/topics/threat-intelligence/darksword-ios-exploit-chain">Google GTIG</a>
+      &mdash; DarkSword chain documentation<br>
       <a href="https://github.com/leminlimez/Nugget">leminlimez</a> &mdash; Nugget (MobileGestalt + BookRestore)<br>
       <a href="https://github.com/khanhduytran0/SparseBox">khanhduytran0</a> &mdash; SparseBox (3-app limit bypass)<br>
       <a href="https://github.com/rpetrich/Powercuff">rpetrich</a> &mdash; Powercuff tweak<br>
-      <a href="https://github.com/34306">34306</a> &amp; <a href="https://github.com/khanhduytran0">khanhduytran0</a> &mdash; <a href="http://34306.lol/darksword/">site design</a> reference<br>
+      <a href="https://github.com/34306">34306</a> &amp; <a href="https://github.com/khanhduytran0">khanhduytran0</a>
+      &mdash; <a href="http://34306.lol/darksword/">site design</a> reference<br>
       <a href="https://twitter.com/cro4js" target="_blank" rel="noopener">@cro4js</a> &mdash; UI suggestions
     </div>
 
@@ -1487,15 +2040,25 @@
   <div id="introOverlay" class="overlay">
     <div class="dialog intro">
       <h2>Before you continue</h2>
-      <p class="intro-sub">Please read the following before using LightSaber.</p>
+      <p class="intro-sub">Please read the following before using HeavyKatana.</p>
       <div class="disclaimer">
-        <strong>This is not tweak injection.</strong> This is JavaScript injection during the exploit chain that modifies processes at runtime. While changes persist until respring or reboot, this is not a standard dylib injection found with a full jailbreak &mdash; it is limited in nature and only some things can be done with it.
+        <strong>This is not tweak injection.</strong> This is JavaScript injection during the exploit chain that
+        modifies processes at runtime. While changes persist until respring or reboot, this is not a standard dylib
+        injection found with a full jailbreak &mdash; it is limited in nature and only some things can be done with it.
       </div>
       <div class="caution">
-        <strong>Compatibility warning.</strong> This may cause compatibility issues with modifications made by <a href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a> and other similar tools. While I will work on resolving this, keep this in mind in the interim.
+        <strong>Compatibility warning.</strong> This may cause compatibility issues with modifications made by <a
+          href="https://github.com/leminlimez/Nugget" target="_blank" rel="noopener">Nugget</a> and other similar tools.
+        While I will work on resolving this, keep this in mind in the interim.
       </div>
       <div class="warning">
-        <strong>Use caution.</strong> Derived from the <a href="https://iverify.io/blog/darksword-ios-exploit-kit-explained">DarkSword</a> exploit chain with all malware communication stripped and <a href="https://github.com/zeroxjf/LightSaber">fully open source</a>, but this is an inherently unstable chain and is <strong>not recommended for deployment on a daily driver</strong> unless you are willing to accept the risk. The chain may take several tries to succeed, SpringBoard may crash, the kernel may panic. Use at your own risk &mdash; I am not liable for any damage or data loss.
+        <strong>Use caution.</strong> Derived from the <a
+          href="https://iverify.io/blog/darksword-ios-exploit-kit-explained">DarkSword</a> exploit chain with all
+        malware communication stripped and <a href="https://github.com/atpugvaraa/heavykatana">fully open source</a>,
+        but this is an inherently unstable chain and is <strong>not recommended for deployment on a daily
+          driver</strong> unless you are willing to accept the risk. The chain may take several tries to succeed,
+        SpringBoard may crash, the kernel may panic. Use at your own risk &mdash; I am not liable for any damage or data
+        loss.
       </div>
       <div class="dialog-btns">
         <button class="btn-confirm" onclick="dismissIntro()">I understand</button>
@@ -1506,7 +2069,8 @@
   <div id="confirmOverlay" class="overlay">
     <div class="dialog">
       <h2>Are you sure?</h2>
-      <p>This will execute kernel-level exploits on your device. Crashes, resprings, and panics are expected. Exercise extreme caution if using on a personal device.</p>
+      <p>This will execute kernel-level exploits on your device. Crashes, resprings, and panics are expected. Exercise
+        extreme caution if using on a personal device.</p>
       <div class="dialog-btns">
         <button class="btn-cancel" onclick="dismissConfirm()">Cancel</button>
         <button class="btn-confirm" onclick="proceedInstall()">Proceed</button>
@@ -1517,8 +2081,11 @@
   <div id="killSafariOverlay" class="overlay">
     <div class="dialog">
       <h2 style="color:#b91c1c">Force-close Safari</h2>
-      <p>Safari is in a dirty state from a previous run. From the app switcher, swipe up on Safari to kill it, then reopen this page and try again.</p>
-      <p style="font-size:0.78rem;color:var(--subtle);margin-top:8px">If this keeps happening, clear Safari's cache (Settings &rarr; Apps &rarr; Safari &rarr; Clear History and Website Data) and/or reboot your device before retrying. A reboot gives you a fresh kernel state and the cleanest chance of success.</p>
+      <p>Safari is in a dirty state from a previous run. From the app switcher, swipe up on Safari to kill it, then
+        reopen this page and try again.</p>
+      <p style="font-size:0.78rem;color:var(--subtle);margin-top:8px">If this keeps happening, clear Safari's cache
+        (Settings &rarr; Apps &rarr; Safari &rarr; Clear History and Website Data) and/or reboot your device before
+        retrying. A reboot gives you a fresh kernel state and the cleanest chance of success.</p>
       <div class="dialog-btns">
         <button class="btn-confirm" onclick="dismissKillSafari()">Got it</button>
       </div>
@@ -1530,29 +2097,29 @@
     // tries to restore the previous scroll position from cache. iOS Safari
     // restores scroll position aggressively for back-forward / bfcache
     // navigations and can also leave the URL bar mid-collapse, both of
-    // which were leaving the LightSaber header partially scrolled out of
+    // which were leaving the HeavyKatana header partially scrolled out of
     // view on first paint. Disabling history.scrollRestoration plus three
     // explicit scrollTo(0,0) calls (immediate, on DOMContentLoaded, and
     // on the load event) covers every iOS Safari path I've seen.
-    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch(e) {}
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) { }
     window.scrollTo(0, 0);
-    document.addEventListener('DOMContentLoaded', function() { window.scrollTo(0, 0); });
-    window.addEventListener('load', function() { window.scrollTo(0, 0); });
-    window.addEventListener('pageshow', function() { window.scrollTo(0, 0); });
+    document.addEventListener('DOMContentLoaded', function () { window.scrollTo(0, 0); });
+    window.addEventListener('load', function () { window.scrollTo(0, 0); });
+    window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
     // Show the intro warnings overlay on first visit. Persists dismissal in
     // localStorage so it survives Safari kills + device reboots and only
     // comes back if the user fully clears Safari's website data / cache.
     // sessionStorage would re-prompt on every Safari kill, which got annoying.
-    (function() {
+    (function () {
       var dismissed = false;
-      try { dismissed = localStorage.getItem('ls_intro_dismissed') === '1'; } catch(e) {}
+      try { dismissed = localStorage.getItem('ls_intro_dismissed') === '1'; } catch (e) { }
       if (!dismissed) {
         var el = document.getElementById('introOverlay');
         if (el) el.className = 'overlay active';
       }
     })();
     function dismissIntro() {
-      try { localStorage.setItem('ls_intro_dismissed', '1'); } catch(e) {}
+      try { localStorage.setItem('ls_intro_dismissed', '1'); } catch (e) { }
       var el = document.getElementById('introOverlay');
       if (el) el.className = 'overlay';
       window.scrollTo(0, 0);
@@ -1560,7 +2127,7 @@
     var ua = navigator.userAgent;
     var iosMatch = /iPhone OS ([0-9_]+)/g.exec(ua);
     var iosVer = iosMatch ? iosMatch[1].replace(/_/g, '.') : null;
-    var iosParts = iosVer ? iosVer.split('.').map(Number) : [0,0,0];
+    var iosParts = iosVer ? iosVer.split('.').map(Number) : [0, 0, 0];
     var major = iosParts[0], minor = iosParts[1], patch = iosParts[2] || 0;
     var isIphone = /iPhone/.test(ua);
     var doneSignal = false;
@@ -1573,16 +2140,16 @@
     // Maps raw log patterns to user-friendly stage descriptions.
     // Order matters: first match wins. 'log' = message shown in scrolling log (omit to skip).
     var stageRules = [
-      { match: 'Loading worker code',   stage: 'load',  name: 'Downloading exploit code',        sub: 'Fetching worker scripts from server',                  log: 'Preparing payload...' },
-      { match: 'Worker created',        stage: 'init',  name: 'Initializing WebKit exploit',     sub: 'Web worker started',                                   log: 'Spawned exploit worker inside WebKit' },
-      { match: 'RCE module ready',      stage: 'init',  name: 'Exploit module ready',            sub: '',                                                     log: 'Exploit module armed' },
-      { match: 'inside stage1',         stage: 'rce1',  name: 'Running WebKit exploit',          sub: 'Corrupting JSC heap objects',                          log: 'Triggering JavaScriptCore vulnerability...' },
-      { match: 'Finished prims',        stage: 'rce1',  name: 'WebKit exploit primitives ready',  sub: 'Read/write access established',                       log: 'Got arbitrary read/write inside WebContent process' },
-      { match: 'Inside stage2',         stage: 'rce2',  name: 'Running WebKit exploit',          sub: 'Building full exploit primitives',                     log: 'Building kernel exploit primitives...' },
-      { match: 'RCE success',           stage: 'rce2',  name: 'Code execution achieved',         sub: 'Moving to next stage',                                 log: 'Full code execution inside Safari' },
-      { match: 'check_dlopen',          stage: 'dyld',  name: 'Loading system libraries',        sub: 'Hijacking dyld to load frameworks',                    log: 'Hijacking dyld to load system frameworks...' },
-      { match: 'sign_pointers',         stage: 'dyld',  name: 'Signing function pointers',       sub: 'Bypassing pointer authentication (PAC)',               log: 'Bypassing pointer authentication...' },
-      { match: 'inside setup_fcall',    stage: 'fcall', name: 'Exploit chain running',            sub: 'Safari is about to freeze \u2014 this is a good sign', log: 'freeze' },
+      { match: 'Loading worker code', stage: 'load', name: 'Downloading exploit code', sub: 'Fetching worker scripts from server', log: 'Preparing payload...' },
+      { match: 'Worker created', stage: 'init', name: 'Initializing WebKit exploit', sub: 'Web worker started', log: 'Spawned exploit worker inside WebKit' },
+      { match: 'RCE module ready', stage: 'init', name: 'Exploit module ready', sub: '', log: 'Exploit module armed' },
+      { match: 'inside stage1', stage: 'rce1', name: 'Running WebKit exploit', sub: 'Corrupting JSC heap objects', log: 'Triggering JavaScriptCore vulnerability...' },
+      { match: 'Finished prims', stage: 'rce1', name: 'WebKit exploit primitives ready', sub: 'Read/write access established', log: 'Got arbitrary read/write inside WebContent process' },
+      { match: 'Inside stage2', stage: 'rce2', name: 'Running WebKit exploit', sub: 'Building full exploit primitives', log: 'Building kernel exploit primitives...' },
+      { match: 'RCE success', stage: 'rce2', name: 'Code execution achieved', sub: 'Moving to next stage', log: 'Full code execution inside Safari' },
+      { match: 'check_dlopen', stage: 'dyld', name: 'Loading system libraries', sub: 'Hijacking dyld to load frameworks', log: 'Hijacking dyld to load system frameworks...' },
+      { match: 'sign_pointers', stage: 'dyld', name: 'Signing function pointers', sub: 'Bypassing pointer authentication (PAC)', log: 'Bypassing pointer authentication...' },
+      { match: 'inside setup_fcall', stage: 'fcall', name: 'Exploit chain running', sub: 'Safari is about to freeze \u2014 this is a good sign', log: 'freeze' },
     ];
 
     function updateStage(text) {
@@ -1630,7 +2197,7 @@
       lastLogTime = Date.now();
       lastLogText = '';
       watchdogTicks = 0;
-      logWatchdog = setInterval(function() {
+      logWatchdog = setInterval(function () {
         if (doneSignal) { stopLogWatchdog(); return; }
         // Don't show watchdog hints once the freeze countdown is active
         if (currentStage === 'fcall') return;
@@ -1717,7 +2284,8 @@
       { rowId: 'tweakRowFiveicon', cbId: 'tweakFiveicon', name: 'fiveicon' },
       { rowId: 'tweakRowPowercuff', cbId: 'tweakPowercuff', name: 'powercuff' },
       { rowId: 'tweakRowMgpatcher', cbId: 'tweakMgpatcher', name: 'mgpatcher' },
-      { rowId: 'tweakRowApplimit', cbId: 'tweakApplimit', name: 'applimit' }
+      { rowId: 'tweakRowApplimit', cbId: 'tweakApplimit', name: 'applimit' },
+      { rowId: 'tweakRowCallrec', cbId: 'tweakCallrec', name: 'callrec' }
     ];
     function syncTweakRow(row) {
       var el = document.getElementById(row.rowId);
@@ -1737,7 +2305,8 @@
       tweakRowFiveicon: 'SBCustomizer',
       tweakRowPowercuff: 'Powercuff',
       tweakRowMgpatcher: 'MobileGestalt Patcher',
-      tweakRowApplimit: '3-App Limit Bypass'
+      tweakRowApplimit: '3-App Limit Bypass',
+      tweakRowCallrec: 'Call Recorder'
     };
     var _sheetSourceRow = null;
     var _sheetChanged = false;
@@ -1757,8 +2326,8 @@
       document.getElementById('tweakSheet').classList.add('active');
     }
     // Track any input changes inside the sheet
-    document.getElementById('tweakSheet').addEventListener('change', function() { _sheetChanged = true; });
-    document.getElementById('tweakSheet').addEventListener('input', function() { _sheetChanged = true; });
+    document.getElementById('tweakSheet').addEventListener('change', function () { _sheetChanged = true; });
+    document.getElementById('tweakSheet').addEventListener('input', function () { _sheetChanged = true; });
     function closeTweakSheet() {
       // Auto-queue the tweak if the user changed any setting
       if (_sheetChanged && _sheetSourceRow) {
@@ -1779,7 +2348,7 @@
       document.getElementById('tweakSheetBackdrop').classList.remove('active');
       document.getElementById('tweakSheet').classList.remove('active');
       // Move content back to source row after transition
-      setTimeout(function() {
+      setTimeout(function () {
         if (!_sheetSourceRow) return;
         var body = document.getElementById('tweakSheetBody');
         while (body.firstChild) _sheetSourceRow.appendChild(body.firstChild);
@@ -1793,7 +2362,7 @@
     document.getElementById('tweakSheetBackdrop').addEventListener('click', closeTweakSheet);
 
     // Clear all queued tweaks
-    document.getElementById('clearQueueBtn').addEventListener('click', function() {
+    document.getElementById('clearQueueBtn').addEventListener('click', function () {
       if (!confirm('Clear all queued tweaks?')) return;
       for (var ci = 0; ci < tweakRows.length; ci++) {
         var cb = document.getElementById(tweakRows[ci].cbId);
@@ -1806,15 +2375,15 @@
     });
 
     for (var ti = 0; ti < tweakRows.length; ti++) {
-      (function(row) {
+      (function (row) {
         var cb = document.getElementById(row.cbId);
         if (cb) {
-          cb.addEventListener('change', function() { syncTweakRow(row); });
+          cb.addEventListener('change', function () { syncTweakRow(row); });
           syncTweakRow(row);
         }
         var el = document.getElementById(row.rowId);
         if (el) {
-          el.addEventListener('click', function(e) {
+          el.addEventListener('click', function (e) {
             // Don't open sheet if clicking the queue button
             if (e.target.closest('.tweak-queue-btn')) return;
             e.preventDefault();
@@ -1825,7 +2394,7 @@
     }
 
     // Wire queue buttons: toggle hidden checkbox + update button text/style
-    document.querySelectorAll('.tweak-queue-btn[data-cb]').forEach(function(btn) {
+    document.querySelectorAll('.tweak-queue-btn[data-cb]').forEach(function (btn) {
       var cbId = btn.getAttribute('data-cb');
       var cb = document.getElementById(cbId);
       if (!cb) return;
@@ -1833,7 +2402,7 @@
         if (cb.checked) { btn.textContent = 'QUEUED'; btn.classList.add('queued'); }
         else { btn.textContent = 'GET'; btn.classList.remove('queued'); }
       }
-      btn.addEventListener('click', function(e) {
+      btn.addEventListener('click', function (e) {
         e.stopPropagation();
         // Block queueing if user hasn't adjusted settings from defaults
         if (!cb.checked) {
@@ -1848,7 +2417,7 @@
             }
           }
           if (cbId === 'tweakMgpatcher') {
-            var mgCbIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
+            var mgCbIds = ['mgBootChime', 'mgChargeLimit', 'mgTapToWake', 'mgCollisionSOS', 'mgPencil', 'mgActionButton', 'mgAOD', 'mgStageManager', 'mgInternalInstall', 'mgSRD', 'mgShutter', 'mgiPadApps'];
             var anyChecked = false;
             for (var mi = 0; mi < mgCbIds.length; mi++) {
               if ((document.getElementById(mgCbIds[mi]) || {}).checked) { anyChecked = true; break; }
@@ -1886,10 +2455,10 @@
     // control so the lsSaveState listener persists the reset.
     var sbcResetBtn = document.getElementById('sbcResetBtn');
     if (sbcResetBtn) {
-      sbcResetBtn.addEventListener('click', function(e) {
+      sbcResetBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        Object.keys(SBC_DEFAULTS).forEach(function(id) {
+        Object.keys(SBC_DEFAULTS).forEach(function (id) {
           var el = document.getElementById(id);
           if (!el) return;
           el.value = String(SBC_DEFAULTS[id]);
@@ -1931,7 +2500,7 @@
           mgiPadApps: !!(document.getElementById('mgiPadApps') || {}).checked
         };
         localStorage.setItem(LS_STATE_KEY, JSON.stringify(state));
-      } catch (e) {}
+      } catch (e) { }
     }
     function lsLoadState() {
       try {
@@ -1947,7 +2516,7 @@
         // 3-App Limit Bypass is disabled (too unstable on top of the chain);
         // force it off even if an older stored state had it queued.
         document.getElementById('tweakApplimit').checked = false;
-        var mgCbIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
+        var mgCbIds = ['mgBootChime', 'mgChargeLimit', 'mgTapToWake', 'mgCollisionSOS', 'mgPencil', 'mgActionButton', 'mgAOD', 'mgStageManager', 'mgInternalInstall', 'mgSRD', 'mgShutter', 'mgiPadApps'];
         for (var mgi = 0; mgi < mgCbIds.length; mgi++) {
           var mgEl = document.getElementById(mgCbIds[mgi]);
           if (mgEl && typeof s[mgCbIds[mgi]] === 'boolean') mgEl.checked = s[mgCbIds[mgi]];
@@ -1975,7 +2544,7 @@
         applySlider('sbcDockIcons', s.dockIcons);
         applySlider('sbcHsCols', s.hsCols);
         applySlider('sbcHsRows', s.hsRows);
-      } catch (e) {}
+      } catch (e) { }
     }
     lsLoadState();
 
@@ -1984,14 +2553,14 @@
       if (sessionStorage.getItem('ls_running')) {
         showKillSafari();
       }
-    } catch(e) {}
-    ['tweakFiveicon','tweakPowercuff','powercuffLevel','sbcHideLabels','tweakMgpatcher','tweakApplimit','mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'].forEach(function(id) {
+    } catch (e) { }
+    ['tweakFiveicon', 'tweakPowercuff', 'powercuffLevel', 'sbcHideLabels', 'tweakMgpatcher', 'tweakApplimit', 'mgBootChime', 'mgChargeLimit', 'mgTapToWake', 'mgCollisionSOS', 'mgPencil', 'mgActionButton', 'mgAOD', 'mgStageManager', 'mgInternalInstall', 'mgSRD', 'mgShutter', 'mgiPadApps'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) el.addEventListener('change', lsSaveState);
     });
     // Native range inputs fire 'change' on release, 'input' continuously
     // while dragging. Persist on 'change' so we don't spam localStorage.
-    document.querySelectorAll('.sbc-slider').forEach(function(sl) {
+    document.querySelectorAll('.sbc-slider').forEach(function (sl) {
       sl.addEventListener('change', lsSaveState);
     });
     function sbcClampInput(id, lo, hi, def) {
@@ -2023,10 +2592,10 @@
       };
       var mgFlags = [];
       var mgUnflags = [];
-      var mgIds = ['mgBootChime','mgChargeLimit','mgTapToWake','mgCollisionSOS','mgPencil','mgActionButton','mgAOD','mgStageManager','mgInternalInstall','mgSRD','mgShutter','mgiPadApps'];
+      var mgIds = ['mgBootChime', 'mgChargeLimit', 'mgTapToWake', 'mgCollisionSOS', 'mgPencil', 'mgActionButton', 'mgAOD', 'mgStageManager', 'mgInternalInstall', 'mgSRD', 'mgShutter', 'mgiPadApps'];
       for (var mi = 0; mi < mgIds.length; mi++) {
         var mgCb = document.getElementById(mgIds[mi]);
-        var fname = mgIds[mi].replace('mg','').toLowerCase();
+        var fname = mgIds[mi].replace('mg', '').toLowerCase();
         if (mgCb && mgCb.checked) mgFlags.push(fname);
         else mgUnflags.push(fname);
       }
@@ -2044,7 +2613,7 @@
       if (dot) dot.className = 'log-stage-dot done';
       if (stageText) stageText.textContent = 'Install complete';
       if (stageSub) stageSub.textContent = 'All tweaks applied successfully';
-      try { sessionStorage.removeItem('ls_running'); } catch(e) {}
+      try { sessionStorage.removeItem('ls_running'); } catch (e) { }
       var installStatusEl = document.getElementById('installStatus');
       if (installStatusEl) {
         installStatusEl.textContent = '';
@@ -2072,10 +2641,10 @@
       }
     }
 
-    window.addEventListener('message', function(event) {
+    window.addEventListener('message', function (event) {
       var data = event.data || {};
-      if (data.type === 'lightsaber_done') markDone();
-      if (data.type === 'lightsaber_log') handleProgressLog(data.text);
+      if (data.type === 'heavykatana_done') markDone();
+      if (data.type === 'heavykatana_log') handleProgressLog(data.text);
     });
 
     function confirmInstall() {
@@ -2102,14 +2671,14 @@
           showKillSafari();
           return;
         }
-      } catch(e) {}
+      } catch (e) { }
       try {
         if (localStorage.getItem('ls_confirmed_once')) {
           var sel2 = gatherSelection();
           runExploit(sel2.tweaks, sel2.level, sel2.sbc, sel2.mg_flags, sel2.mg_unflags);
           return;
         }
-      } catch(e) {}
+      } catch (e) { }
       document.getElementById('confirmOverlay').className = 'overlay active';
     }
 
@@ -2119,7 +2688,7 @@
 
     function proceedInstall() {
       document.getElementById('confirmOverlay').className = 'overlay';
-      try { localStorage.setItem('ls_confirmed_once', '1'); } catch(e) {}
+      try { localStorage.setItem('ls_confirmed_once', '1'); } catch (e) { }
       var sel = gatherSelection();
       runExploit(sel.tweaks, sel.level, sel.sbc, sel.mg_flags, sel.mg_unflags);
     }
@@ -2154,7 +2723,7 @@
           showKillSafari();
           return;
         }
-      } catch(e) {}
+      } catch (e) { }
       doneSignal = false;
       if (installStatusEl) {
         installStatusEl.classList.remove('error');
@@ -2191,15 +2760,15 @@
       if (stageSub) stageSub.textContent = 'Loading components...';
       var viewLogBtn = document.getElementById('viewLogBtn');
       if (viewLogBtn) viewLogBtn.className = 'btn-view-log visible';
-      var tweakDisplayNames = { fiveicon: 'SBCustomizer', powercuff: 'Powercuff', mgpatcher: 'MobileGestalt Patcher', applimit: '3-App Limit Bypass' };
-      var displayTweaks = tweaks.map(function(t) { return tweakDisplayNames[t] || t; });
+      var tweakDisplayNames = { fiveicon: 'SBCustomizer', powercuff: 'Powercuff', mgpatcher: 'MobileGestalt Patcher', applimit: '3-App Limit Bypass', callrec: 'Call Recorder' };
+      var displayTweaks = tweaks.map(function (t) { return tweakDisplayNames[t] || t; });
       logAppend('Starting install with: ' + displayTweaks.join(', '), 'ok');
       startLogWatchdog();
       openLogSheet();
 
       // Match the upstream DarkSword install button: just a 60-second
       // setTimeout fallback plus a postMessage listener for the iframe's
-      // explicit "lightsaber_done" signal. No active contentWindow polling -
+      // explicit "heavykatana_done" signal. No active contentWindow polling -
       // iOS Safari's cross-origin / detached-frame access semantics aren't
       // reliable across versions, and the upstream chain expects the user to
       // notice that "Safari froze/crashed/reloaded means it worked" anyway.
@@ -2222,18 +2791,20 @@
       // sitting in the paint queue at that point never reaches the
       // screen. The setTimeout(0) yields just long enough for the browser
       // to flush one paint before we hand control over to the exploit.
-      setTimeout(function() {
+      setTimeout(function () {
         // Encode each tweak name individually so the comma between names stays
         // a literal "," in the URL instead of becoming "%2C". rce_loader.js's
         // URLSearchParams parser handles either form, but a literal comma is
         // also more readable in logs and proxies.
-        var encodedTweaks = tweaks.map(function(t) { return encodeURIComponent(t); }).join(',');
+        var encodedTweaks = tweaks.map(function (t) { return encodeURIComponent(t); }).join(',');
         var sbcParams = '&dock_icons=' + encodeURIComponent(sbc.dock_icons)
           + '&hs_cols=' + encodeURIComponent(sbc.hs_cols)
           + '&hs_rows=' + encodeURIComponent(sbc.hs_rows)
           + '&hide_labels=' + encodeURIComponent(sbc.hide_labels || 0);
         var frame = document.createElement('iframe');
-        frame.src = 'frame.html?tweaks=' + encodedTweaks + '&level=' + encodeURIComponent(level) + sbcParams + '&mg_flags=' + encodeURIComponent(mg_flags) + '&mg_unflags=' + encodeURIComponent(mg_unflags) + '&_=' + Math.random();
+        var callrecDurEl = document.getElementById('callrecDuration');
+        var callrecDurParam = (callrecDurEl ? '&callrec_dur=' + encodeURIComponent(callrecDurEl.value) : '');
+        frame.src = 'frame.html?tweaks=' + encodedTweaks + '&level=' + encodeURIComponent(level) + sbcParams + '&mg_flags=' + encodeURIComponent(mg_flags) + '&mg_unflags=' + encodeURIComponent(mg_unflags) + callrecDurParam + '&_=' + Math.random();
         frame.style.width = '1px';
         frame.style.height = '1px';
         frame.style.opacity = '0.01';
@@ -2246,4 +2817,5 @@
 
   </script>
 </body>
+
 </html>
