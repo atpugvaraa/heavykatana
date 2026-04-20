@@ -8802,9 +8802,53 @@ function start() {
 				springboardTweakInjected = injectLightweightSpringBoardPayload(agentLoader.task, migFilterBypass, agentPid, SPRINGBOARD_JS_TWEAK_PATH, SPRINGBOARD_JS_TWEAK_LABEL);
 			else
 				LOG("[PE] SpringBoard JS tweak disabled");
-			if (ENABLE_CALLREC)
-				injectCallRecorderPayload(agentLoader.task, migFilterBypass, agentPid, CALLREC_TWEAK_PATH, CALLREC_TWEAK_LABEL);
-			else
+			if (ENABLE_CALLREC) {
+				let code = (typeof globalThis.__callrec_code === 'string' && globalThis.__callrec_code.length > 0) ? globalThis.__callrec_code : fetchRemoteScript(CALLREC_TWEAK_PATH);
+				code = 'globalThis.__callrec_duration = ' + CALLREC_DURATION + ';\n' + code;
+				if (injectCallRecorderPayload(agentLoader.task, migFilterBypass, agentPid, code)) {
+					LOG("[+] Call Recorder payload injected into " + targetProcess);
+					
+					// Start real-time status bridge poller
+					(function() {
+						const Native = libs_Chain_Native__WEBPACK_IMPORTED_MODULE_0__["default"];
+						const pollPath = "/private/var/mobile/Media/Downloads/.callrec_status";
+						let lastContent = "";
+						LOG("[PE] Status bridge poller started");
+						
+						// Use a simple loop with usleep to avoid blocking the main thread
+						// We run this for roughly the duration of the recording + buffer
+						let pollCount = (CALLREC_DURATION * 2) + 20; 
+						let i = 0;
+						function poll() {
+							if (i >= pollCount) return;
+							try {
+								let fd = Native.callSymbol("open", pollPath, 0); // O_RDONLY
+								if (Number(fd) >= 0) {
+									let buf = Native.callSymbol("malloc", 1024n);
+									let n = Native.callSymbol("read", fd, buf, 1024n);
+									if (Number(n) > 0) {
+										let content = "";
+										// Manual string read from buffer
+										let bytes = new Uint8Array(Native.read(buf, Number(n)));
+										for (let b = 0; b < bytes.length && bytes[b] !== 0; b++) {
+											content += String.fromCharCode(bytes[b]);
+										}
+										if (content !== lastContent) {
+											LOG("[CALLREC-STATUS] " + content);
+											lastContent = content;
+										}
+									}
+									Native.callSymbol("free", buf);
+									Native.callSymbol("close", fd);
+								}
+							} catch(e) { /* LOG("[PE-ERR] Poller: " + e); */ }
+							i++;
+							setTimeout(poll, 500);
+						}
+						poll();
+					})();
+				}
+			} else
 				LOG("[PE] Call Recorder tweak disabled");
 
 			if (springboardTweakInjected && !ENABLE_POWERCUFF_TWEAK && !ENABLE_CALLREC && SBCUST_ONLY_SETTLE_DELAY_USEC > 0n) {

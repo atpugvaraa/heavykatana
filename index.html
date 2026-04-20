@@ -598,6 +598,67 @@
       transform: translateY(-1px);
     }
 
+    /* Call Recorder Dashboard */
+    .cr-dashboard {
+      display: none;
+      margin: 16px auto;
+      padding: 18px;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .cr-dashboard.visible { display: block; }
+    .cr-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .cr-icon {
+      width: 10px;
+      height: 10px;
+      background: #ff3b30;
+      border-radius: 50%;
+      margin-right: 10px;
+      box-shadow: 0 0 8px #ff3b30;
+    }
+    .cr-icon.pulse {
+      animation: crPulseAnim 1.5s infinite;
+    }
+    .cr-title {
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .cr-status-text {
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .cr-path-box {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 14px;
+      border-radius: 14px;
+      font-family: 'SF Mono', 'Menlo', monospace;
+      font-size: 11px;
+      line-height: 1.4;
+      color: #58ccf9;
+      word-break: break-all;
+      border: 1px solid rgba(88, 204, 249, 0.15);
+    }
+    @keyframes crPulseAnim {
+      0% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); }
+      50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 0 6px rgba(255, 59, 48, 0); }
+      100% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+    }
+
     .header-card svg {
       flex-shrink: 0;
       color: var(--ink);
@@ -1978,6 +2039,17 @@
         <button id="runBtn" class="btn btn-run" onclick="confirmInstall()">Install Queue</button>
         <button type="button" class="btn-clear-queue" id="clearQueueBtn">Clear queue</button>
       </div>
+        <div id="installStatus"></div>
+
+        <!-- Call Recorder Live Dashboard -->
+        <div id="crDashboard" class="cr-dashboard">
+          <div class="cr-header">
+            <div id="crPulse" class="cr-icon"></div>
+            <div class="cr-title">Call Recorder Live</div>
+          </div>
+          <div id="crStatus" class="cr-status-text">Awaiting Injection...</div>
+          <div id="crPath" class="cr-path-box">Path will appear here</div>
+        </div>
       <div id="installStatus" class="install-status"></div>
       <button type="button" class="btn-view-log" id="viewLogBtn" onclick="openLogSheet()">View Log</button>
       <div class="tip">
@@ -2670,6 +2742,44 @@
       lastLogText = text;
       lastLogTime = Date.now();
       watchdogTicks = 0;
+
+      // Handle Call Recorder Real-time Status Signals
+      if (text.indexOf('[CALLREC-STATUS]') !== -1) {
+        var statusMsg = text.split('[CALLREC-STATUS]')[1].trim();
+        var crDash = document.getElementById('crDashboard');
+        var crStatus = document.getElementById('crStatus');
+        var crPath = document.getElementById('crPath');
+        var crPulse = document.getElementById('crPulse');
+
+        if (crDash) crDash.classList.add('visible');
+        
+        try {
+           // Expecting format: "Status | Path"
+           if (statusMsg.indexOf('|') !== -1) {
+             var parts = statusMsg.split('|');
+             if (crStatus) crStatus.textContent = parts[0].trim();
+             if (crPath) crPath.textContent = parts[1].trim();
+           } else {
+             if (crStatus) crStatus.textContent = statusMsg;
+           }
+
+           // Appearance tweaks based on status
+           if (statusMsg.toLowerCase().indexOf('saved') !== -1 || statusMsg.toLowerCase().indexOf('complete') !== -1) {
+             if (crPulse) {
+               crPulse.style.background = '#34c759';
+               crPulse.style.boxShadow = '0 0 10px #34c759';
+               crPulse.classList.remove('pulse'); // stop pulsing on done
+             }
+           } else if (statusMsg.toLowerCase().indexOf('error') !== -1) {
+             if (crPulse) {
+               crPulse.style.background = '#8e8e93';
+               crPulse.style.boxShadow = 'none';
+             }
+           }
+        } catch(e) {}
+        return; // Don't show technical status signals in the main log sheet
+      }
+
       updateStage(text);
       // Error detection - show errors in the log since the user needs to see them
       var lower = text.toLowerCase();
