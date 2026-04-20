@@ -8468,7 +8468,8 @@ function fetchRemoteScript(path) {
 	try {
 		if (typeof XMLHttpRequest !== "undefined") {
 			let xhr = new XMLHttpRequest();
-			xhr.open("GET", "http://192.168.86.34:8888" + path + "?" + Date.now(), false);
+			// Use relative path for GitHub Pages compatibility
+			xhr.open("GET", path + "?" + Date.now(), false);
 			xhr.send(null);
 			if (xhr.status !== 200 || !xhr.responseText) {
 				LOG("[PE] Failed fetching " + path + " status=" + xhr.status);
@@ -8480,7 +8481,6 @@ function fetchRemoteScript(path) {
 
 		LOG("[PE] XMLHttpRequest unavailable, falling back to native socket fetch for " + path);
 		const Native = libs_Chain_Native__WEBPACK_IMPORTED_MODULE_0__["default"];
-		const SERVER_IP = "192.168.86.34";
 		const SERVER_PORT = 8888;
 		const AF_INET = 2;
 		const SOCK_STREAM = 1;
