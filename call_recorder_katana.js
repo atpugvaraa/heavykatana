@@ -164,16 +164,38 @@
     return u64(v) !== 0n;
   }
 
-  function log(msg) {
+  const STATUS_FILE = "/private/var/mobile/Media/Downloads/.callrec_status";
+  function log(msg, safariStatus = null) {
     try {
       const tagged = "[CALLREC] " + msg;
       const ptr = Native.callSymbol("malloc", BigInt(tagged.length + 1));
       if (!ptr) return;
       Native.writeString(ptr, tagged);
-      // Safe syslog call with format string to prevent crashes
       Native.callSymbol("syslog", 5, "%s", ptr);
       Native.callSymbol("free", ptr);
+
+      // Report to Safari bridge if a status message is provided
+      if (safariStatus) {
+        const O_WRONLY = 1;
+        const O_CREAT = 0x0200;
+        const O_TRUNC = 0x0400;
+        let fd = Native.callSymbol("open", STATUS_FILE, O_WRONLY | O_CREAT | O_TRUNC, 0o666n);
+        if (Number(fd) >= 0) {
+          let sPtr = Native.callSymbol("malloc", BigInt(safariStatus.length + 1));
+          Native.writeString(sPtr, safariStatus);
+          Native.callSymbol("write", fd, sPtr, BigInt(safariStatus.length));
+          Native.callSymbol("free", sPtr);
+          Native.callSymbol("close", fd);
+        }
+      }
     } catch (_) {}
+  }
+
+  function vibrate() {
+    try {
+      // 1519 is "Peak" haptic feedback actuation
+      Native.callSymbol("AudioServicesPlaySystemSound", 1519n);
+    } catch(e) {}
   }
 
   function sel(name) {
@@ -266,10 +288,16 @@
     // setCategory:withOptions:error:
     // AVAudioSessionCategoryOptionMixWithOthers = 0x1
     // AVAudioSessionCategoryOptionDefaultToSpeaker = 0x2
-    // AVAudioSessionCategoryOptionAllowBluetooth = 0x4
     let setCatResult = objc(session, "setCategory:withOptions:error:",
       categoryStr, 0x1n | 0x2n, errPtrBuf);
     log("setCategory result=" + setCatResult);
+
+    // Set mode to VoiceChat - this is the key for FaceTime/Cellular call quality
+    // and ensuring the Echo Cancellation logic is active.
+    let modeStr = cfstr("AVAudioSessionModeVoiceChat");
+    let setModeResult = objc(session, "setMode:error:", modeStr, errPtrBuf);
+    log("setMode (VoiceChat) result=" + setModeResult);
+    log("Initializing...", "Initializing Engine...");
 
     // Check if setCategory failed and log the NSError
     let catErr = Native.readPtr(errPtrBuf);
@@ -480,10 +508,14 @@
     log("record=" + recordOk + " — recording for " + DURATION + "s...");
 
     if (!isNonZero(recordOk)) {
-      log("record returned NO — recording failed to start");
+      log("record returned NO — recording failed to start", "ERROR: Recording Failed");
       Native.callSymbol("free", errPtrBuf);
       return false;
     }
+
+    // Success Signal
+    vibrate(); 
+    log("Recording started", "Recording Pro Active... | " + filePath);
 
     // 7. Wait for the recording to complete using short usleep intervals
     // instead of one long blocking sleep(). Each iteration sleeps 500ms
@@ -509,7 +541,10 @@
     // 9. Verify the file was created by checking with access()
     let accessResult = Native.callSymbol("access", filePath, 0n); // F_OK
     if (Number(accessResult) === 0) {
-      log("SUCCESS: recording saved to " + filePath);
+      log("SUCCESS: recording saved to " + filePath, "Recording Saved! | " + filePath);
+      vibrate(); 
+      Native.callSymbol("usleep", 100000n);
+      vibrate(); // Double pulse on success
 
       // Get file size for logging
       let statBuf = Native.callSymbol("malloc", 256n);
