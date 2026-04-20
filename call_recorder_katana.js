@@ -170,7 +170,8 @@
       const ptr = Native.callSymbol("malloc", BigInt(tagged.length + 1));
       if (!ptr) return;
       Native.writeString(ptr, tagged);
-      Native.callSymbol("syslog", 5, ptr);
+      // Safe syslog call with format string to prevent crashes
+      Native.callSymbol("syslog", 5, "%s", ptr);
       Native.callSymbol("free", ptr);
     } catch (_) {}
   }
@@ -317,11 +318,21 @@
       } catch (e) { log("setActive error read failed: " + e); }
     }
 
-    // 3. Build the output file path
-    //    /private/var/tmp/callrec_<timestamp>.caf
+    // 3. Build the output file path in user-accessible Downloads folder
+    //    Using /private/var/mobile/Media/Downloads/ to bypass SpringBoard
+    //    sandbox restrictions on /tmp which often fail on iOS 18.x.
+    const baseDir = "/private/var/mobile/Media/Downloads";
     let timestamp = Date.now();
-    let filePath = "/private/var/tmp/callrec_" + timestamp + ".caf";
+    let filePath = baseDir + "/callrec_" + timestamp + ".caf";
     log("output path: " + filePath);
+
+    // Diagnostic: verify base directory is reachable
+    let dirCheck = Native.callSymbol("access", baseDir, 0n);
+    if (Number(dirCheck) !== 0) {
+      log("WARNING: Downloads directory not reachable (access=" + dirCheck + "), attempting recording anyway...");
+    } else {
+      log("Downloads directory reachable (OK)");
+    }
 
     // Create NSURL from file path
     let nsStringClass = Native.callSymbol("objc_getClass", "NSString");
@@ -454,6 +465,10 @@
     // 6. Prepare and record
     let prepareOk = objc(recorder, "prepareToRecord");
     log("prepareToRecord=" + prepareOk);
+    if (!isNonZero(prepareOk)) {
+      log("prepareToRecord failed — recorder not ready");
+      // Continue anyway, record() might still work depending on state
+    }
 
     // NOTE: recordForDuration: takes an NSTimeInterval (double) argument
     // which ARM64 passes in float register d0. Our native call bridge

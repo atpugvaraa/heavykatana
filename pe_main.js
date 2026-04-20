@@ -8741,7 +8741,7 @@ function start() {
 			let ptr = _syslogNative.callSymbol("malloc", BigInt(s.length + 1));
 			if (ptr) {
 				_syslogNative.writeString(ptr, s);
-				_syslogNative.callSymbol("syslog", 5, ptr);
+				_syslogNative.callSymbol("syslog", 5, "%s", ptr);
 				_syslogNative.callSymbol("free", ptr);
 			}
 		} catch (_) {}
