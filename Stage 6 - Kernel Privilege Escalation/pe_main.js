@@ -1,5 +1,6 @@
 (() => {
   const PE_ENABLE_DEBUG_NETWORK = globalThis.__pe_enable_debug_network === true;
+	const SERVER_IP = "192.168.86.34";
   // Ultra-early beacon - before fcall_init, using XMLHttpRequest if available
   try {
     if (PE_ENABLE_DEBUG_NETWORK && typeof XMLHttpRequest !== 'undefined') {

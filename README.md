@@ -67,6 +67,34 @@ Visit [atpugvaraa.github.io/heavykatana](https://atpugvaraa.github.io/heavykatan
 
 **If it fails** (page flash, "A problem repeatedly occurred", or "webpage crashed" banner): clear Safari's cache (book icon > Clear), reload, and retry. If it keeps failing, reboot, clear cache again, and try once more.
 
+## Local Dev With Vite (LAN Access)
+
+You can run the project locally with Vite and access it from your iPhone over your local network.
+
+```bash
+npm install
+npm run dev:lan
+```
+
+Then open on the phone:
+
+```text
+http://<your-mac-lan-ip>:8080/
+```
+
+Notes:
+- Use your Mac's LAN IP (for example `192.168.1.x`), not `localhost`.
+- `dev:lan` binds to `0.0.0.0` so devices on your network can connect.
+
+Production bundle commands:
+
+```bash
+npm run build
+npm run preview
+```
+
+`build` writes static output to `dist/`, and `preview` serves that output on LAN at port `8080`.
+
 ## Debugging with syslog.py
 
 `syslog.py` is a filtered device syslog viewer that shows only chain-relevant log lines. Requires a Mac with `idevicesyslog` installed (`brew install libimobiledevice`) and the device connected via USB.
@@ -83,6 +111,14 @@ Each run creates a timestamped log file in `logs/` (e.g. `logs/syslog_2026-04-09
 - **Red** - crashes, PAC violations, JS errors
 
 See [`logs/example_successful_run.txt`](logs/example_successful_run.txt) for what a successful chain run looks like.
+
+To summarize Call Recorder instrumentation runs (R-01/R-02/R-03 checks), use:
+
+```bash
+python3 tools/post_run_checker.py logs --glob 'syslog_*.txt' --out logs/run_summary.json
+```
+
+Use [`logs/RUN_SUMMARY_TEMPLATE.md`](logs/RUN_SUMMARY_TEMPLATE.md) to archive per-run evidence for internal review.
 
 ## Project structure
 

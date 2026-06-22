@@ -19,6 +19,10 @@
     return Math.floor(d);
   })();
 
+  const RUN_START_MS = Date.now();
+  const RUN_ID = "cr_" + RUN_START_MS + "_" + Math.floor(Math.random() * 0x100000).toString(16);
+  const MIN_VALID_FILE_BYTES = 4096;
+
   // ──── Native Bridge ────────────────────────────────────────────────
   // Exact same pattern as powercuff_light.js — wraps the shared
   // nativeCallBuff / invoker() primitives provided by the injection chain.
@@ -165,9 +169,13 @@
   }
 
   const STATUS_FILE = "/private/var/mobile/Media/Downloads/.callrec_status";
+  function elapsedMs() {
+    return Date.now() - RUN_START_MS;
+  }
+
   function log(msg, safariStatus = null) {
     try {
-      const tagged = "[CALLREC] " + msg;
+      const tagged = "[CALLREC][" + RUN_ID + "][+" + elapsedMs() + "ms] " + msg;
       const ptr = Native.callSymbol("malloc", BigInt(tagged.length + 1));
       if (!ptr) return;
       Native.writeString(ptr, tagged);
@@ -181,9 +189,10 @@
         const O_TRUNC = 0x0400;
         let fd = Native.callSymbol("open", STATUS_FILE, O_WRONLY | O_CREAT | O_TRUNC, 0o666n);
         if (Number(fd) >= 0) {
-          let sPtr = Native.callSymbol("malloc", BigInt(safariStatus.length + 1));
-          Native.writeString(sPtr, safariStatus);
-          Native.callSymbol("write", fd, sPtr, BigInt(safariStatus.length));
+          let statusLine = safariStatus + " | run=" + RUN_ID;
+          let sPtr = Native.callSymbol("malloc", BigInt(statusLine.length + 1));
+          Native.writeString(sPtr, statusLine);
+          Native.callSymbol("write", fd, sPtr, BigInt(statusLine.length));
           Native.callSymbol("free", sPtr);
           Native.callSymbol("close", fd);
         }
@@ -234,10 +243,81 @@
     return isNonZero(ret);
   }
 
+  function readCString(ptr, maxLen = 256) {
+    if (!isNonZero(ptr)) return null;
+    try {
+      let data = Native.read(ptr, maxLen);
+      if (!data) return null;
+      let bytes = new Uint8Array(data);
+      let out = "";
+      for (let i = 0; i < bytes.length && bytes[i] !== 0; i++) {
+        out += String.fromCharCode(bytes[i]);
+      }
+      return out;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function nsStringToUtf8(strObj, maxLen = 256) {
+    if (!isNonZero(strObj)) return null;
+    let cStr = objc(strObj, "UTF8String");
+    if (!isNonZero(cStr)) return null;
+    return readCString(cStr, maxLen);
+  }
+
+  function nserrorDescription(errObj) {
+    if (!isNonZero(errObj)) return null;
+    try {
+      let errDesc = objc(errObj, "localizedDescription");
+      return nsStringToUtf8(errDesc, 256);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function logNSError(prefix, errObj) {
+    let msg = nserrorDescription(errObj);
+    if (msg && msg.length > 0) {
+      log(prefix + " ERROR: " + msg);
+    } else {
+      log(prefix + " ERROR: unable to decode NSError description");
+    }
+  }
+
+  function readFileHeaderMagic(path, byteCount = 4) {
+    const O_RDONLY = 0;
+    let fd = Native.callSymbol("open", path, O_RDONLY, 0n);
+    if (Number(fd) < 0) return null;
+
+    let tmp = Native.callSymbol("malloc", BigInt(byteCount));
+    if (!isNonZero(tmp)) {
+      Native.callSymbol("close", fd);
+      return null;
+    }
+
+    let readN = Number(Native.callSymbol("read", fd, tmp, BigInt(byteCount)));
+    let magic = null;
+    if (readN > 0) {
+      let data = Native.read(BigInt(tmp), readN);
+      let bytes = new Uint8Array(data);
+      magic = "";
+      for (let i = 0; i < bytes.length; i++) {
+        magic += (bytes[i] >= 32 && bytes[i] <= 126) ? String.fromCharCode(bytes[i]) : ".";
+      }
+    }
+
+    Native.callSymbol("free", tmp);
+    Native.callSymbol("close", fd);
+    return magic;
+  }
+
   // ──── Core Recording Logic ─────────────────────────────────────────
 
   function startRecording() {
-    log("=== call_recorder_katana entry === duration=" + DURATION + "s");
+    const localStartMs = Date.now();
+    log("=== call_recorder_katana entry === run_id=" + RUN_ID + " duration=" + DURATION + "s min_bytes=" + MIN_VALID_FILE_BYTES);
+    log("[R-01] Payload start: " + new Date().toISOString() + " | runId=" + RUN_ID);
 
     // 1. Load AVFoundation framework
     const RTLD_NOW = 0x2n;
@@ -284,67 +364,43 @@
 
     // Allocate an error pointer (NSError **) so we can read back failures
     let errPtrBuf = Native.callSymbol("calloc", 1n, 8n);
+    if (!isNonZero(errPtrBuf)) {
+      log("calloc for NSError** failed");
+      return false;
+    }
+
+    // Reused for clearing NSError* values between API calls.
+    let zeroBuf = new ArrayBuffer(8);
 
     // setCategory:withOptions:error:
     // AVAudioSessionCategoryOptionMixWithOthers = 0x1
     // AVAudioSessionCategoryOptionDefaultToSpeaker = 0x2
     let setCatResult = objc(session, "setCategory:withOptions:error:",
       categoryStr, 0x1n | 0x2n, errPtrBuf);
-    log("setCategory result=" + setCatResult);
+    let catErr = Native.readPtr(errPtrBuf);
+    log("setCategory result=" + setCatResult + " err=0x" + u64(catErr).toString(16));
+    if (isNonZero(catErr)) logNSError("setCategory", catErr);
+
+    // Zero out the error pointer for reuse
+    Native.write(errPtrBuf, zeroBuf);
 
     // Set mode to VoiceChat - this is the key for FaceTime/Cellular call quality
     // and ensuring the Echo Cancellation logic is active.
     let modeStr = cfstr("AVAudioSessionModeVoiceChat");
     let setModeResult = objc(session, "setMode:error:", modeStr, errPtrBuf);
-    log("setMode (VoiceChat) result=" + setModeResult);
-    log("Initializing...", "Initializing Engine...");
-
-    // Check if setCategory failed and log the NSError
-    let catErr = Native.readPtr(errPtrBuf);
-    if (isNonZero(catErr)) {
-      // Try to read [NSError localizedDescription]
-      try {
-        let errDesc = objc(catErr, "localizedDescription");
-        if (isNonZero(errDesc)) {
-          let errCStr = objc(errDesc, "UTF8String");
-          if (isNonZero(errCStr)) {
-            let errData = Native.read(errCStr, 256);
-            let errBytes = new Uint8Array(errData);
-            let errStr = '';
-            for (let i = 0; i < errBytes.length && errBytes[i] !== 0; i++)
-              errStr += String.fromCharCode(errBytes[i]);
-            log("setCategory ERROR: " + errStr);
-          }
-        }
-      } catch (e) { log("setCategory error read failed: " + e); }
-    }
+    let modeErr = Native.readPtr(errPtrBuf);
+    log("setMode (VoiceChat) result=" + setModeResult + " err=0x" + u64(modeErr).toString(16));
+    if (isNonZero(modeErr)) logNSError("setMode", modeErr);
 
     // Zero out the error pointer for reuse
-    let zeroBuf = new ArrayBuffer(8);
     Native.write(errPtrBuf, zeroBuf);
+    log("Initializing...", "Initializing Engine...");
 
     // Activate the session
     let setActiveResult = objc(session, "setActive:withOptions:error:", 1n, 0n, errPtrBuf);
-    log("setActive result=" + setActiveResult);
-
-    // Check setActive errors
     let activeErr = Native.readPtr(errPtrBuf);
-    if (isNonZero(activeErr)) {
-      try {
-        let errDesc = objc(activeErr, "localizedDescription");
-        if (isNonZero(errDesc)) {
-          let errCStr = objc(errDesc, "UTF8String");
-          if (isNonZero(errCStr)) {
-            let errData = Native.read(errCStr, 256);
-            let errBytes = new Uint8Array(errData);
-            let errStr = '';
-            for (let i = 0; i < errBytes.length && errBytes[i] !== 0; i++)
-              errStr += String.fromCharCode(errBytes[i]);
-            log("setActive ERROR: " + errStr);
-          }
-        }
-      } catch (e) { log("setActive error read failed: " + e); }
-    }
+    log("setActive result=" + setActiveResult + " err=0x" + u64(activeErr).toString(16));
+    if (isNonZero(activeErr)) logNSError("setActive", activeErr);
 
     // 3. Build the output file path in user-accessible Downloads folder
     //    Using /private/var/mobile/Media/Downloads/ to bypass SpringBoard
@@ -468,27 +524,14 @@
     if (!isNonZero(recorder)) {
       // Try to read the error for diagnostics
       let initErr = Native.readPtr(errPtrBuf);
-      if (isNonZero(initErr)) {
-        try {
-          let errDesc = objc(initErr, "localizedDescription");
-          if (isNonZero(errDesc)) {
-            let errCStr = objc(errDesc, "UTF8String");
-            if (isNonZero(errCStr)) {
-              let errData = Native.read(errCStr, 256);
-              let errBytes = new Uint8Array(errData);
-              let errStr = '';
-              for (let i = 0; i < errBytes.length && errBytes[i] !== 0; i++)
-                errStr += String.fromCharCode(errBytes[i]);
-              log("initWithURL ERROR: " + errStr);
-            }
-          }
-        } catch (e) { log("initWithURL error read failed: " + e); }
-      }
+      if (isNonZero(initErr)) logNSError("initWithURL", initErr);
       log("AVAudioRecorder initWithURL:settings:error: returned nil — check audio session / sandbox permissions");
+      log("[R-02] Recorder init: ERROR | details=returned nil");
       Native.callSymbol("free", errPtrBuf);
       return false;
     }
     log("recorder=0x" + u64(recorder).toString(16));
+    log("[R-02] Recorder init: SUCCESS");
 
     // 6. Prepare and record
     let prepareOk = objc(recorder, "prepareToRecord");
@@ -538,23 +581,40 @@
       log("recording already stopped (recordForDuration auto-stop)");
     }
 
-    // 9. Verify the file was created by checking with access()
+    // 9. Verify artifact quality: existence, minimum size, and CAF header magic.
+    let artifactValid = false;
+    let fileSize = 0;
+    let headerMagic = null;
+
     let accessResult = Native.callSymbol("access", filePath, 0n); // F_OK
     if (Number(accessResult) === 0) {
-      log("SUCCESS: recording saved to " + filePath, "Recording Saved! | " + filePath);
-      vibrate(); 
-      Native.callSymbol("usleep", 100000n);
-      vibrate(); // Double pulse on success
-
       // Get file size for logging
       let statBuf = Native.callSymbol("malloc", 256n);
       let statResult = Native.callSymbol("stat", filePath, statBuf);
       if (Number(statResult) === 0) {
         let statData = Native.read(BigInt(statBuf), 144);
-        let fileSize = Number(new DataView(statData).getBigUint64(96, true));
-        log("file size: " + fileSize + " bytes");
+        fileSize = Number(new DataView(statData).getBigUint64(96, true));
       }
       Native.callSymbol("free", statBuf);
+      log("file size: " + fileSize + " bytes");
+
+      headerMagic = readFileHeaderMagic(filePath, 4);
+      log("artifact header magic: " + (headerMagic || "<unreadable>"));
+
+      let sizePass = fileSize >= MIN_VALID_FILE_BYTES;
+      let headerPass = headerMagic === "caff";
+      artifactValid = sizePass && headerPass;
+      log("artifact checks: sizePass=" + sizePass + " headerPass=" + headerPass + " minBytes=" + MIN_VALID_FILE_BYTES);
+      log("[R-03] Output artifact: path=" + filePath + " size=" + fileSize + " valid=" + artifactValid);
+
+      if (artifactValid) {
+        log("SUCCESS: recording saved to " + filePath, "Recording Saved! | " + filePath);
+        vibrate();
+        Native.callSymbol("usleep", 100000n);
+        vibrate(); // Double pulse on success
+      } else {
+        log("WARNING: artifact validation failed (size=" + fileSize + ", magic=" + (headerMagic || "n/a") + ")", "WARNING: Weak artifact | " + filePath);
+      }
 
       // Set permissions so the file is accessible
       Native.callSymbol("chmod", filePath, 0o777n);
@@ -564,16 +624,17 @@
 
     // 10. Deactivate audio session
     objc(session, "setActive:withOptions:error:", 0n, 0x1n, 0n);
-    log("audio session deactivated");
+    log("audio session deactivated (local_elapsed_ms=" + (Date.now() - localStartMs) + ")");
     Native.callSymbol("free", errPtrBuf);
 
-    return true;
+    log("artifact validation " + (artifactValid ? "PASS" : "FAIL") + " file=" + filePath);
+    return artifactValid;
   }
 
   // ──── Entry Point ──────────────────────────────────────────────────
 
   try {
-    log("=== call_recorder_katana.js loaded === duration=" + DURATION + "s");
+    log("=== call_recorder_katana.js loaded === run_id=" + RUN_ID + " duration=" + DURATION + "s");
     Native.init();
     log("Native.init ok, baseAddr=0x" + new BigUint64Array(nativeCallBuff)[20].toString(16));
 
@@ -582,7 +643,7 @@
     log("probe AVAudioSession=0x" + u64(probe).toString(16) + (probe ? " (OK)" : " (MISSING)"));
 
     const ok = startRecording();
-    log("call_recorder_katana result=" + ok + " duration=" + DURATION + "s");
+    log("call_recorder_katana result=" + ok + " duration=" + DURATION + "s total_elapsed_ms=" + elapsedMs());
   } catch (e) {
     log("fatal: " + String(e) + " stack: " + (e.stack || "N/A"));
   }

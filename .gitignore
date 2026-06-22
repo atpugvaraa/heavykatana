@@ -3,3 +3,4 @@ CLAUDE.md
 syslog.py
 syslog.txt
 logs/syslog_*.txt
+/node_modules
